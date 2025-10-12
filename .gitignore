@@ -1,0 +1,60 @@
+# Ignorar entornos virtuales
+.venv/
+venv/
+env/
+
+# Ignorar archivos de configuración sensibles
+*.conf
+*.ini
+*.log
+*.crt
+*.key
+
+# Ignorar archivos de base de datos locales
+*.db
+*.sql
+*.sqlite
+dump.sql
+
+# Ignorar archivos de Python compilados
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+*.pyd
+
+# Ignorar caché y archivos temporales
+*.swp
+*.swo
+*.~tmp~
+.DS_Store
+Thumbs.db
+.nfs*
+
+# Ignorar dependencias de Python y logs de instalación
+pip-log.txt
+pip-delete-this-directory.txt
+setuptools-*.egg-info/
+
+# Ignorar módulos de Odoo instalados por pip
+odoo/addons/*/node_modules/
+odoo/addons/*/__pycache__/
+
+# Ignorar archivos de Odoo generados
+odoo/session/
+odoo/nodetools/
+odoo/tools/*.log
+addons/*/__pycache__/
+addons/*/static/lib/
+addons/*/static/src/js/*.min.js
+addons/*/static/src/css/*.min.css
+
+# Ignorar configuración de PyCharm
+.idea/
+
+# Ignorar configuraciones de VS Code
+.vscode/
+*.code-workspace
+
+# Ignorar archivos de Docker (si usas Docker)
+docker-compose.override.yml

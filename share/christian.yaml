@@ -1,0 +1,39 @@
+valoracion1:
+    producto: Etiqueta Adhesiva AM SENSORMATIC (LAP)
+    referencia: WH/IN/02859
+    problema: Ajuste automático de Odoo (ver asiento contable STJ en la valoración)
+
+valoracion2:
+    producto: Etiqueta Adhesiva AM SENSORMATIC (LAP)
+    referencia: WH/IN/02907
+    problema: Ajuste automático de Odoo (ver asiento contable STJ en la valoración)
+
+valoracion3:
+    producto: Etiqueta Adhesiva AM SENSORMATIC (LAP)
+    referencia: WH/IN/03002
+    problema: Ajuste automático de Odoo (ver asiento contable STJ en la valoración)
+
+valoracion4:
+    producto: Etiqueta Adhesiva AM SENSORMATIC (LAP)
+    referencia: WH/INT/02596
+    problema: Ajuste automático de Odoo (ver asiento contable STJ en la valoración)
+
+valoracion5:
+    producto: Cable detector de calor de 68 grados para uso convencional
+    referencia: Debido a un cambio en la categoría del producto (de CABLE / EXTENSION a INCENDIO), el método de costo cambió en la plantilla del producto (AW-D4068) Cable detector de calor de 68 grados para uso convencional - de standard a average.
+    problema: Ajuste automático de Odoo (ver asiento contable STJ en la valoración)
+
+valoracion6:
+    producto: TACHUELA AM 16MM
+    referencia: WH/IN/02978
+    problema: Ajuste automático de Odoo (ver asiento contable STJ en la valoración)
+
+valoracion7:
+    producto: DISCO DURO 1TB PURPEL WESTER DIGITAL
+    referencia: D-CDE/IN/00048
+    problema: Ajuste automático de Odoo (ver asiento contable STJ en la valoración)
+
+valoracion8:
+    producto: DISCO DURO 1TB PURPEL WESTER DIGITAL
+    referencia: D-CDE/IN/00049
+    problema: Ajuste automático de Odoo (ver asiento contable STJ en la valoración)

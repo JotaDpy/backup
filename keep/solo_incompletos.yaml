@@ -1,0 +1,875 @@
+layer_1:
+    layer_id: 163056
+    status: "incompleto"
+    stock_valuation_layer:
+        create_date: "2025-09-10 14:13:18.963471"
+        description: "Cen/WH/IN//03174 - Pila Alcalina/Bateria 9V X Unds"
+        quantity: 10.0
+        unit_cost: 30000.0
+        value: 300000.0
+        remaining_qty: 10.0
+    stock_move:
+        id: 247839
+        name: "(PILA-9V) Pila Alcalina/Bateria 9V X Unds"
+        date: "2025-09-10 14:13:19"
+        state: "done"
+    purchase_order_line:
+        id: 9702
+        name: "(PILA-9V) Pila Alcalina/Bateria 9V X Unds"
+        qty_ordered: 10.0
+        price_unit: 33000.0
+        currency: "PYG"
+        qty_received: 10.0
+        qty_invoiced: 0.0
+    purchase_order:
+        id: 1812
+        name: PO01809
+    account_move_line: null
+    observacion: "No se encontró account_move_line para esta purchase_line"
+layer_2:
+    layer_id: 157027
+    status: "incompleto"
+    stock_valuation_layer:
+        create_date: "2025-06-03 12:10:52.875769"
+        description: "WH/IN/03005 - DESACTIVADOR ELECTRONICO AMB 2011 - SENSORMATIC"
+        quantity: 40.0
+        unit_cost: 284.05
+        value: 11362.0
+        remaining_qty: 40.0
+    stock_move:
+        id: 235007
+        name: "(ZBAMB2011) DESACTIVADOR ELECTRONICO AMB 2011 - SENSORMATIC"
+        date: "2025-06-03 12:10:55"
+        state: "done"
+    purchase_order_line:
+        id: 9294
+        name: "(ZBAMB2011) DESACTIVADOR ELECTRONICO AMB 2011 - SENSORMATIC"
+        qty_ordered: 40.0
+        price_unit: 284.05
+        currency: "USD-COMPRA"
+        qty_received: 40.0
+        qty_invoiced: 0.0
+    purchase_order:
+        id: 1683
+        name: PO01680
+    account_move_line: null
+    observacion: "No se encontró account_move_line para esta purchase_line"
+layer_3:
+    layer_id: 151989
+    status: "incompleto"
+    stock_valuation_layer:
+        create_date: "2025-03-13 20:21:12.435276"
+        description: "WH/IN/02855 - LUZ DE EMERGENCIA 30 LEDS- ARGO"
+        quantity: 3.0
+        unit_cost: 23172.0
+        value: 69516.0
+        remaining_qty: 0.0
+    stock_move:
+        id: 227279
+        name: "(120862) LUZ DE EMERGENCIA 30 LEDS- ARGO"
+        date: "2025-03-13 20:21:12"
+        state: "done"
+    purchase_order_line:
+        id: 8897
+        name: "(120862) LUZ DE EMERGENCIA 30 LEDS- ARGO"
+        qty_ordered: 3.0
+        price_unit: 25489.0
+        currency: "PYG"
+        qty_received: 6.0
+        qty_invoiced: 0.0
+    purchase_order:
+        id: 1580
+        name: PO01577
+    account_move_line: null
+    observacion: "No se encontró account_move_line para esta purchase_line"
+layer_4:
+    layer_id: 160670
+    status: "incompleto"
+    stock_valuation_layer:
+        create_date: "2025-07-31 19:00:57.359017"
+        description: "Cen/WH/IN//03110 - Etiqueta Adhesiva AM DR SENSORMATIC"
+        quantity: 200000.0
+        unit_cost: 0.022
+        value: 4400.0
+        remaining_qty: 200000.0
+    stock_move:
+        id: 242587
+        name: "(ZLAPXS2) Etiqueta Adhesiva AM DR SENSORMATIC"
+        date: "2025-07-31 19:00:58"
+        state: "done"
+    purchase_order_line:
+        id: 9558
+        name: "(ZLAPXS2) Etiqueta Adhesiva AM DR SENSORMATIC"
+        qty_ordered: 200000.0
+        price_unit: 0.02238
+        currency: "USD-COMPRA"
+        qty_received: 200000.0
+        qty_invoiced: 0.0
+    purchase_order:
+        id: 1701
+        name: PO01698
+    account_move_line: null
+    observacion: "No se encontró account_move_line para esta purchase_line"
+layer_5:
+    layer_id: 151112
+    status: "incompleto"
+    stock_valuation_layer:
+        create_date: "2025-02-21 11:12:27.708025"
+        description: "WH/IN/02812 - Etiqueta Adhesiva AM SENSORMATIC (LAP)"
+        quantity: 100800.0
+        unit_cost: 0.0
+        value: 0.0
+        remaining_qty: 100800.0
+    stock_move:
+        id: 224902
+        name: "(ZLAP85K1) Etiqueta Adhesiva AM SENSORMATIC (LAP)"
+        date: "2025-02-21 11:12:28"
+        state: "done"
+    purchase_order_line:
+        id: 8779
+        name: "(ZLAP85K1) Etiqueta Adhesiva AM SENSORMATIC (LAP)"
+        qty_ordered: 100800.0
+        price_unit: 0.0
+        currency: "USD-COMPRA"
+        qty_received: 100800.0
+        qty_invoiced: 0.0
+    purchase_order:
+        id: 1540
+        name: PO01537
+    account_move_line: null
+    observacion: "No se encontró account_move_line para esta purchase_line"
+layer_6:
+    layer_id: 151111
+    status: "incompleto"
+    stock_valuation_layer:
+        create_date: "2025-02-21 11:12:27.708025"
+        description: "WH/IN/02812 - Etiqueta Adhesiva AM SENSORMATIC (LAP)"
+        quantity: 504000.0
+        unit_cost: 0.009
+        value: 4536.0
+        remaining_qty: 290999.0
+    stock_move:
+        id: 224901
+        name: "(ZLAP85K1) Etiqueta Adhesiva AM SENSORMATIC (LAP)"
+        date: "2025-02-21 11:12:28"
+        state: "done"
+    purchase_order_line:
+        id: 8778
+        name: "(ZLAP85K1) Etiqueta Adhesiva AM SENSORMATIC (LAP)"
+        qty_ordered: 504000.0
+        price_unit: 0.0093
+        currency: "USD-COMPRA"
+        qty_received: 504000.0
+        qty_invoiced: 0.0
+    purchase_order:
+        id: 1540
+        name: PO01537
+    account_move_line: null
+    observacion: "No se encontró account_move_line para esta purchase_line"
+layer_7:
+    layer_id: 152030
+    status: "sin_purchase_order_line"
+    layer_info:
+        create_date: "2025-03-14 18:02:30.882795"
+        description: "WH/IN/02859 - Etiqueta Adhesiva AM SENSORMATIC (LAP)"
+        quantity: 720.0
+        unit_cost: 23.0
+        value: 16560.0
+        stock_move_id: 227469
+    observacion: "Layer sin purchase_order_line asociada"
+layer_8:
+    layer_id: 153120
+    status: "sin_purchase_order_line"
+    layer_info:
+        create_date: "2025-04-02 14:00:45.811037"
+        description: "WH/IN/02907 - Etiqueta Adhesiva AM SENSORMATIC (LAP)"
+        quantity: 2499.0
+        unit_cost: 23.0
+        value: 57477.0
+        stock_move_id: 229070
+    observacion: "Layer sin purchase_order_line asociada"
+layer_9:
+    layer_id: 156320
+    status: "sin_purchase_order_line"
+    layer_info:
+        create_date: "2025-05-28 13:02:59.449873"
+        description: "WH/IN/03002 - Etiqueta Adhesiva AM SENSORMATIC (LAP)"
+        quantity: 16800.0
+        unit_cost: 23.0
+        value: 386400.0
+        stock_move_id: 234811
+    observacion: "Layer sin purchase_order_line asociada"
+layer_10:
+    layer_id: 157712
+    status: "sin_purchase_order_line"
+    layer_info:
+        create_date: "2025-06-09 21:00:30.357795"
+        description: "WH/INT/02596 - Etiqueta Adhesiva AM SENSORMATIC (LAP)"
+        quantity: 12600.0
+        unit_cost: 23.04945
+        value: 290423.0
+        stock_move_id: 236477
+    observacion: "Layer sin purchase_order_line asociada"
+layer_11:
+    layer_id: 152396
+    status: "incompleto"
+    stock_valuation_layer:
+        create_date: "2025-03-24 18:08:36.518254"
+        description: "WH/IN/02865 - Desactivadoras de etiquetas Pro EAS"
+        quantity: 6.0
+        unit_cost: 210.496
+        value: 1263.0
+        remaining_qty: 0.0
+    stock_move:
+        id: 227618
+        name: "(ZBSMPLPE) Desactivadoras de etiquetas Pro EAS"
+        date: "2025-03-24 18:08:37"
+        state: "done"
+    purchase_order_line:
+        id: 8914
+        name: "(ZBSMPLPE) Desactivadoras de etiquetas Pro EAS"
+        qty_ordered: 6.0
+        price_unit: 210.496
+        currency: "USD-COMPRA"
+        qty_received: 6.0
+        qty_invoiced: 0.0
+    purchase_order:
+        id: 1584
+        name: PO01581
+    account_move_line: null
+    observacion: "No se encontró account_move_line para esta purchase_line"
+layer_12:
+    layer_id: 152787
+    status: "incompleto"
+    stock_valuation_layer:
+        create_date: "2025-04-01 19:16:36.910437"
+        description: "WH/IN/02902 - Cable detector de calor de 68 grados para uso convencional"
+        quantity: 100.0
+        unit_cost: 0.0
+        value: 0.0
+        remaining_qty: 0.0
+    stock_move:
+        id: 228971
+        name: "(AW-D4068) Cable detector de calor de 68 grados para uso convencional"
+        date: "2025-04-01 19:16:37"
+        state: "done"
+    purchase_order_line:
+        id: 9009
+        name: "(AW-D4068) Cable detector de calor de 68 grados para uso convencional"
+        qty_ordered: 100.0
+        price_unit: 1.54
+        currency: "USD-COMPRA"
+        qty_received: 100.0
+        qty_invoiced: 0.0
+    purchase_order:
+        id: 1596
+        name: PO01593
+    account_move_line: null
+    observacion: "No se encontró account_move_line para esta purchase_line"
+layer_13:
+    layer_id: 160190
+    status: "sin_purchase_order_line"
+    layer_info:
+        create_date: "2025-07-22 13:40:08.969716"
+        description: "Debido a un cambio en la categoría del producto (de CABLE / EXTENSION a INCENDIO), el método de costo cambió en la plantilla del producto (AW-D4068) Cable detector de calor de 68 grados para uso convencional - de standard a average."
+        quantity: 100.0
+        unit_cost: 0.0
+        value: 0.0
+        stock_move_id: N/A
+    observacion: "Layer sin purchase_order_line asociada"
+
+layer_15:
+    layer_id: 157088
+    status: "incompleto"
+    stock_valuation_layer:
+        create_date: "2025-06-03 15:50:43.225287"
+        description: "WH/IN/03017 - Unidad de expansión para ADR-7000 (incl. 127 direcciones)"
+        quantity: 2.0
+        unit_cost: 665.7
+        value: 1331.0
+        remaining_qty: 2.0
+    stock_move:
+        id: 235830
+        name: "(ADR-7001RED) Unidad de expansión para ADR-7000 (incl. 127 direcciones)"
+        date: "2025-06-03 15:50:43"
+        state: "done"
+    purchase_order_line:
+        id: 9336
+        name: "(ADR-7001RED) Unidad de expansión para ADR-7000 (incl. 127 direcciones)"
+        qty_ordered: 2.0
+        price_unit: 665.7
+        currency: "USD-COMPRA"
+        qty_received: 4.0
+        qty_invoiced: 0.0
+    purchase_order:
+        id: 1674
+        name: PO01671
+    account_move_line: null
+    observacion: "No se encontró account_move_line para esta purchase_line"
+layer_16:
+    layer_id: 159589
+    status: "incompleto"
+    stock_valuation_layer:
+        create_date: "2025-07-11 10:56:55.539144"
+        description: "Cen/WH/IN//03074 - Contacto Inalámbrico p/ puerta-ventana"
+        quantity: 1.0
+        unit_cost: 49.091
+        value: 49.0
+        remaining_qty: 0.0
+    stock_move:
+        id: 239162
+        name: "(WS4965) Contacto Inalámbrico p/ puerta-ventana"
+        date: "2025-07-11 10:56:55"
+        state: "done"
+    purchase_order_line:
+        id: 9440
+        name: "(WS4965) Contacto Inalámbrico p/ puerta-ventana"
+        qty_ordered: 1.0
+        price_unit: 54.0
+        currency: "USD-COMPRA"
+        qty_received: 1.0
+        qty_invoiced: 0.0
+    purchase_order:
+        id: 1733
+        name: PO01730
+    account_move_line: null
+    observacion: "No se encontró account_move_line para esta purchase_line"
+layer_17:
+    layer_id: 152762
+    status: "incompleto"
+    stock_valuation_layer:
+        create_date: "2025-04-01 19:07:55.255340"
+        description: "WH/IN/02889 - TACHUELA AM 16MM"
+        quantity: 100000.0
+        unit_cost: 0.005
+        value: 500.0
+        remaining_qty: 86900.0
+    stock_move:
+        id: 228955
+        name: "(P003-PIN) TACHUELA AM 16MM"
+        date: "2025-04-01 19:07:55"
+        state: "done"
+    purchase_order_line:
+        id: 9007
+        name: "(P003-PIN) TACHUELA AM 16MM"
+        qty_ordered: 100000.0
+        price_unit: 0.0048
+        currency: "USD-COMPRA"
+        qty_received: 100000.0
+        qty_invoiced: 0.0
+    purchase_order:
+        id: 1595
+        name: PO01592
+    account_move_line: null
+    observacion: "No se encontró account_move_line para esta purchase_line"
+layer_18:
+    layer_id: 155368
+    status: "sin_purchase_order_line"
+    layer_info:
+        create_date: "2025-05-07 12:50:26.336048"
+        description: "WH/IN/02978 - TACHUELA AM 16MM"
+        quantity: 100.0
+        unit_cost: 27.0
+        value: 2700.0
+        stock_move_id: 232895
+    observacion: "Layer sin purchase_order_line asociada"
+layer_20:
+    layer_id: 162809
+    status: "incompleto"
+    stock_valuation_layer:
+        create_date: "2025-09-03 20:35:05.209359"
+        description: "Cen/WH/IN//03164 - TACHUELA AM 16MM"
+        quantity: 300000.0
+        unit_cost: 0.005
+        value: 1500.0
+        remaining_qty: 300000.0
+    stock_move:
+        id: 246947
+        name: "(P003-PIN) TACHUELA AM 16MM"
+        date: "2025-09-03 20:35:05"
+        state: "done"
+    purchase_order_line:
+        id: 9665
+        name: "(P003-PIN) TACHUELA AM 16MM"
+        qty_ordered: 300000.0
+        price_unit: 0.0048
+        currency: "USD-COMPRA"
+        qty_received: 300000.0
+        qty_invoiced: 0.0
+    purchase_order:
+        id: 1785
+        name: PO01782
+    account_move_line: null
+    observacion: "No se encontró account_move_line para esta purchase_line"
+layer_21:
+    layer_id: 162842
+    status: "incompleto"
+    stock_valuation_layer:
+        create_date: "2025-09-04 11:11:17.302432"
+        description: "Cen/WH/IN//03165 - KIT DE ADHESIVOS - Transparente - INCLUYE PREPARACIONES LSE"
+        quantity: 3.0
+        unit_cost: 3.433
+        value: 10.0
+        remaining_qty: 3.0
+    stock_move:
+        id: 246971
+        name: "(ADH2333) KIT DE ADHESIVOS - Transparente - INCLUYE PREPARACIONES LSE"
+        date: "2025-09-04 11:11:18"
+        state: "done"
+    purchase_order_line:
+        id: 9667
+        name: "(ADH2333) KIT DE ADHESIVOS - Transparente - INCLUYE PREPARACIONES LSE"
+        qty_ordered: 3.0
+        price_unit: 3.4333
+        currency: "USD-COMPRA"
+        qty_received: 3.0
+        qty_invoiced: 0.0
+    purchase_order:
+        id: 1798
+        name: PO01795
+    account_move_line: null
+    observacion: "No se encontró account_move_line para esta purchase_line"
+layer_22:
+    layer_id: 158360
+    status: "incompleto"
+    stock_valuation_layer:
+        create_date: "2025-06-24 18:09:34.553493"
+        description: "Cen/WH/IN//03050 - Teclado numérico cableado TEKO"
+        quantity: 50.0
+        unit_cost: 17.56
+        value: 878.0
+        remaining_qty: 50.0
+    stock_move:
+        id: 237610
+        name: "(Astra-KTM-S (Blanco)) Teclado numérico cableado TEKO"
+        date: "2025-06-24 18:09:34"
+        state: "done"
+    purchase_order_line:
+        id: 9407
+        name: "(Astra-KTM-S (Blanco)) Teclado numérico cableado TEKO"
+        qty_ordered: 50.0
+        price_unit: 17.56
+        currency: "USD-COMPRA"
+        qty_received: 100.0
+        qty_invoiced: 0.0
+    purchase_order:
+        id: 1724
+        name: PO01721
+    account_move_line: null
+    observacion: "No se encontró account_move_line para esta purchase_line"
+layer_23:
+    layer_id: 157016
+    status: "incompleto"
+    stock_valuation_layer:
+        create_date: "2025-06-03 12:07:45.261672"
+        description: "WH/IN/02992 - Modulo Detector ZAM. SIMPLEX"
+        quantity: 150.0
+        unit_cost: 32.48
+        value: 4872.0
+        remaining_qty: 150.0
+    stock_move:
+        id: 233610
+        name: "(4090-9101) Modulo Detector ZAM. SIMPLEX"
+        date: "2025-06-03 12:07:49"
+        state: "done"
+    purchase_order_line:
+        id: 9268
+        name: "(4090-9101) Modulo Detector ZAM. SIMPLEX"
+        qty_ordered: 150.0
+        price_unit: 32.48
+        currency: "USD-COMPRA"
+        qty_received: 150.0
+        qty_invoiced: 0.0
+    purchase_order:
+        id: 1679
+        name: PO01676
+    account_move_line: null
+    observacion: "No se encontró account_move_line para esta purchase_line"
+layer_24:
+    layer_id: 153908
+    status: "incompleto"
+    stock_valuation_layer:
+        create_date: "2025-04-14 19:18:21.028441"
+        description: "WH/IN/02939 - DISCO DURO 1TB PURPEL WESTER DIGITAL"
+        quantity: 9.0
+        unit_cost: 306218.0
+        value: 2755962.0
+        remaining_qty: 0.0
+    stock_move:
+        id: 230546
+        name: "(WD10PURZ) DISCO DURO 1TB PURPEL WESTER DIGITAL"
+        date: "2025-04-14 19:18:21"
+        state: "done"
+    purchase_order_line:
+        id: 9143
+        name: "(WD10PURZ) DISCO DURO 1TB PURPEL WESTER DIGITAL"
+        qty_ordered: 9.0
+        price_unit: 336840.0
+        currency: "PYG"
+        qty_received: 9.0
+        qty_invoiced: 0.0
+    purchase_order:
+        id: 1635
+        name: PO01632
+    account_move_line: null
+    observacion: "No se encontró account_move_line para esta purchase_line"
+layer_25:
+    layer_id: 156856
+    status: "sin_purchase_order_line"
+    layer_info:
+        create_date: "2025-05-30 18:37:23.749319"
+        description: "D-CDE/IN/00048 - DISCO DURO 1TB PURPEL WESTER DIGITAL"
+        quantity: 4.0
+        unit_cost: 305928.6
+        value: 1223714.0
+        stock_move_id: 235466
+    observacion: "Layer sin purchase_order_line asociada"
+
+layer_26:
+    layer_id: 156869
+    status: "sin_purchase_order_line"
+    layer_info:
+        create_date: "2025-05-30 18:39:42.444036"
+        description: "D-CDE/IN/00049 - DISCO DURO 1TB PURPEL WESTER DIGITAL"
+        quantity: 5.0
+        unit_cost: 305928.6
+        value: 1529643.0
+        stock_move_id: 235469
+    observacion: "Layer sin purchase_order_line asociada"
+layer_27:
+    layer_id: 157015
+    status: "incompleto"
+    stock_valuation_layer:
+        create_date: "2025-06-03 12:02:21.546361"
+        description: "WH/IN/02990 - Alarma Audio Visual direccionable 520Hz Output"
+        quantity: 100.0
+        unit_cost: 59.64
+        value: 5964.0
+        remaining_qty: 100.0
+    stock_move:
+        id: 233596
+        name: "(49MTV-WRF) Alarma Audio Visual direccionable 520Hz Output"
+        date: "2025-06-03 12:02:26"
+        state: "done"
+    purchase_order_line:
+        id: 9257
+        name: "(49MTV-WRF) Alarma Audio Visual direccionable 520Hz Output"
+        qty_ordered: 100.0
+        price_unit: 59.64
+        currency: "USD-COMPRA"
+        qty_received: 100.0
+        qty_invoiced: 0.0
+    purchase_order:
+        id: 1677
+        name: PO01674
+    account_move_line: null
+    observacion: "No se encontró account_move_line para esta purchase_line"
+layer_28:
+    layer_id: 153892
+    status: "incompleto"
+    stock_valuation_layer:
+        create_date: "2025-04-14 18:32:51.507115"
+        description: "WH/IN/02937 - DISCO DURO 1TB SURVEILLANCE - SEAGATE"
+        quantity: 9.0
+        unit_cost: 298783.0
+        value: 2689047.0
+        remaining_qty: 2.0
+    stock_move:
+        id: 230540
+        name: "(D1TB) DISCO DURO 1TB SURVEILLANCE - SEAGATE"
+        date: "2025-04-14 18:32:51"
+        state: "done"
+    purchase_order_line:
+        id: 9140
+        name: "(D1TB) DISCO DURO 1TB SURVEILLANCE - SEAGATE"
+        qty_ordered: 9.0
+        price_unit: 328661.31429
+        currency: "PYG"
+        qty_received: 0.0
+        qty_invoiced: 0.0
+    purchase_order:
+        id: 1632
+        name: PO01629
+    account_move_line: null
+    observacion: "No se encontró account_move_line para esta purchase_line"
+layer_29:
+    layer_id: 159916
+    status: "incompleto"
+    stock_valuation_layer:
+        create_date: "2025-07-16 17:34:52.756130"
+        description: "Cen/WH/IN//03088 - Sirena estroboscópica para exteriores - Zudsec"
+        quantity: 10.0
+        unit_cost: 13.9
+        value: 139.0
+        remaining_qty: 10.0
+    stock_move:
+        id: 239996
+        name: "(ZDSH-119) Sirena estroboscópica para exteriores - Zudsec"
+        date: "2025-07-16 17:34:54"
+        state: "done"
+    purchase_order_line:
+        id: 9475
+        name: "(ZDSH-119) Sirena estroboscópica para exteriores - Zudsec"
+        qty_ordered: 10.0
+        price_unit: 13.9
+        currency: "USD-COMPRA"
+        qty_received: 20.0
+        qty_invoiced: 0.0
+    purchase_order:
+        id: 1739
+        name: PO01736
+    account_move_line: null
+    observacion: "No se encontró account_move_line para esta purchase_line"
+layer_30:
+    layer_id: 150501
+    status: "incompleto"
+    stock_valuation_layer:
+        create_date: "2025-02-10 13:59:55.845636"
+        description: "WH/IN/02804 - Tapa ciega para caja de conexión octogonal Blanca"
+        quantity: 52.0
+        unit_cost: 778.0
+        value: 40456.0
+        remaining_qty: 52.0
+    stock_move:
+        id: 223822
+        name: "(TPA.PVC.OCT-3X3) Tapa ciega para caja de conexión octogonal Blanca"
+        date: "2025-02-10 13:59:57"
+        state: "done"
+    purchase_order_line:
+        id: 8748
+        name: "(TPA.PVC.OCT-3X3) Tapa ciega para caja de conexión octogonal Blanca"
+        qty_ordered: 52.0
+        price_unit: 856.0
+        currency: "PYG"
+        qty_received: 52.0
+        qty_invoiced: 0.0
+    purchase_order:
+        id: 1526
+        name: PO01523
+    account_move_line: null
+    observacion: "No se encontró account_move_line para esta purchase_line"
+layer_31:
+    layer_id: 151990
+    status: "incompleto"
+    stock_valuation_layer:
+        create_date: "2025-03-13 20:21:12.435276"
+        description: "WH/IN/02855 - CARTEL SEÑALIZADOR DE SALIDA LED - ARGO"
+        quantity: 1.0
+        unit_cost: 72888.0
+        value: 72888.0
+        remaining_qty: 0.0
+    stock_move:
+        id: 227280
+        name: "(C-SALIDA) CARTEL SEÑALIZADOR DE SALIDA LED - ARGO"
+        date: "2025-03-13 20:21:12"
+        state: "done"
+    purchase_order_line:
+        id: 8898
+        name: "(C-SALIDA) CARTEL SEÑALIZADOR DE SALIDA LED - ARGO"
+        qty_ordered: 1.0
+        price_unit: 80177.0
+        currency: "PYG"
+        qty_received: 2.0
+        qty_invoiced: 0.0
+    purchase_order:
+        id: 1580
+        name: PO01577
+    account_move_line: null
+    observacion: "No se encontró account_move_line para esta purchase_line"
+layer_32:
+    layer_id: 154534
+    status: "incompleto"
+    stock_valuation_layer:
+        create_date: "2025-04-22 11:36:24.393566"
+        description: "WH/IN/02950 - CARTEL SEÑALIZADOR DE SALIDA LED - ARGO"
+        quantity: 1.0
+        unit_cost: 72889.0
+        value: 72889.0
+        remaining_qty: 0.0
+    stock_move:
+        id: 230871
+        name: "(C-SALIDA - 117994) CARTEL SEÑALIZADOR DE SALIDA LED - ARGO"
+        date: "2025-04-22 11:36:24"
+        state: "done"
+    purchase_order_line:
+        id: 9156
+        name: "(C-SALIDA - 117994) CARTEL SEÑALIZADOR DE SALIDA LED - ARGO"
+        qty_ordered: 1.0
+        price_unit: 80178.0
+        currency: "PYG"
+        qty_received: 1.0
+        qty_invoiced: 0.0
+    purchase_order:
+        id: 1642
+        name: PO01639
+    account_move_line: null
+    observacion: "No se encontró account_move_line para esta purchase_line"
+layer_33:
+    layer_id: 151991
+    status: "incompleto"
+    stock_valuation_layer:
+        create_date: "2025-03-13 20:21:12.435276"
+        description: "WH/IN/02855 - CARTEL SEÑALIZADOR DE SALIDA LED 2"
+        quantity: 1.0
+        unit_cost: 72887.0
+        value: 72887.0
+        remaining_qty: 0.0
+    stock_move:
+        id: 227281
+        name: "(C-Salida 2) CARTEL SEÑALIZADOR DE SALIDA LED 2"
+        date: "2025-03-13 20:21:12"
+        state: "done"
+    purchase_order_line:
+        id: 8899
+        name: "(C-Salida 2) CARTEL SEÑALIZADOR DE SALIDA LED 2"
+        qty_ordered: 1.0
+        price_unit: 80176.0
+        currency: "PYG"
+        qty_received: 2.0
+        qty_invoiced: 0.0
+    purchase_order:
+        id: 1580
+        name: PO01577
+    account_move_line: null
+    observacion: "No se encontró account_move_line para esta purchase_line"
+layer_34:
+    layer_id: 154533
+    status: "incompleto"
+    stock_valuation_layer:
+        create_date: "2025-04-22 11:36:02.528763"
+        description: "WH/IN/02949 - SEÑALIZADOR DE SALIDA CON LEDS FIGURA PUERTA ARGO"
+        quantity: 16.0
+        unit_cost: 72889.0
+        value: 1166224.0
+        remaining_qty: 0.0
+    stock_move:
+        id: 230870
+        name: "(C-Salida 2) SEÑALIZADOR DE SALIDA CON LEDS FIGURA PUERTA ARGO"
+        date: "2025-04-22 11:36:02"
+        state: "done"
+    purchase_order_line:
+        id: 9155
+        name: "(C-Salida 2) SEÑALIZADOR DE SALIDA CON LEDS FIGURA PUERTA ARGO"
+        qty_ordered: 16.0
+        price_unit: 80178.0
+        currency: "PYG"
+        qty_received: 16.0
+        qty_invoiced: 0.0
+    purchase_order:
+        id: 1641
+        name: PO01638
+    account_move_line: null
+    observacion: "No se encontró account_move_line para esta purchase_line"
+layer_35:
+    layer_id: 151799
+    status: "incompleto"
+    stock_valuation_layer:
+        create_date: "2025-03-11 13:22:52.468090"
+        description: "WH/IN/02839 - Caja de paso IP65 Blanca 212X162x110"
+        quantity: 12.0
+        unit_cost: 41687.0
+        value: 500244.0
+        remaining_qty: 12.0
+    stock_move:
+        id: 226526
+        name: "(CJA.PSO.EXT-212X162X110MM) Caja de paso IP65 Blanca 212X162x110"
+        date: "2025-03-11 13:22:52"
+        state: "done"
+    purchase_order_line:
+        id: 8870
+        name: "(CJA.PSO.EXT-212X162X110MM) Caja de paso IP65 Blanca 212X162x110"
+        qty_ordered: 12.0
+        price_unit: 45856.0
+        currency: "PYG"
+        qty_received: 0.0
+        qty_invoiced: 0.0
+    purchase_order:
+        id: 1567
+        name: PO01564
+    account_move_line: null
+    observacion: "No se encontró account_move_line para esta purchase_line"
+layer_37:
+    layer_id: 162810
+    status: "incompleto"
+    stock_valuation_layer:
+        create_date: "2025-09-03 20:35:05.209359"
+        description: "Cen/WH/IN//03164 - ETIQUETA AM 16MM"
+        quantity: 100000.0
+        unit_cost: 0.074
+        value: 7400.0
+        remaining_qty: 100000.0
+    stock_move:
+        id: 246948
+        name: "(T016A-TAG) ETIQUETA AM 16MM"
+        date: "2025-09-03 20:35:05"
+        state: "done"
+    purchase_order_line:
+        id: 9666
+        name: "(T016A-TAG) ETIQUETA AM 16MM"
+        qty_ordered: 100000.0
+        price_unit: 0.0738
+        currency: "USD-COMPRA"
+        qty_received: 100000.0
+        qty_invoiced: 0.0
+    purchase_order:
+        id: 1785
+        name: PO01782
+    account_move_line: null
+    observacion: "No se encontró account_move_line para esta purchase_line"
+layer_38:
+    layer_id: 152144
+    status: "incompleto"
+    stock_valuation_layer:
+        create_date: "2025-03-18 14:03:55.324856"
+        description: "WH/IN/02830 - Panel de control Direccionable (250 Direcciones) MX"
+        quantity: 5.0
+        unit_cost: 449.91
+        value: 2250.0
+        remaining_qty: 4.0
+    stock_move:
+        id: 225906
+        name: "(2250-9101) Panel de control Direccionable (250 Direcciones) MX"
+        date: "2025-03-18 14:03:55"
+        state: "done"
+    purchase_order_line:
+        id: 8852
+        name: "(2250-9101) Panel de control Direccionable (250 Direcciones) MX"
+        qty_ordered: 5.0
+        price_unit: 449.91
+        currency: "USD-COMPRA"
+        qty_received: 5.0
+        qty_invoiced: 0.0
+    purchase_order:
+        id: 1557
+        name: PO01554
+    account_move_line: null
+    observacion: "No se encontró account_move_line para esta purchase_line"
+
+layer_41:
+    layer_id: 153894
+    status: "incompleto"
+    stock_valuation_layer:
+        create_date: "2025-04-14 18:36:09.711854"
+        description: "WH/IN/02938 - CAJA DE PASO PLASTICA PARA EXTERIOR 10x10x70"
+        quantity: 50.0
+        unit_cost: 10554.0
+        value: 527700.0
+        remaining_qty: 0.0
+    stock_move:
+        id: 230541
+        name: "(CAJA10X10) CAJA DE PASO PLASTICA PARA EXTERIOR 10x10x70"
+        date: "2025-04-14 18:36:09"
+        state: "done"
+    purchase_order_line:
+        id: 9141
+        name: "(CAJA10X10) CAJA DE PASO PLASTICA PARA EXTERIOR 10x10x70"
+        qty_ordered: 50.0
+        price_unit: 11609.0
+        currency: "PYG"
+        qty_received: 50.0
+        qty_invoiced: 0.0
+    purchase_order:
+        id: 1633
+        name: PO01630
+    account_move_line: null
+    observacion: "No se encontró account_move_line para esta purchase_line"
