@@ -1,0 +1,2 @@
+Contraseña: Odoo
+$pbkdf2-sha512$600000$MOb8P4dQau0dw7g3RiiFEA$yG43XRosIkIHfPiPvPpjDzUG5q/Au/1jctjUYelw6Jn/oJ3cu.q1T5uw2yoS9wHAfmAryaNKPVPFcNrSE2I.Yg
