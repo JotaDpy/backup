@@ -58,3 +58,6 @@ addons/*/static/src/css/*.min.css
 
 # Ignorar archivos de Docker (si usas Docker)
 docker-compose.override.yml
+
+# Ignorar todos los archivos de base de datos tipo dump
+*.dump

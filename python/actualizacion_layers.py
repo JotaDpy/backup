@@ -132,7 +132,7 @@ def impresion_csv(direccion, layers):
                 f'"{layer.price_diff_value}",'
                 f'"{layer.categ_id}"\n')
 
-def cabecera_principal(iterador, enviroment, lista):
+def info_cabecera_principal(iterador, enviroment, lista):
         # Escribir cabecera global del archivo YAML
     iterador.write("# ========================================\n")
     iterador.write("# ANÁLISIS MASIVO DE STOCK VALUATION LAYERS\n")
@@ -141,6 +141,134 @@ def cabecera_principal(iterador, enviroment, lista):
     iterador.write(f"# Período analizado: Febrero 2025\n")
     iterador.write(f"# Total productos: {len(lista)}\n")
     iterador.write(f"# Fecha de análisis: {enviroment['res.users'].browse(enviroment.uid).name} - {enviroment.cr.now()}\n\n")
+
+def info_cabecera_productos(iterador, count, producto, id, objeto, valoracion):
+    iterador.write(f"# ----------------------------------------\n")
+    iterador.write(f"# PRODUCTO {count}/{len(producto)}\n")
+    iterador.write(f"# ----------------------------------------\n")
+    iterador.write(f"# ID: {id}\n")
+    iterador.write(f"# Nombre: {format_yaml_string(objeto.name)}\n")
+    iterador.write(f"# Cantidad de layers: {len(valoracion)}\n")
+    iterador.write(f"# ----------------------------------------\n\n")
+    
+    iterador.write(f"producto_{count}:\n")
+    iterador.write(f"  product_info:\n")
+    iterador.write(f"    id: {id}\n")
+    iterador.write(f"    name: \"{format_yaml_string(objeto.name)}\"\n")
+    iterador.write(f"    default_code: \"{format_yaml_string(objeto.default_code)}\"\n")
+    iterador.write(f"    categ_id: \"{format_yaml_string(objeto.categ_id.name)}\"\n")
+    iterador.write(f"    total_layers: {len(valoracion)}\n")
+    iterador.write(f"  layers:\n")
+
+def info_not_purchase_order_line(iterador, indice, objeto1, objeto2):
+    iterador.write(f"    layer_{indice}:\n")
+    iterador.write(f"      layer_id: {objeto1.id}\n")
+    iterador.write(f"      status: \"sin_purchase_order_line\"\n")
+    iterador.write(f"      layer_info:\n")
+    iterador.write(f"        create_date: \"{objeto1.create_date}\"\n")
+    iterador.write(f"        description: \"{format_yaml_string(objeto1.description)}\"\n")
+    iterador.write(f"        quantity: {objeto1.quantity}\n")
+    iterador.write(f"        unit_cost: {objeto1.unit_cost}\n")
+    iterador.write(f"        value: {objeto1.value}\n")
+    iterador.write(f"        stock_move_id: {objeto2.id if objeto2 else 'N/A'}\n")
+    iterador.write(f"      observacion: \"Layer sin purchase_order_line asociada\"\n\n")
+
+def info_layer_encontrado(iterador, indice, objeto1, objeto2):
+    # objeto1: layer
+    # objeto2: account_move_line
+    iterador.write(f"    layer_{indice}:\n")
+    iterador.write(f"      layer_id: {objeto1.id}\n")
+    iterador.write(f"      status: \"{'completo' if objeto2 else 'incompleto'}\"\n")
+
+def info_layer_completo(iterador, objeto_layer):
+    iterador.write(f"      stock_valuation_layer:\n")
+    iterador.write(f"        create_date: \"{objeto_layer.create_date}\"\n")
+    iterador.write(f"        description: \"{format_yaml_string(objeto_layer.description)}\"\n")
+    iterador.write(f"        quantity: {objeto_layer.quantity}\n")
+    iterador.write(f"        unit_cost: {objeto_layer.unit_cost}\n")
+    iterador.write(f"        value: {objeto_layer.value}\n")
+    iterador.write(f"        remaining_qty: {objeto_layer.remaining_qty}\n")
+
+def info_stock_move(iterador, object_stock_move):
+    iterador.write(f"      stock_move:\n")
+    iterador.write(f"        id: {object_stock_move.id}\n")
+    iterador.write(f"        name: \"{format_yaml_string(object_stock_move.name)}\"\n")
+    iterador.write(f"        date: \"{object_stock_move.date}\"\n")
+    iterador.write(f"        state: \"{object_stock_move.state}\"\n")
+
+def info_purchase_order_line(iterador, object_purchase_order_line):
+    iterador.write(f"      purchase_order_line:\n")
+    iterador.write(f"        id: {object_purchase_order_line.id}\n")
+    iterador.write(f"        name: \"{format_yaml_string(object_purchase_order_line.name)}\"\n")
+    iterador.write(f"        qty_ordered: {object_purchase_order_line.product_qty}\n")
+    iterador.write(f"        price_unit: {object_purchase_order_line.price_unit}\n")
+    iterador.write(f"        currency: \"{object_purchase_order_line.currency_id.name}\"\n")
+    iterador.write(f'        qty_received: {object_purchase_order_line.qty_received}\n')
+    iterador.write(f'        qty_invoiced: {object_purchase_order_line.qty_invoiced}\n')
+
+def info_account_move_line(iterador, objeto_move_line, objeto_purchase_order_line):
+    purchase_order = objeto_purchase_order_line.order_id
+
+    if objeto_move_line:
+        quantity = objeto_move_line.quantity
+        balance = objeto_move_line.balance
+        price_unit_calculated = round(balance / quantity, 2) if quantity != 0 else 0
+        
+        iterador.write(f"      purchase_order:\n")
+        iterador.write(f"        id: {purchase_order.id}\n")
+        iterador.write(f"        name: \"{format_yaml_string(purchase_order.name)}\"\n")
+        iterador.write(f"        date_order: \"{purchase_order.date_order}\"\n")
+        iterador.write(f"        currency: \"{purchase_order.currency_id.name}\"\n")
+        iterador.write(f"        state: \"{purchase_order.state}\"\n")
+        
+        iterador.write(f"      account_move_line:\n")
+        iterador.write(f"        id: {objeto_move_line.id}\n")
+        iterador.write(f"        name: \"{format_yaml_string(objeto_move_line.name)}\"\n")
+        iterador.write(f"        quantity: {quantity}\n")
+        iterador.write(f"        balance: {balance}\n")
+        iterador.write(f"        price_unit_original: {objeto_move_line.price_unit}\n")
+        iterador.write(f"        price_unit_calculated: {price_unit_calculated}\n")
+        iterador.write(f"        currency: \"{objeto_move_line.currency_id.name if objeto_move_line.currency_id else 'N/A'}\"\n")
+        
+        iterador.write(f"      invoice_info:\n")
+        iterador.write(f"        id: {objeto_move_line.move_id.id}\n")
+        iterador.write(f"        name: \"{format_yaml_string(objeto_move_line.move_id.name)}\"\n")
+        iterador.write(f"        date: \"{objeto_move_line.invoice_date or objeto_move_line.move_id.date}\"\n")
+        iterador.write(f"        state: \"{objeto_move_line.move_id.state}\"\n")
+        iterador.write(f"        amount_total: {objeto_move_line.move_id.amount_total}\"\n")
+    else:
+        iterador.write(f"      purchase_order:\n")
+        iterador.write(f"        id: {purchase_order.id}\n")
+        iterador.write(f"        name: \"{format_yaml_string(purchase_order.name)}\"\n")
+        iterador.write(f"        date_order: \"{purchase_order.date_order}\"\n")
+        iterador.write(f"        currency: \"{purchase_order.currency_id.name}\"\n")
+        iterador.write(f"        state: \"{purchase_order.state}\"\n")
+        iterador.write(f"      account_move_line: null\n")
+        iterador.write(f"      observacion: \"No se encontró account_move_line para esta purchase_line\"\n")
+
+    return 
+
+def info_resumen_productos(iterador, contador1, contador2, objeto_layer):
+    iterador.write(f"  resumen_producto:\n")
+    iterador.write(f"    layers_con_purchase: {contador1}\n")
+    iterador.write(f"    layers_sin_purchase: {contador2}\n")
+    iterador.write(f"    total_layers: {len(layers)}\n")
+    iterador.write(f"    completitud: \"{round((contador1/len(objeto_layer))*100, 1)}%\"\n\n")
+
+def info_resumen_final(iterador, count1, count2, count3, count4, enviroment):
+    # contador_producto = count1
+    # productos_con_dato = count2
+    # productos_sin_dato = count3
+    # total_layers_analizados = count4
+    iterador.write(f"# ========================================\n")
+    iterador.write(f"# RESUMEN FINAL DEL ANÁLISIS\n")
+    iterador.write(f"# ========================================\n")
+    iterador.write(f"resumen_general:\n")
+    iterador.write(f"  productos_analizados: {count1}\n")
+    iterador.write(f"  productos_con_datos: {count2}\n")
+    iterador.write(f"  productos_sin_datos: {count3}\n")
+    iterador.write(f"  total_layers_analizados: {count4}\n")
+    iterador.write(f"  fecha_analisis: \"{enviroment.cr.now()}\"\n")
 
 # Análisis masivo de productos de febrero
 layer_febrero = env['stock.valuation.layer'].search([
@@ -167,14 +295,8 @@ print(f"   Layers febrero 2025 en adelante: {len(layer_febrero)}")
 
 with open(direccion2, 'w') as f:
     # Escribir cabecera global del archivo YAML
-    f.write("# ========================================\n")
-    f.write("# ANÁLISIS MASIVO DE STOCK VALUATION LAYERS\n")
-    f.write("# ========================================\n")
-    f.write("# Generado automáticamente por actualizacion_layers.py\n")
-    f.write(f"# Período analizado: Febrero 2025\n")
-    f.write(f"# Total productos: {len(lista_productos)}\n")
-    f.write(f"# Fecha de análisis: {env['res.users'].browse(env.uid).name} - {env.cr.now()}\n\n")
-    
+    info_cabecera_principal(iterador=f, enviroment=env, lista=lista_productos)
+ 
     contador_productos = 0
     total_layers_analizados = 0
     productos_con_datos = 0
@@ -189,32 +311,21 @@ with open(direccion2, 'w') as f:
             producto=product_id,
             orden="asc",
             cantidad=None,
-            fecha_inicio='2025-02-01',
-        )
+            fecha_inicio='2025-02-01')
         
         if not layers:
             continue  # Saltar productos sin layers en el período
             
+        # Escribir cabecera del producto
         producto_obj = env['product.product'].browse(product_id)
         total_layers_analizados += len(layers)
-        
-        # Escribir cabecera del producto
-        f.write(f"# ----------------------------------------\n")
-        f.write(f"# PRODUCTO {contador_productos}/{len(lista_productos)}\n")
-        f.write(f"# ----------------------------------------\n")
-        f.write(f"# ID: {product_id}\n")
-        f.write(f"# Nombre: {format_yaml_string(producto_obj.name)}\n")
-        f.write(f"# Cantidad de layers: {len(layers)}\n")
-        f.write(f"# ----------------------------------------\n\n")
-        
-        f.write(f"producto_{contador_productos}:\n")
-        f.write(f"  product_info:\n")
-        f.write(f"    id: {product_id}\n")
-        f.write(f"    name: \"{format_yaml_string(producto_obj.name)}\"\n")
-        f.write(f"    default_code: \"{format_yaml_string(producto_obj.default_code)}\"\n")
-        f.write(f"    categ_id: \"{format_yaml_string(producto_obj.categ_id.name)}\"\n")
-        f.write(f"    total_layers: {len(layers)}\n")
-        f.write(f"  layers:\n")
+        info_cabecera_productos(
+            iterador=f,
+            count=contador_productos,
+            producto=lista_productos,
+            id=product_id,
+            objeto=producto_obj,
+            valoracion=layers)
         
         layers_con_purchase = 0
         layers_sin_purchase = 0
@@ -227,17 +338,7 @@ with open(direccion2, 'w') as f:
             # Verificar que existe purchase_order_line
             if not purchase_order_line:
                 layers_sin_purchase += 1
-                f.write(f"    layer_{index}:\n")
-                f.write(f"      layer_id: {layer.id}\n")
-                f.write(f"      status: \"sin_purchase_order_line\"\n")
-                f.write(f"      layer_info:\n")
-                f.write(f"        create_date: \"{layer.create_date}\"\n")
-                f.write(f"        description: \"{format_yaml_string(layer.description)}\"\n")
-                f.write(f"        quantity: {layer.quantity}\n")
-                f.write(f"        unit_cost: {layer.unit_cost}\n")
-                f.write(f"        value: {layer.value}\n")
-                f.write(f"        stock_move_id: {stock_move.id if stock_move else 'N/A'}\n")
-                f.write(f"      observacion: \"Layer sin purchase_order_line asociada\"\n\n")
+                info_not_purchase_order_line(iterador=f, indice=index, objeto1=layer, objeto2=stock_move)
                 continue
             
             layers_con_purchase += 1
@@ -249,100 +350,65 @@ with open(direccion2, 'w') as f:
             ], order='create_date asc', limit=1)
             
             # Escribir información completa del layer
-            f.write(f"    layer_{index}:\n")
-            f.write(f"      layer_id: {layer.id}\n")
-            f.write(f"      status: \"{'completo' if account_move_line else 'incompleto'}\"\n")
-            
+            info_layer_encontrado(iterador=f, indice=index, objeto1=layer, objeto2=account_move_line)
+
             # Stock Valuation Layer info
-            f.write(f"      stock_valuation_layer:\n")
-            f.write(f"        create_date: \"{layer.create_date}\"\n")
-            f.write(f"        description: \"{format_yaml_string(layer.description)}\"\n")
-            f.write(f"        quantity: {layer.quantity}\n")
-            f.write(f"        unit_cost: {layer.unit_cost}\n")
-            f.write(f"        value: {layer.value}\n")
-            f.write(f"        remaining_qty: {layer.remaining_qty}\n")
+            info_layer_completo(iterador=f, objeto_layer=layer)
             
             # Stock Move info
-            f.write(f"      stock_move:\n")
-            f.write(f"        id: {stock_move.id}\n")
-            f.write(f"        name: \"{format_yaml_string(stock_move.name)}\"\n")
-            f.write(f"        date: \"{stock_move.date}\"\n")
-            f.write(f"        state: \"{stock_move.state}\"\n")
+            info_stock_move(iterador=f, object_stock_move=stock_move)
             
             # Purchase Order Line info
-            f.write(f"      purchase_order_line:\n")
-            f.write(f"        id: {purchase_order_line.id}\n")
-            f.write(f"        name: \"{format_yaml_string(purchase_order_line.name)}\"\n")
-            f.write(f"        qty_ordered: {purchase_order_line.product_qty}\n")
-            f.write(f"        price_unit: {purchase_order_line.price_unit}\n")
-            f.write(f"        currency: \"{purchase_order_line.currency_id.name}\"\n")
-            f.write(f'        qty_received: {purchase_order_line.qty_received}\n')
-            f.write(f'        qty_invoiced: {purchase_order_line.qty_invoiced}\n')
+            info_purchase_order_line(iterador=f, object_purchase_order_line=purchase_order_line)
             
+            info_account_move_line(
+                iterador=f,
+                objeto_move_line=account_move_line,
+                objeto_purchase_order_line=purchase_order_line)            
+
+            # Algoritmo de actualización
+            layer_quantity = layer.quantity
+            layer_unit_cost = layer.unit_cost
+            layer_value = layer.value
             if account_move_line:
-                purchase_order = purchase_order_line.order_id
-                quantity = account_move_line.quantity
-                balance = account_move_line.balance
-                price_unit_calculated = round(balance / quantity, 2) if quantity != 0 else 0
-                
-                f.write(f"      purchase_order:\n")
-                f.write(f"        id: {purchase_order.id}\n")
-                f.write(f"        name: \"{format_yaml_string(purchase_order.name)}\"\n")
-                f.write(f"        date_order: \"{purchase_order.date_order}\"\n")
-                f.write(f"        currency: \"{purchase_order.currency_id.name}\"\n")
-                f.write(f"        state: \"{purchase_order.state}\"\n")
-                
-                f.write(f"      account_move_line:\n")
-                f.write(f"        id: {account_move_line.id}\n")
-                f.write(f"        name: \"{format_yaml_string(account_move_line.name)}\"\n")
-                f.write(f"        quantity: {quantity}\n")
-                f.write(f"        balance: {balance}\n")
-                f.write(f"        price_unit_original: {account_move_line.price_unit}\n")
-                f.write(f"        price_unit_calculated: {price_unit_calculated}\n")
-                f.write(f"        currency: \"{account_move_line.currency_id.name if account_move_line.currency_id else 'N/A'}\"\n")
-                
-                f.write(f"      invoice_info:\n")
-                f.write(f"        id: {account_move_line.move_id.id}\n")
-                f.write(f"        name: \"{format_yaml_string(account_move_line.move_id.name)}\"\n")
-                f.write(f"        date: \"{account_move_line.invoice_date or account_move_line.move_id.date}\"\n")
-                f.write(f"        state: \"{account_move_line.move_id.state}\"\n")
-                f.write(f"        amount_total: {account_move_line.move_id.amount_total}\"\n")
+                line_quantity = account_move_line.quantity
+                line_balance = account_move_line.balance
             else:
-                purchase = purchase_order_line.order_id
-                f.write(f'      purchase_order:\n')
-                f.write(f'          id: {purchase.id}\n')
-                f.write(f'          name: {purchase.name}\n')
-                f.write(f"      account_move_line: null\n")
-                f.write(f"      observacion: \"No se encontró account_move_line para esta purchase_line\"\n")
-            
-            f.write(f"\n")
+                line_quantity = None
+                line_balance = None
+
+            f.write(f'      actualizacion_buscada:\n')
+            f.write(f'        layer_unit_cost: {layer_unit_cost}\n')
+            f.write(f'        layer_quantity: {layer_quantity}\n')
+            f.write(f'        line_quantity: {line_quantity}\n')
+            f.write(f'        layer_value: {layer_value}\n')
+            f.write(f'        line_balance: {line_balance}\n')
         
+            f.write(f"\n")
         # Resumen del producto
         if layers_con_purchase > 0:
             productos_con_datos += 1
         else:
             productos_sin_datos += 1
             
-        f.write(f"  resumen_producto:\n")
-        f.write(f"    layers_con_purchase: {layers_con_purchase}\n")
-        f.write(f"    layers_sin_purchase: {layers_sin_purchase}\n")
-        f.write(f"    total_layers: {len(layers)}\n")
-        f.write(f"    completitud: \"{round((layers_con_purchase/len(layers))*100, 1)}%\"\n\n")
+        info_resumen_productos(
+            iterador=f,
+            contador1=layers_con_purchase,
+            contador2=layers_sin_purchase,
+            objeto_layer=layer)
         
         # Log de progreso cada 10 productos
         if contador_productos % 10 == 0:
             print(f"📈 Procesados {contador_productos}/{len(lista_productos)} productos...")
 
     # Escribir resumen final
-    f.write(f"# ========================================\n")
-    f.write(f"# RESUMEN FINAL DEL ANÁLISIS\n")
-    f.write(f"# ========================================\n")
-    f.write(f"resumen_general:\n")
-    f.write(f"  productos_analizados: {contador_productos}\n")
-    f.write(f"  productos_con_datos: {productos_con_datos}\n")
-    f.write(f"  productos_sin_datos: {productos_sin_datos}\n")
-    f.write(f"  total_layers_analizados: {total_layers_analizados}\n")
-    f.write(f"  fecha_analisis: \"{env.cr.now()}\"\n")
+    info_resumen_final(
+        iterador=f,
+        count1=contador_productos,
+        count2=productos_con_datos,
+        count3=productos_sin_datos,
+        count4=total_layers_analizados,
+        enviroment=env)
 
 print(f"✅ Análisis completado!")
 print(f"📊 Resumen:")
