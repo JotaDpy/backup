@@ -1,4 +1,4 @@
-# exec(open('/home/jose/Documentos/clientes/17KEEPER/backup/python/actualizacion_layers.py').read())
+# exec(open('/home/user/Escritorio/odoo/odoo/odoo-server-17/backup2/python/actualizacion_layers.py').read())
 # Configuración para reconocimiento de Odoo en VS Code
 # pylint: disable=undefined-variable
 # pyright: reportUndefinedVariable=false
@@ -6,8 +6,8 @@
 from datetime import datetime, date
 import re
 
-direccion = '/home/jose/Documentos/clientes/17KEEPER/backup/storage/analisis_nahuel.csv'
-direccion2 = '/home/jose/Documentos/clientes/17KEEPER/backup/keep/actualizazcion_layers.yaml'
+direccion = '/home/user/Escritorio/odoo/odoo/odoo-server-17/backup2/storage/analisis_nahuel.csv'
+direccion2 = '/home/user/Escritorio/odoo/odoo/odoo-server-17/backup2/keep/actualizazcion_layers.yaml'
 
 def format_yaml_string(value):
     """
@@ -51,7 +51,7 @@ def buscar_layers_positivos(
         fecha_fin=None):
     # Definimos el dominio de la búsqueda
     domain = [('product_id', '=', producto), ('quantity', '>', 0)]
-    
+
     # Agregar filtros de fecha si se proporcionan
     if fecha_inicio:
         # Convertir string a datetime si es necesario
@@ -65,10 +65,10 @@ def buscar_layers_positivos(
                 except ValueError:
                     print(f"Formato de fecha_inicio incorrecto: {fecha_inicio}")
                     fecha_inicio = None
-        
+
         if fecha_inicio:
             domain.append(('create_date', '>=', fecha_inicio))
-    
+
     if fecha_fin:
         # Convertir string a datetime si es necesario
         if isinstance(fecha_fin, str):
@@ -81,7 +81,7 @@ def buscar_layers_positivos(
                 except ValueError:
                     print(f"Formato de fecha_fin incorrecto: {fecha_fin}")
                     fecha_fin = None
-        
+
         if fecha_fin:
             domain.append(('create_date', '<=', fecha_fin))
 
@@ -100,6 +100,124 @@ def buscar_layers_positivos(
 
     return layers_positive
 
+
+def buscar_layers_negativos(
+        env,
+        producto: int,
+        orden="desc",
+        cantidad=None,
+        fecha_inicio=None,
+        fecha_fin=None):
+    # Definimos el dominio de la búsqueda
+    domain = [('product_id', '=', producto), ('quantity', '<', 0)]
+
+    # Agregar filtros de fecha si se proporcionan
+    if fecha_inicio:
+        # Convertir string a datetime si es necesario
+        if isinstance(fecha_inicio, str):
+            from datetime import datetime
+            try:
+                fecha_inicio = datetime.strptime(fecha_inicio, '%Y-%m-%d').strftime('%Y-%m-%d 00:00:00')
+            except ValueError:
+                try:
+                    fecha_inicio = datetime.strptime(fecha_inicio, '%Y-%m-%d %H:%M:%S').strftime('%Y-%m-%d %H:%M:%S')
+                except ValueError:
+                    print(f"Formato de fecha_inicio incorrecto: {fecha_inicio}")
+                    fecha_inicio = None
+
+        if fecha_inicio:
+            domain.append(('create_date', '>=', fecha_inicio))
+
+    if fecha_fin:
+        # Convertir string a datetime si es necesario
+        if isinstance(fecha_fin, str):
+            from datetime import datetime
+            try:
+                fecha_fin = datetime.strptime(fecha_fin, '%Y-%m-%d').strftime('%Y-%m-%d 23:59:59')
+            except ValueError:
+                try:
+                    fecha_fin = datetime.strptime(fecha_fin, '%Y-%m-%d %H:%M:%S').strftime('%Y-%m-%d %H:%M:%S')
+                except ValueError:
+                    print(f"Formato de fecha_fin incorrecto: {fecha_fin}")
+                    fecha_fin = None
+
+        if fecha_fin:
+            domain.append(('create_date', '<=', fecha_fin))
+
+    # Buscamos los layers con o sin límite
+    if isinstance(cantidad, int):
+        layers_negative = env['stock.valuation.layer'].search(
+            domain,
+            order=f"create_date {orden}",
+            limit=cantidad
+        )
+    else:
+        layers_negative = env['stock.valuation.layer'].search(
+            domain,
+            order=f"create_date {orden}"
+        )
+
+    return layers_negative
+
+def verificar_tipo(svl):
+    tipo = 'no_especificado'
+
+
+    #agregaremos logica de tipo aca
+    return tipo
+
+def promediar_costos(stock_valuation_layers, costo_unitario=0, stock_qty=0):
+    '''
+    Le pasamos la lista de SVL a procesar
+    el costo inicial
+    el stock inicial
+    '''
+
+    costo_unitario = costo_unitario
+    stock_qty = stock_qty
+
+    for svl in stock_valuation_layers:
+        if verificar_tipo(svl) == 'no_especificado':
+            print('error al verificar tipo para el stock valuation layer %s del producto %s', svl, svl.product_id.name)
+        if verificar_tipo(svl) == 'compra':
+            # en compras lo que hacemos es promediar el costo unitario y actualizar el stock actual segun lo nuevo
+            if costo_unitario and stock_qty > 0:
+                costo_total_ant = costo_unitario * stock_qty # valor de stock total antes de comprar
+                stock_actual = stock_qty + svl.quantity
+                nuevo_costo = ((costo_total_ant) + svl.value) / (stock_actual)
+                stock_qty = stock_actual
+                costo_unitario = nuevo_costo
+            else:
+                costo_unitario += svl.unit_cost
+                stock_qty += svl.quantity
+        if verificar_tipo(svl) == 'venta':
+            #en ventas solamente lo que hacemos es cargar el precio unitario
+            #segun el actual que vamos calculando  ese momento
+            if costo_unitario and stock_qty > 0:
+                svl.unit_cost = costo_unitario
+                svl.value = svl.quantity * costo_unitario
+            else:
+                svl.unit_cost = costo_unitario
+                svl.value = costo_unitario
+                #verificar o loggear si esto ocurre
+        if verificar_tipo(svl) == 'ajuste':
+            # si es un ajuste automatico ponemos en cero porque ese ajuste ya pisamos al cargar desde la compra el valor
+            if svl.stock_valuation_layer_id: #and svl.value > 0: #quiza aca con value > 0 aplicamos solo  compra y manejamos distitno lo de ventas
+                # en ventas se va tomar luego el costo actual a ese momento
+                #todo: ver si lo facturado al cliente al ser a un costo distinto en que puede impactar
+                svl.unit_cost = 0
+                svl.value = 0
+
+            #en ajuste promediamos el valor del ajuste entre lo que tenemos en stock a ese momento
+            if costo_unitario and stock_qty > 0:
+                costo_total_ant = costo_unitario * stock_qty # valor de stock total antes de comprar
+                stock_actual = stock_qty # este svl no tiene quantity
+                nuevo_costo = ((costo_total_ant) + svl.value) / (stock_actual)
+                costo_unitario = nuevo_costo # el ajuste nuevo se distribuye entre todos los productos que tenemos a ese momento
+            else:
+                costo_unitario += svl.unit_cost
+                stock_qty += svl.quantity
+                #verificar o loggear si ocurre
 def impresion_csv(direccion, layers):
     # Impresion en .csv
     with open(direccion, 'w') as f:
