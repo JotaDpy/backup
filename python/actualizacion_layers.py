@@ -159,13 +159,25 @@ def buscar_layers_negativos(
 
     return layers_negative
 
+
 def verificar_tipo(svl):
-    tipo = 'no_especificado'
+    """
+    Obtenemos el tipo de stock_valuation_layer.
 
-
-    #agregaremos logica de tipo aca
-    return tipo
-
+    Returns:
+        'compra'  -> Entrada de stock por compra
+        'venta'   -> Salida de stock por venta
+        'ajuste'  -> Ajuste manual o automático
+        'no_especificado' -> No se pudo determinar
+    """
+    if svl.stock_move_id:
+        if svl.stock_move_id.purchase_line_id:
+            return 'compra'
+        elif svl.stock_move_id.sale_line_id:
+            return 'venta'
+    elif svl.quantity == 0:
+        return 'ajuste'
+    return 'no_especificado'
 def promediar_costos(stock_valuation_layers, costo_unitario=0, stock_qty=0):
     '''
     Le pasamos la lista de SVL a procesar
@@ -207,7 +219,7 @@ def promediar_costos(stock_valuation_layers, costo_unitario=0, stock_qty=0):
                 #todo: ver si lo facturado al cliente al ser a un costo distinto en que puede impactar
                 svl.unit_cost = 0
                 svl.value = 0
-
+                continue
             #en ajuste promediamos el valor del ajuste entre lo que tenemos en stock a ese momento
             if costo_unitario and stock_qty > 0:
                 costo_total_ant = costo_unitario * stock_qty # valor de stock total antes de comprar
