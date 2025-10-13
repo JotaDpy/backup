@@ -300,12 +300,18 @@ lista_productos = list(set(layer_febrero.product_id.ids))  # Eliminar duplicados
 
 
 
+
 def obtener_inicial(producto):
     costo = 0
     stock = 0
-
+    svl_antes = env['stock.valuation.layer'].search([
+        ('create_date', '<', '2025-02-01'),
+        ('product_id', '=', producto.id)
+    ])
+    stock = sum(svl_antes.mapped('quantity') or [])
+    total_value = sum(svl_antes.mapped('value') or [])
+    costo = (total_value / stock) if stock else 0
     return costo, stock
-
 
 
 print(f"📊 Iniciando análisis de {len(lista_productos)} productos únicos...")
@@ -350,7 +356,7 @@ with open(direccion2, 'w') as f:
 
 
         #ponemos en cero los que son ajuste de precio (cantidad = 0 y svl = true)
-        setear_a_cero(iterador=f,layer=layers, dry_run=True)
+        setear_a_cero(layers, dry_run=True)
 
         #ultimo paso para svl, promediar simulando la cronologia de compras y ventas
         promediar_costos(layers, costo_inicial, stock_inicial, dry_run=True) #dry_run false para activar escritura
