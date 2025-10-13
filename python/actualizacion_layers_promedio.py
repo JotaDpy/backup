@@ -116,17 +116,18 @@ def promediar_costos(stock_valuation_layers, costo_unitario=0, stock_qty=0, dry_
             # Salida de stock, aplicamos costo promedio actual
             # en ventas solamente lo que hacemos es cargar el precio unitario
             # segun el actual que vamos calculando  ese momento
-            if costo_unitario and stock_qty > 0:
-                if dry_run:
-                    _logger.info(f"[DRY RUN] SVL venta {svl.id} -> unit_cost a escribir={costo_unitario}, value a escribir={svl.quantity * costo_unitario}")
-                else:
-                    svl.write({
-                        'unit_cost': costo_unitario,
-                        'value': svl.quantity * costo_unitario,
-                    })
-
-                stock_qty -= svl.quantity #Tambien debemos disminuir el stock para que no afecte el promedio
+            if dry_run:
+                _logger.info(
+                    f"[DRY RUN] SVL venta {svl.id} -> unit_cost a escribir={costo_unitario}, value a escribir={svl.quantity * costo_unitario}")
             else:
+                svl.write({
+                    'unit_cost': costo_unitario,
+                    'value': svl.quantity * costo_unitario,
+                })
+
+            stock_qty -= svl.quantity  # Tambien debemos disminuir el stock para que no afecte el promedio
+
+            if costo_unitario and stock_qty == 0:
                 print(f"[WARNING] Costo unitario en 0 y stock en 0 actual para  {svl.id} del producto {svl.product_id.name} de la venta")
 
         elif tipo == 'ajuste':
