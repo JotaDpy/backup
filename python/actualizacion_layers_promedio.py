@@ -62,7 +62,7 @@ def verificar_tipo(svl):
         return 'ajuste'
     return 'no_especificado'
 
-def setear_a_cero(stock_valuation_layers, dry_run=False):
+def setear_a_cero(stock_valuation_layers, dry_run=True):
     for svl in stock_valuation_layers:
         # si es un ajuste automatico ponemos en cero porque ese ajuste ya pisamos al cargar desde la compra el valor
         if svl.quantity == 0 and svl.stock_valuation_layer_id:  # and svl.value > 0: #quiza aca con value > 0 aplicamos solo  compra y manejamos distitno lo de ventas
@@ -307,7 +307,7 @@ def obtener_inicial(producto):
     stock = 0
     svl_antes = env['stock.valuation.layer'].search([
         ('create_date', '<', '2025-02-01'),
-        ('product_id', '=', producto.id)
+        ('product_id', '=', producto)
     ])
     stock = sum(svl_antes.mapped('quantity') or [])
     total_value = sum(svl_antes.mapped('value') or [])
