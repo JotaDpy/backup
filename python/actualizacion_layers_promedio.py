@@ -7,8 +7,8 @@ from datetime import datetime, date
 import re
 import logging
 _logger = logging.getLogger(__name__)
-direccion = '/home/jose/Documentos/clientes/17KEEPER/backup/storage/analisis_nahuel.csv'
-direccion2 = '/home/jose/Documentos/clientes/17KEEPER/backup/keep/promediacion.yaml'
+direccion = '/home/user/Escritorio/odoo/odoo/odoo-server-17/backup2/backup/storage/analisis_nahuel.csv'
+direccion2 = '/home/user/Escritorio/odoo/odoo/odoo-server-17/backup2/backup/keep/promediacion.yaml'
 
 def format_yaml_string(value):
     """
@@ -43,28 +43,47 @@ def format_yaml_string(value):
     
     return value
 
+
 def verificar_tipo(svl):
     """
-    Obtenemos el tipo de stock_valuation_layer.
-
-    Returns:
-        'compra'  -> Entrada de stock por compra
-        'venta'   -> Salida de stock por venta
-        'ajuste'  -> Ajuste manual o automático
-        'no_especificado' -> No se pudo determinar
+    Detecta el tipo de SVL:
+    - 'ajuste_inventario': ajuste de inventario (entrada o salida)
+    - 'compra': entrada por compra
+    - 'venta': salida por venta
+    - 'ajuste': ajuste manual (sin stock_move_id)
+    - 'no_especificado': no se pudo determinar
     """
-    if svl.quantity > 0:
-        if svl.stock_move_id and svl.stock_move_id.purchase_line_id:
-            return 'compra'
-        else:
-            return 'no_especificado'
+    move = svl.stock_move_id
 
-    elif svl.quantity < 0:
-        return 'venta'
+    # 1. Ajuste de inventario (entrada o salida)
+    if move and (move.location_id.usage == 'inventory' or move.location_dest_id.usage == 'inventory'):
+        return 'ajuste_inventario'
 
-    elif svl.quantity == 0:
+    # 2. Ajuste manual (sin movimiento asociado)
+    if not move and svl.quantity == 0:
         return 'ajuste'
 
+    # 3. Compra (entrada por compra)
+    if svl.quantity > 0 and move and move.purchase_line_id:
+        return 'compra'
+
+    # 4. Venta (salida por venta)
+    if svl.quantity < 0 and move and move.location_dest_id.usage == 'customer':
+        return 'venta'
+
+    # 5. Devolución de compra (salida hacia proveedor)
+    if svl.quantity < 0 and move and move.location_dest_id.usage == 'supplier':
+        return 'venta'
+
+    # 6. Devolución de venta (entrada desde cliente)
+    if svl.quantity > 0 and move and move.location_id.usage == 'customer':
+        return 'venta'
+
+    # 7. Otros posibles ajustes (con movimiento pero cantidad cero)
+    if move and svl.quantity == 0:
+        return 'ajuste'
+
+    # 8. Si nada coincide
     return 'no_especificado'
 
 def setear_a_cero(stock_valuation_layers, dry_run=True):
@@ -75,10 +94,13 @@ def setear_a_cero(stock_valuation_layers, dry_run=True):
             if dry_run:
                 _logger.info(f"[DRY RUN] SVL ajuste {svl.id} -> unit_cost a escribir={0}, value a escribir={0}")
             else:
+                _logger.warning("SETEANDO A CERO svl id %s", svl.id)
+                _logger.warning("valor antes %s", svl.value)
                 svl.write({
                     'unit_cost': 0,
                     'value': 0,
                 })
+                _logger.warning("valor despues %s", svl.value)
 
 def promediar_costos(stock_valuation_layers, costo_unitario=0, stock_qty=0, dry_run=True):
     """
@@ -146,6 +168,23 @@ def promediar_costos(stock_valuation_layers, costo_unitario=0, stock_qty=0, dry_
                 costo_unitario = nuevo_costo  # el ajuste nuevo se distribuye entre todos los productos que tenemos a ese momento
             else:
                 print(f"[WARNING] Costo unitario en 0 y stock en 0 actual para  {svl.id} del producto {svl.product_id.name} del ajuste")
+        elif tipo == 'ajuste_inventario':
+            # si es un ajuste de inventario promediamos la cantidad agregada y le cargamos el costo en ese momento y distribuimos
+            if costo_unitario and stock_qty > 0:
+                if dry_run:
+                    _logger.info(
+                        f"[DRY RUN] SVL ajuste inventario {svl.id} -> unit_cost a escribir={costo_unitario}, value a escribir={svl.quantity * costo_unitario}")
+                else:
+                    svl.write({
+                        'unit_cost': costo_unitario,
+                        'value': svl.quantity * costo_unitario,
+                    })
+
+                #solo le cargamos al ajuste el costo actual y en value el costo por la cantidad
+
+            else:
+                print(f"[WARNING] Costo unitario en 0 y stock en 0 actual para  {svl.id} del producto {svl.product_id.name} del ajuste")
+            stock_qty += svl.quantity #luego actualizamos stock
 
 def buscar_layers(
         env,
@@ -355,10 +394,10 @@ with open(direccion2, 'w') as f:
         costo_inicial, stock_inicial = obtener_inicial(product_id)
 
         # ponemos en cero los que son ajuste de precio (cantidad = 0 y svl = true)
-        setear_a_cero(layers, dry_run=True)
+        setear_a_cero(layers, dry_run=False)
 
         # ultimo paso para svl, promediar simulando la cronologia de compras y ventas
-        promediar_costos(layers, costo_inicial, stock_inicial, dry_run=True)
+        #promediar_costos(layers, costo_inicial, stock_inicial, dry_run=True)
         
         # Log de progreso cada 10 productos
         if contador_productos % 10 == 0:
