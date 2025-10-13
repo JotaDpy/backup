@@ -575,6 +575,8 @@ with open(direccion2, 'w') as f:
         count3=productos_sin_datos,
         count4=total_layers_analizados,
         enviroment=env)
+    
+actualizar_asientos(layer_febrero)
 
 print(f"✅ Análisis completado!")
 print(f"📊 Resumen:")
