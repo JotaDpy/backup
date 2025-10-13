@@ -1,13 +1,16 @@
-# exec(open('/home/user/Escritorio/odoo/odoo/odoo-server-17/backup2/python/actualizacion_layers.py').read())
+# exec(open('/home/user/Escritorio/odoo/odoo/odoo-server-17/backup2/backup/python/actualizacion_layers.py').read())
 # Configuración para reconocimiento de Odoo en VS Code
 # pylint: disable=undefined-variable
 # pyright: reportUndefinedVariable=false
 
 from datetime import datetime, date
 import re
+import logging
 
-direccion = '/home/user/Escritorio/odoo/odoo/odoo-server-17/backup2/storage/analisis_nahuel.csv'
-direccion2 = '/home/user/Escritorio/odoo/odoo/odoo-server-17/backup2/keep/actualizazcion_layers.yaml'
+_logger = logging.getLogger(__name__)
+
+direccion = '/home/user/Escritorio/odoo/odoo/odoo-server-17/backup2/backup/storage/analisis_nahuel.csv'
+direccion2 = '/home/user/Escritorio/odoo/odoo/odoo-server-17/backup2/backup/keep/actualizazcion_layers.yaml'
 
 def format_yaml_string(value):
     """
@@ -159,6 +162,13 @@ def buscar_layers_negativos(
 
     return layers_negative
 
+def procesar_compra(layer, aml, dry_run=True):
+    '''Escribimos el valor del account_move_line a su stock_valuation layer correspondiente'''
+    if not dry_run:
+        layer.value = aml.balance
+        layer.unit_cost = aml.balance / layer.quantity
+        return True
+    return False
 
 def verificar_tipo(svl):
     """
@@ -171,16 +181,17 @@ def verificar_tipo(svl):
         'no_especificado' -> No se pudo determinar
     """
     if svl.stock_move_id:
-        if svl.stock_move_id.purchase_line_id:
+        if svl.quantity > 0 and svl.stock_move_id.purchase_line_id:
             return 'compra'
-        elif svl.stock_move_id.sale_line_id:
+        elif svl.quantity < 0:
             return 'venta'
     elif svl.quantity == 0:
         return 'ajuste'
     return 'no_especificado'
 
 
-def promediar_costos(stock_valuation_layers, costo_unitario=0, stock_qty=0):
+
+def promediar_costos(stock_valuation_layers, costo_unitario=0, stock_qty=0, dry_run=True):
     """
     Recalcula los costos de los stock_valuation_layers usando Costo promedio
 
@@ -246,6 +257,84 @@ def promediar_costos(stock_valuation_layers, costo_unitario=0, stock_qty=0):
                 costo_unitario = nuevo_costo  # el ajuste nuevo se distribuye entre todos los productos que tenemos a ese momento
             else:
                 print(f"[WARNING] Costo unitario en 0 y stock en 0 actual para  {svl.id} del producto {svl.product_id.name} del ajuste")
+
+### bloque Dry - Run modular
+
+def procesar_stock_valuation_layers(stock_valuation_layers, costo_unitario, stock_qty, dry_run=False):
+    """
+    Orquesta el proceso de actualización de SVL y asientos contables.
+    Si dry_run=True, no realiza escrituras ni validaciones reales.
+    """
+    for svl in stock_valuation_layers:
+        tipo = verificar_tipo(svl)
+        costo_unitario, stock_qty = promediar_costos([svl], costo_unitario, stock_qty, dry_run=dry_run)
+        actualizar_svl(svl, dry_run=dry_run)
+        actualizar_asiento_contable(svl, dry_run=dry_run)
+    return costo_unitario
+
+
+def actualizar_costo_promedio(svl, costo_unitario, stock_qty, tipo):
+    """
+    Recalcula el costo promedio.
+    Para ajustes: solo afecta el costo_unitario actual, no modifica SVL.
+    """
+    if tipo == "ajuste":
+        nuevo_costo = promediar_costos([svl], costo_unitario, stock_qty)
+        return nuevo_costo
+
+    nuevo_costo = promediar_costos([svl], costo_unitario, stock_qty)
+    svl.unit_cost = nuevo_costo
+    svl.value = nuevo_costo * svl.quantity
+    return nuevo_costo
+
+def actualizar_svl(svl, dry_run=False):
+    """
+    Aplica los cambios del SVL en base de datos.
+    Si dry_run=True, solo muestra qué cambiaría.
+    """
+    if dry_run:
+        _logger.info(f"[DRY RUN] SVL {svl.id} -> unit_cost={svl.unit_cost}, value={svl.value}")
+        return
+
+    svl.with_context(check_move_validity=False).write({
+        'unit_cost': svl.unit_cost,
+        'value': svl.value
+    })
+
+def actualizar_asiento_contable(svl, dry_run=False):
+    """
+    Actualiza las líneas contables y asientos.
+    Si dry_run=True, solo muestra qué haría.
+    """
+    aml = svl.account_move_line_id
+    if not aml:
+        return
+
+    vals = {}
+    if aml.debit > 0:
+        vals['debit'] = svl.value
+    elif aml.credit > 0:
+        vals['credit'] = svl.value
+
+    if dry_run:
+        _logger.info(f"[DRY RUN] AML {aml.id} -> {vals}")
+    elif vals:
+        aml.with_context(check_move_validity=False).write(vals)
+
+    move = aml.move_id or svl.account_move_id
+    if move:
+        if dry_run:
+            _logger.info(f"[DRY RUN] Move {move.name} -> Recalcular y repostear")
+        else:
+            move.button_draft()
+            move._recompute_dynamic_lines()
+            move.action_post()
+
+# Simulación
+# procesar_stock_valuation_layers(stock_valuation_layers, costo_unitario, stock_qty, dry_run=True)
+
+# Ejecución real
+# procesar_stock_valuation_layers(stock_valuation_layers, costo_unitario, stock_qty, dry_run=False)
 
 
 def impresion_csv(direccion, layers):
@@ -327,7 +416,7 @@ def info_layer_encontrado(iterador, indice, objeto1, objeto2):
     iterador.write(f"    layer_{indice}:\n")
     iterador.write(f"      layer_id: {objeto1.id}\n")
     iterador.write(f"      status: \"{'completo' if objeto2 else 'incompleto'}\"\n")
-
+    return bool(objeto2)
 def info_layer_completo(iterador, objeto_layer):
     iterador.write(f"      stock_valuation_layer:\n")
     iterador.write(f"        create_date: \"{objeto_layer.create_date}\"\n")
@@ -444,7 +533,7 @@ print(f"   Layers febrero 2025 en adelante: {len(layer_febrero)}")
 with open(direccion2, 'w') as f:
     # Escribir cabecera global del archivo YAML
     info_cabecera_principal(iterador=f, enviroment=env, lista=lista_productos)
- 
+
     contador_productos = 0
     total_layers_analizados = 0
     productos_con_datos = 0
@@ -496,9 +585,10 @@ with open(direccion2, 'w') as f:
                 ('purchase_line_id', '=', purchase_order_line.id),
                 ('move_id.move_type', '=', 'in_invoice')
             ], order='create_date asc', limit=1)
-            
+
+            actualizado = False
             # Escribir información completa del layer
-            info_layer_encontrado(iterador=f, indice=index, objeto1=layer, objeto2=account_move_line)
+            actualizar = info_layer_encontrado(f, index, layer, account_move_line)
 
             # Stock Valuation Layer info
             info_layer_completo(iterador=f, objeto_layer=layer)
@@ -531,7 +621,19 @@ with open(direccion2, 'w') as f:
             f.write(f'        line_quantity: {line_quantity}\n')
             f.write(f'        layer_value: {layer_value}\n')
             f.write(f'        line_balance: {line_balance}\n')
-        
+
+            if actualizar:
+                actualizado = procesar_compra(layer, account_move_line, dry_run=False)
+
+            if actualizado:
+                f.write(f'    # Actualizacion Realizada segun busqueda\n')
+                layer_unit_cost_act = layer.unit_cost
+                layer_value_act = layer.value
+
+                f.write(f'        layer_unit_cost nuevo: {layer_unit_cost_act}\n')
+                f.write(f'        layer_value nuevo: {layer_value_act}\n')
+            else:
+                f.write(f'    # DRY RUN no se realizaron escrituras\n')
             f.write(f"\n")
         # Resumen del producto
         if layers_con_purchase > 0:
