@@ -1,5 +1,6 @@
 from . import actualizacion_layers_copy
 from . import actualizacion_layers
+from . import actualizacion_layers_promedio
 from . import debug_analisis_nahuel
 from . import ejecutar_analisis
 from . import odoo_types
