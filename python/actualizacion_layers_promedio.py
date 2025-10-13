@@ -8,7 +8,7 @@ import re
 import logging
 _logger = logging.getLogger(__name__)
 direccion = '/home/jose/Documentos/clientes/17KEEPER/backup/storage/analisis_nahuel.csv'
-direccion2 = '/home/user/Escritorio/odoo/odoo/odoo-server-17/backup2/backup/keep/promediacion.yaml'
+direccion2 = '/home/jose/Documentos/clientes/17KEEPER/backup/keep/promediacion.yaml'
 
 def format_yaml_string(value):
     """
@@ -53,13 +53,18 @@ def verificar_tipo(svl):
         'ajuste'  -> Ajuste manual o automático
         'no_especificado' -> No se pudo determinar
     """
-    if svl.stock_move_id:
-        if svl.quantity > 0 and svl.stock_move_id.purchase_line_id:
+    if svl.quantity > 0:
+        if svl.stock_move_id and svl.stock_move_id.purchase_line_id:
             return 'compra'
-        elif svl.quantity < 0:
-            return 'venta'
+        else:
+            return 'no_especificado'
+
+    elif svl.quantity < 0:
+        return 'venta'
+
     elif svl.quantity == 0:
         return 'ajuste'
+
     return 'no_especificado'
 
 def setear_a_cero(stock_valuation_layers, dry_run=True):
@@ -74,7 +79,6 @@ def setear_a_cero(stock_valuation_layers, dry_run=True):
                     'unit_cost': 0,
                     'value': 0,
                 })
-
 
 def promediar_costos(stock_valuation_layers, costo_unitario=0, stock_qty=0, dry_run=True):
     """
@@ -142,7 +146,6 @@ def promediar_costos(stock_valuation_layers, costo_unitario=0, stock_qty=0, dry_
                 costo_unitario = nuevo_costo  # el ajuste nuevo se distribuye entre todos los productos que tenemos a ese momento
             else:
                 print(f"[WARNING] Costo unitario en 0 y stock en 0 actual para  {svl.id} del producto {svl.product_id.name} del ajuste")
-
 
 def buscar_layers(
         env,
@@ -293,15 +296,6 @@ def info_resumen_final(iterador, count1, count2, count3, count4, enviroment):
     iterador.write(f"  total_layers_analizados: {count4}\n")
     iterador.write(f"  fecha_analisis: \"{enviroment.cr.now()}\"\n")
 
-# Análisis masivo de productos de febrero
-layer_febrero = env['stock.valuation.layer'].search([
-    ('create_date', '>=', '2025-02-01')
-])
-lista_productos = list(set(layer_febrero.product_id.ids))  # Eliminar duplicados
-
-
-
-
 def obtener_inicial(producto):
     costo = 0
     stock = 0
@@ -314,6 +308,11 @@ def obtener_inicial(producto):
     costo = (total_value / stock) if stock else 0
     return costo, stock
 
+# ---- EJECUCION DEL SCRIPT ----
+layer_febrero = env['stock.valuation.layer'].search([
+    ('create_date', '>=', '2025-02-01')
+])
+lista_productos = list(set(layer_febrero.product_id.ids))  # Eliminar duplicados
 
 print(f"📊 Iniciando análisis de {len(lista_productos)} productos únicos...")
 print(f"   Layers febrero 2025 en adelante: {len(layer_febrero)}")
@@ -352,16 +351,14 @@ with open(direccion2, 'w') as f:
             objeto=producto_obj,
             valoracion=layers)
 
-        #buscar costos a la fecha
+        # buscar costos a la fecha
         costo_inicial, stock_inicial = obtener_inicial(product_id)
 
-
-        #ponemos en cero los que son ajuste de precio (cantidad = 0 y svl = true)
+        # ponemos en cero los que son ajuste de precio (cantidad = 0 y svl = true)
         setear_a_cero(layers, dry_run=True)
 
-        #ultimo paso para svl, promediar simulando la cronologia de compras y ventas
-        promediar_costos(layers, costo_inicial, stock_inicial, dry_run=True) #dry_run false para activar escritura
-
+        # ultimo paso para svl, promediar simulando la cronologia de compras y ventas
+        promediar_costos(layers, costo_inicial, stock_inicial, dry_run=True)
         
         # Log de progreso cada 10 productos
         if contador_productos % 10 == 0:
