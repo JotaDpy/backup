@@ -178,58 +178,76 @@ def verificar_tipo(svl):
     elif svl.quantity == 0:
         return 'ajuste'
     return 'no_especificado'
+
+
 def promediar_costos(stock_valuation_layers, costo_unitario=0, stock_qty=0):
-    '''
-    Le pasamos la lista de SVL a procesar
-    el costo inicial
-    el stock inicial
-    '''
+    """
+    Recalcula los costos de los stock_valuation_layers usando Costo promedio
 
-    costo_unitario = costo_unitario
-    stock_qty = stock_qty
+    Params:
+        stock_valuation_layers : list
+            Lista de SVL ordenados cronológicamente(solo de un producto).
+        costo_unitario : float
+            Costo promedio inicial (por si ya hay stock previo)
+        stock_qty : float
+            Cantidad inicial de stock (por si ya hay stock previo)
 
+    Notes:
+        - SVL de 'compra' ajustan el costo promedio y el stock.
+        - SVL de 'venta' solo asignan el costo promedio actual.
+        - SVL de 'ajuste' reparten su valor entre el stock actual o lo ponen en cero si ya fue procesado.
+    """
     for svl in stock_valuation_layers:
-        if verificar_tipo(svl) == 'no_especificado':
-            print('error al verificar tipo para el stock valuation layer %s del producto %s', svl, svl.product_id.name)
-        if verificar_tipo(svl) == 'compra':
+        tipo = verificar_tipo(svl)
+
+        if tipo == 'no_especificado':
+            print(f"[WARNING] No se pudo determinar tipo para SVL {svl.id} del producto {svl.product_id.name}")
+
+        elif tipo == 'compra':
             # en compras lo que hacemos es promediar el costo unitario y actualizar el stock actual segun lo nuevo
             if costo_unitario and stock_qty > 0:
                 costo_total_ant = costo_unitario * stock_qty # valor de stock total antes de comprar
                 stock_actual = stock_qty + svl.quantity
-                nuevo_costo = ((costo_total_ant) + svl.value) / (stock_actual)
-                stock_qty = stock_actual
+                nuevo_costo = (costo_total_ant + svl.value) / stock_actual
                 costo_unitario = nuevo_costo
+                stock_qty = stock_actual
             else:
-                costo_unitario += svl.unit_cost
-                stock_qty += svl.quantity
-        if verificar_tipo(svl) == 'venta':
-            #en ventas solamente lo que hacemos es cargar el precio unitario
-            #segun el actual que vamos calculando  ese momento
+                # Si no hay stock previo, usamos el costo del SVL directamente
+                costo_unitario = svl.unit_cost
+                stock_qty = svl.quantity
+
+            # Actualizamos el SVL con costo calculado
+            svl.unit_cost = costo_unitario
+            svl.value = svl.quantity * costo_unitario
+
+        elif tipo == 'venta':
+            # Salida de stock, aplicamos costo promedio actual
+            # en ventas solamente lo que hacemos es cargar el precio unitario
+            # segun el actual que vamos calculando  ese momento
             if costo_unitario and stock_qty > 0:
                 svl.unit_cost = costo_unitario
                 svl.value = svl.quantity * costo_unitario
             else:
-                svl.unit_cost = costo_unitario
-                svl.value = costo_unitario
-                #verificar o loggear si esto ocurre
-        if verificar_tipo(svl) == 'ajuste':
+                print(f"[WARNING] Costo unitario en 0 y stock en 0 actual para  {svl.id} del producto {svl.product_id.name} de la venta")
+
+        elif tipo == 'ajuste':
             # si es un ajuste automatico ponemos en cero porque ese ajuste ya pisamos al cargar desde la compra el valor
-            if svl.stock_valuation_layer_id: #and svl.value > 0: #quiza aca con value > 0 aplicamos solo  compra y manejamos distitno lo de ventas
+            if svl.stock_valuation_layer_id:  # and svl.value > 0: #quiza aca con value > 0 aplicamos solo  compra y manejamos distitno lo de ventas
                 # en ventas se va tomar luego el costo actual a ese momento
-                #todo: ver si lo facturado al cliente al ser a un costo distinto en que puede impactar
+                # todo: ver si lo facturado al cliente al ser a un costo distinto en que puede impactar
                 svl.unit_cost = 0
                 svl.value = 0
                 continue
-            #en ajuste promediamos el valor del ajuste entre lo que tenemos en stock a ese momento
+            # en ajuste promediamos el valor del ajuste entre lo que tenemos en stock a ese momento
             if costo_unitario and stock_qty > 0:
-                costo_total_ant = costo_unitario * stock_qty # valor de stock total antes de comprar
-                stock_actual = stock_qty # este svl no tiene quantity
-                nuevo_costo = ((costo_total_ant) + svl.value) / (stock_actual)
-                costo_unitario = nuevo_costo # el ajuste nuevo se distribuye entre todos los productos que tenemos a ese momento
+                costo_total_ant = costo_unitario * stock_qty  # valor de stock total antes de comprar
+                stock_actual = stock_qty  # este svl no tiene quantity
+                nuevo_costo = (costo_total_ant + svl.value) / (stock_actual)
+                costo_unitario = nuevo_costo  # el ajuste nuevo se distribuye entre todos los productos que tenemos a ese momento
             else:
-                costo_unitario += svl.unit_cost
-                stock_qty += svl.quantity
-                #verificar o loggear si ocurre
+                print(f"[WARNING] Costo unitario en 0 y stock en 0 actual para  {svl.id} del producto {svl.product_id.name} del ajuste")
+
+
 def impresion_csv(direccion, layers):
     # Impresion en .csv
     with open(direccion, 'w') as f:
