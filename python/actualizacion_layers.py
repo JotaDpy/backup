@@ -227,10 +227,6 @@ def promediar_costos(stock_valuation_layers, costo_unitario=0, stock_qty=0, dry_
                 costo_unitario = svl.unit_cost
                 stock_qty = svl.quantity
 
-            # Actualizamos el SVL con costo calculado
-            svl.unit_cost = costo_unitario
-            svl.value = svl.quantity * costo_unitario
-
         elif tipo == 'venta':
             # Salida de stock, aplicamos costo promedio actual
             # en ventas solamente lo que hacemos es cargar el precio unitario
@@ -238,6 +234,7 @@ def promediar_costos(stock_valuation_layers, costo_unitario=0, stock_qty=0, dry_
             if costo_unitario and stock_qty > 0:
                 svl.unit_cost = costo_unitario
                 svl.value = svl.quantity * costo_unitario
+                stock_qty -= svl.quantity #Tambien debemos disminuir el stock para que no afecte el promedio
             else:
                 print(f"[WARNING] Costo unitario en 0 y stock en 0 actual para  {svl.id} del producto {svl.product_id.name} de la venta")
 
