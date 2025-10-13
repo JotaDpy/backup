@@ -113,7 +113,7 @@ def setear_a_cero(stock_valuation_layers, dry_run=True):
                     svl.env.cr.commit()
                     
                     # REFRESCAR EL OBJETO DESDE LA BD
-                    svl.invalidate_cache()
+                    svl._invalidate_cache()
                     svl_actualizado = svl.env['stock.valuation.layer'].browse(svl.id)
                     
                     # print(f"   - valor después: {svl_actualizado.value}")
@@ -278,7 +278,7 @@ def promediar_costos(iterador, enviroment, stock_valuation_layers, costo_unitari
                         svl.env.cr.commit()
                         
                         # REFRESCAR EL OBJETO DESDE LA BD
-                        svl.invalidate_cache()
+                        svl._invalidate_cache()
                         svl_actualizado = svl.env['stock.valuation.layer'].browse(svl.id)
                         
                         iterador.write(f"   - valor después: {svl_actualizado.value}\n")
@@ -315,6 +315,31 @@ def promediar_costos(iterador, enviroment, stock_valuation_layers, costo_unitari
     iterador.write(f"   - Stock final: {stock_qty}\n")
     
     return contador_escrituras, contador_warnings
+
+def actualizar_asientos(layers):
+    '''Actualiza los asientos de los layers con los valores del value de cada layer
+        si tiene asiento le carga en debit y en balance segun corresponda'''
+    for svl in layers:
+        move = svl.account_move_id
+        if not move:
+            continue  # Saltar si no tiene asiento contable
+
+        for line in move.line_ids:
+            vals = {}
+            if line.debit > 0:
+                vals['debit'] = abs(svl.value)
+                vals['balance'] = abs(svl.value)
+            elif line.credit > 0:
+                vals['credit'] = abs(svl.value)
+                vals['balance'] = -abs(svl.value)
+            if vals:
+                print(f"Actualizando línea {line.id} del asiento {move.name} con {vals}")
+                line.write(vals)
+        # FORZAR COMMIT DE LA TRANSACCIÓN
+        svl.env.cr.commit()
+        
+        # REFRESCAR EL OBJETO DESDE LA BD
+        svl._invalidate_cache()
 
 def buscar_layers(
         env,
