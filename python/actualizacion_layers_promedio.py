@@ -1,4 +1,4 @@
-# exec(open('/home/user/Escritorio/odoo/odoo/odoo-server-17/backup2/backup/python/actualizacion_layers_promedio.py').read())
+# exec(open('/home/jose/Documentos/clientes/17KEEPER/backup/python/actualizacion_layers_promedio.py').read())
 # Configuración para reconocimiento de Odoo en VS Code
 # pylint: disable=undefined-variable
 # pyright: reportUndefinedVariable=false
@@ -8,7 +8,7 @@ import re
 import logging
 _logger = logging.getLogger(__name__)
 direccion = '/home/user/Escritorio/odoo/odoo/odoo-server-17/backup2/backup/storage/analisis_nahuel.csv'
-direccion2 = '/home/user/Escritorio/odoo/odoo/odoo-server-17/backup2/backup/keep/promediacion.yaml'
+direccion2 = '/home/jose/Documentos/clientes/17KEEPER/backup/keep/promediacion.yaml'
 
 def format_yaml_string(value):
     """
@@ -42,7 +42,6 @@ def format_yaml_string(value):
         return "N/A"
     
     return value
-
 
 def verificar_tipo(svl):
     """
@@ -87,20 +86,58 @@ def verificar_tipo(svl):
     return 'no_especificado'
 
 def setear_a_cero(stock_valuation_layers, dry_run=True):
+    contador_zerados = 0
+    
     for svl in stock_valuation_layers:
         # si es un ajuste automatico ponemos en cero porque ese ajuste ya pisamos al cargar desde la compra el valor
         if svl.quantity == 0 and svl.stock_valuation_layer_id:  # and svl.value > 0: #quiza aca con value > 0 aplicamos solo  compra y manejamos distitno lo de ventas
             # en ventas se va tomar luego el costo actual a ese momento
             if dry_run:
-                _logger.info(f"[DRY RUN] SVL ajuste {svl.id} -> unit_cost a escribir={0}, value a escribir={0}")
+                print(f"[DRY RUN] SVL ajuste {svl.id} -> unit_cost a escribir={0}, value a escribir={0}")
+                contador_zerados += 1
             else:
-                _logger.warning("SETEANDO A CERO svl id %s", svl.id)
-                _logger.warning("valor antes %s", svl.value)
-                svl.write({
-                    'unit_cost': 0,
-                    'value': 0,
-                })
-                _logger.warning("valor despues %s", svl.value)
+                try:
+                    print(f"🔄 SETEANDO A CERO svl id {svl.id}")
+                    print(f"   - valor antes: {svl.value}")
+                    print(f"   - unit_cost antes: {svl.unit_cost}")
+                    
+                    # Intentar la escritura
+                    result = svl.write({
+                        'unit_cost': 0,
+                        'value': 0,
+                    })
+                    
+                    print(f"   - write() resultado: {result}")
+                    
+                    # FORZAR COMMIT DE LA TRANSACCIÓN
+                    svl.env.cr.commit()
+                    
+                    # REFRESCAR EL OBJETO DESDE LA BD
+                    svl.invalidate_cache()
+                    svl_actualizado = svl.env['stock.valuation.layer'].browse(svl.id)
+                    
+                    print(f"   - valor después: {svl_actualizado.value}")
+                    print(f"   - unit_cost después: {svl_actualizado.unit_cost}")
+                    
+                    if svl_actualizado.value == 0 and svl_actualizado.unit_cost == 0:
+                        print(f"   ✅ ÉXITO: SVL {svl.id} zerado correctamente")
+                        contador_zerados += 1
+                    else:
+                        print(f"   ❌ FALLO: SVL {svl.id} NO se zeró - valor: {svl_actualizado.value}, unit_cost: {svl_actualizado.unit_cost}")
+                        
+                        # Intentar diagnóstico adicional
+                        print(f"   🔍 Diagnóstico:")
+                        print(f"      - Campo editable: {svl._fields['value'].readonly}")
+                        print(f"      - Usuario actual: {svl.env.user.name}")
+                        print(f"      - Permisos write: {svl.check_access_rights('write', raise_exception=False)}")
+                
+                except Exception as e:
+                    print(f"   💥 ERROR al escribir SVL {svl.id}: {str(e)}")
+                    import traceback
+                    traceback.print_exc()
+    
+    print(f"📊 Resumen setear_a_cero: {contador_zerados} layers procesados")
+    return contador_zerados
 
 def promediar_costos(stock_valuation_layers, costo_unitario=0, stock_qty=0, dry_run=True):
     """
@@ -143,7 +180,7 @@ def promediar_costos(stock_valuation_layers, costo_unitario=0, stock_qty=0, dry_
             # en ventas solamente lo que hacemos es cargar el precio unitario
             # segun el actual que vamos calculando  ese momento
             if dry_run:
-                _logger.info(
+                print(
                     f"[DRY RUN] SVL venta {svl.id} -> unit_cost a escribir={costo_unitario}, value a escribir={svl.quantity * costo_unitario}")
             else:
                 svl.write({
@@ -172,7 +209,7 @@ def promediar_costos(stock_valuation_layers, costo_unitario=0, stock_qty=0, dry_
             # si es un ajuste de inventario promediamos la cantidad agregada y le cargamos el costo en ese momento y distribuimos
             if costo_unitario and stock_qty > 0:
                 if dry_run:
-                    _logger.info(
+                    print(
                         f"[DRY RUN] SVL ajuste inventario {svl.id} -> unit_cost a escribir={costo_unitario}, value a escribir={svl.quantity * costo_unitario}")
                 else:
                     svl.write({
