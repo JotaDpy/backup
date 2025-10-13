@@ -127,3 +127,18 @@ Resumen final
     f.write(f"  total_layers_analizados: {total_layers_analizados}\n")
     f.write(f"  fecha_analisis: \"{env.cr.now()}\"\n")'
 
+
+Algoritmo 1 de actualizacion msg
+            f.write(f'      actualizacion_analisis:\n')
+            f.write(f'        tiene_factura: {tiene_factura}\n')
+            f.write(f'        debe_actualizar: {tiene_factura}\n')
+            f.write(f'        layer_quantity: {layer_data["quantity"]}\n')
+            f.write(f'        invoice_quantity: {invoice_data["quantity"]}\n')
+            f.write(f'        layer_value_actual: {layer_data["value"]}\n')
+            f.write(f'        layer_value_nuevo: {value_nuevo or "N/A"}\n')
+            f.write(f'        invoice_balance: {invoice_data["balance"]}\n')
+            f.write(f'        diferencia: {diferencia}\n')
+            f.write(f'        layer_unit_cost_actual: {layer_data["unit_cost"]}\n')
+            f.write(f'        layer_unit_cost_nuevo: {unit_cost_nuevo or "N/A"}\n')
+            f.write(f'        correction_type: "{msg[True]}"\n')
+

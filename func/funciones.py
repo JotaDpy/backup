@@ -160,3 +160,57 @@ def cabecera_producto(
         iterador.write(f"    categ_id: \"{format_yaml_string(objeto.categ_id.name)}\"\n")
         iterador.write(f"    total_layers: {len(valoracion)}\n")
         iterador.write(f"  layers:\n")
+
+def info_alg1_msg(iterador, objeto1, objeto2):
+    """ Algoritmo 1 de actualización, se aplica a todos los layers que tienen el
+    quantity > 0.
+    objeto1: Stock Valuation Layer
+    objeto2: Account Move Line
+    """
+    # Extraer valores del layer
+    layer_data = {
+        'quantity': objeto1.quantity,
+        'unit_cost': objeto1.unit_cost,
+        'value': objeto1.value
+    }
+    
+    # Extraer valores de la factura (si existe)
+    invoice_data = {
+        'quantity': objeto2.quantity if objeto2 else 0.0,
+        'balance': abs(objeto2.balance) if objeto2 else 0.0
+    }
+    
+    # LÓGICA: Si tiene factura, SIEMPRE debe actualizarse
+    tiene_factura = objeto2 is not None
+    diferencia = abs(layer_data['value'] - invoice_data['balance']) if tiene_factura else 0.0
+    
+    # Calcular nuevo unit_cost basado en factura
+    unit_cost_nuevo = None
+    value_nuevo = None
+    if tiene_factura and invoice_data['quantity'] > 0:
+        unit_cost_nuevo = round(invoice_data['balance'] / invoice_data['quantity'], 3)
+        value_nuevo = invoice_data['balance']  # El value debe ser igual al balance de la factura
+
+    # Clasificación mejorada
+    if tiene_factura:
+        msg = {
+            True: "Error con la diferencia",
+            diferencia > 1000: "USD-PYG ajuste grande",
+            0 < diferencia < 1000: "USD-PYG ajuste pequeño",
+            diferencia == 0: "Estaba correcto, pero igual se actualiza"
+        }
+    else:
+        msg = {True: "Sin factura"}
+    
+    iterador.write(f'      actualizacion_analisis:\n')
+    iterador.write(f'        tiene_factura: {tiene_factura}\n')
+    iterador.write(f'        debe_actualizar: {tiene_factura}\n')
+    iterador.write(f'        layer_quantity: {layer_data["quantity"]}\n')
+    iterador.write(f'        invoice_quantity: {invoice_data["quantity"]}\n')
+    iterador.write(f'        layer_value_actual: {layer_data["value"]}\n')
+    iterador.write(f'        layer_value_nuevo: {value_nuevo or "N/A"}\n')
+    iterador.write(f'        invoice_balance: {invoice_data["balance"]}\n')
+    iterador.write(f'        diferencia: {diferencia}\n')
+    iterador.write(f'        layer_unit_cost_actual: {layer_data["unit_cost"]}\n')
+    iterador.write(f'        layer_unit_cost_nuevo: {unit_cost_nuevo or "N/A"}\n')
+    iterador.write(f'        correction_type: "{msg[True]}"\n')

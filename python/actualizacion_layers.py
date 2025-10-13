@@ -252,7 +252,7 @@ def info_resumen_productos(iterador, contador1, contador2, objeto_layer):
     iterador.write(f"  resumen_producto:\n")
     iterador.write(f"    layers_con_purchase: {contador1}\n")
     iterador.write(f"    layers_sin_purchase: {contador2}\n")
-    iterador.write(f"    total_layers: {len(layers)}\n")
+    iterador.write(f"    total_layers: {len(objeto_layer)}\n")
     iterador.write(f"    completitud: \"{round((contador1/len(objeto_layer))*100, 1)}%\"\n\n")
 
 def info_resumen_final(iterador, count1, count2, count3, count4, enviroment):
@@ -269,6 +269,81 @@ def info_resumen_final(iterador, count1, count2, count3, count4, enviroment):
     iterador.write(f"  productos_sin_datos: {count3}\n")
     iterador.write(f"  total_layers_analizados: {count4}\n")
     iterador.write(f"  fecha_analisis: \"{enviroment.cr.now()}\"\n")
+
+def algoritmo1(iterador, objeto1, objeto2):
+    """
+    **Algoritmo 1 de actualización**
+
+Este algoritmo se aplica a todos los registros de **Stock Valuation Layer** que tienen 
+    `quantity > 0`.
+
+    **Parámetros:**
+    - `iterador`: Iterador que recorre los registros a procesar.
+    - `layer` (`Stock Valuation Layer`): Representa la capa de valoración de inventario.
+    - `account_move_line` (`Account Move Line`): Representa la línea contable asociada.
+    """
+
+    # Extraer valores del layer (valores actuales antes de cualquier cambio)
+    layer_data = {
+        'quantity': objeto1.quantity,
+        'unit_cost': objeto1.unit_cost,
+        'value': objeto1.value
+    }
+    
+    # Extraer valores de la factura (si existe)
+    invoice_data = {
+        'quantity': objeto2.quantity if objeto2 else 0.0,
+        'balance': abs(objeto2.balance) if objeto2 else 0.0
+    }   
+    
+    # Variables para el análisis
+    tiene_factura = objeto2 is not None
+    diferencia_original = abs(layer_data['value'] - invoice_data['balance']) if tiene_factura else 0.0
+    
+    # PASO 1: REALIZAR LA ACTUALIZACIÓN (SI CORRESPONDE)
+    unit_cost_nuevo = None
+    value_nuevo = None
+    se_actualizo = False
+    
+    if tiene_factura and invoice_data['quantity'] > 0:
+        unit_cost_nuevo = round(invoice_data['balance'] / invoice_data['quantity'], 3)
+        value_nuevo = invoice_data['balance']  # El value debe ser igual al balance de la factura
+
+        # Ejecutar la actualización
+        objeto1.write({
+            'unit_cost': unit_cost_nuevo,
+            'value': value_nuevo,
+        })
+        se_actualizo = True
+
+    # PASO 2: ANÁLISIS Y CLASIFICACIÓN DEL MENSAJE (DESPUÉS DE LA ACTUALIZACIÓN)
+    # Usar la diferencia ORIGINAL para clasificar qué tipo de corrección se hizo
+    if tiene_factura:
+        if diferencia_original > 1000:
+            correction_type = "USD-PYG ajuste grande (corregido)"
+        elif 0 < diferencia_original < 1000:
+            correction_type = "USD-PYG ajuste pequeño (corregido)"
+        elif diferencia_original == 0:
+            correction_type = "Estaba correcto, pero igual se actualiza"
+        else:
+            correction_type = "Revisión necesaria"
+    else:
+        correction_type = "Sin factura"
+    
+    # PASO 3: ESCRIBIR EL ANÁLISIS AL YAML
+    iterador.write(f'      actualizacion_analisis:\n')
+    iterador.write(f'        tiene_factura: {tiene_factura}\n')
+    iterador.write(f'        debe_actualizar: {tiene_factura and invoice_data["quantity"] > 0}\n')
+    iterador.write(f'        se_actualizo: {se_actualizo}\n')
+    iterador.write(f'        layer_quantity: {layer_data["quantity"]}\n')
+    iterador.write(f'        invoice_quantity: {invoice_data["quantity"]}\n')
+    iterador.write(f'        layer_value_original: {layer_data["value"]}\n')
+    iterador.write(f'        layer_value_nuevo: {value_nuevo or "N/A"}\n')
+    iterador.write(f'        invoice_balance: {invoice_data["balance"]}\n')
+    iterador.write(f'        diferencia_original: {diferencia_original}\n')
+    iterador.write(f'        layer_unit_cost_original: {layer_data["unit_cost"]}\n')
+    iterador.write(f'        layer_unit_cost_nuevo: {unit_cost_nuevo or "N/A"}\n')
+    iterador.write(f'        correction_type: "{correction_type}"\n')
 
 # Análisis masivo de productos de febrero
 layer_febrero = env['stock.valuation.layer'].search([
@@ -338,7 +413,11 @@ with open(direccion2, 'w') as f:
             # Verificar que existe purchase_order_line
             if not purchase_order_line:
                 layers_sin_purchase += 1
-                info_not_purchase_order_line(iterador=f, indice=index, objeto1=layer, objeto2=stock_move)
+                info_not_purchase_order_line(
+                    iterador=f,
+                    indice=index,
+                    objeto1=layer,
+                    objeto2=stock_move)
                 continue
             
             layers_con_purchase += 1
@@ -361,28 +440,14 @@ with open(direccion2, 'w') as f:
             # Purchase Order Line info
             info_purchase_order_line(iterador=f, object_purchase_order_line=purchase_order_line)
             
+            # Account Move Line info
             info_account_move_line(
                 iterador=f,
                 objeto_move_line=account_move_line,
                 objeto_purchase_order_line=purchase_order_line)            
 
-            # Algoritmo de actualización
-            layer_quantity = layer.quantity
-            layer_unit_cost = layer.unit_cost
-            layer_value = layer.value
-            if account_move_line:
-                line_quantity = account_move_line.quantity
-                line_balance = account_move_line.balance
-            else:
-                line_quantity = None
-                line_balance = None
-
-            f.write(f'      actualizacion_buscada:\n')
-            f.write(f'        layer_unit_cost: {layer_unit_cost}\n')
-            f.write(f'        layer_quantity: {layer_quantity}\n')
-            f.write(f'        line_quantity: {line_quantity}\n')
-            f.write(f'        layer_value: {layer_value}\n')
-            f.write(f'        line_balance: {line_balance}\n')
+            # Algoritmo 1 de actualización
+            algoritmo1(iterador=f, objeto1=layer, objeto2=account_move_line)
         
             f.write(f"\n")
         # Resumen del producto
@@ -395,7 +460,7 @@ with open(direccion2, 'w') as f:
             iterador=f,
             contador1=layers_con_purchase,
             contador2=layers_sin_purchase,
-            objeto_layer=layer)
+            objeto_layer=layers)
         
         # Log de progreso cada 10 productos
         if contador_productos % 10 == 0:
