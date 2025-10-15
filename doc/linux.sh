@@ -1,4 +1,4 @@
-ea# Copiar rutas de subcarpetas
+# Copiar rutas de subcarpetas
 find /home/jose/Documentos/core/17.0/gcaceres93 -mindepth 1 -maxdepth 1 -type d | xclip -selection clipboard
 find /home/jose/Documentos/core/17.0/OCA -mindepth 1 -maxdepth 1 -type d | xclip -selection clipboard
 
@@ -28,3 +28,13 @@ rg -t py --files-with-matches "def compute_sheet(" . \
 rg -t py --files-with-matches "order_line = fields." . \
 | xargs rg -t py --files-with-matches "_(name|inherit)\s*=\s*['\"]purchase\.order['\"]" \
 | xargs rg -t py -n -H -C 3 -e "order_line = fields."
+
+# Verificar y eliminar caché
+find . -type f -name "*.py[co]" -delete
+
+find . -type f -name "*.py[co]" -delete
+
+find . -type d -name "__pycache__"
+
+find . -type d -name "__pycache__" -exec rm -rf {} +
+
