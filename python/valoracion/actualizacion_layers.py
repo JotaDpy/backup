@@ -4,11 +4,16 @@
 # pyright: reportUndefinedVariable=false
 
 from datetime import datetime, date
+import calendar
 import re
 
-direccion = '/home/jose/Documentos/clientes/15FONDOESTRELLA/backup/python/valoracion/analisis_jota.csv'
-direccion2 = '/home/jose/Documentos/clientes/15FONDOESTRELLA/clean_valuation/python/valoracion/actualizacion_layers.yaml'
-
+def meses_anho(anho):
+    meses = {}
+    for mes in range(1, 13):
+        nombre_mes = calendar.month_name[mes].lower()
+        dias_mes = calendar.monthrange(anho, mes)[1]
+        meses[nombre_mes] = dias_mes
+    return meses
 
 def format_num(numero):
     numero = float(numero)
@@ -354,141 +359,149 @@ Este algoritmo se aplica a todos los registros de **Stock Valuation Layer** que 
     iterador.write(f'        layer_unit_cost_nuevo: {format_num(unit_cost_nuevo or 0.0)}\n')
     iterador.write(f'        correction_type: "{correction_type}"\n')
 
-# Análisis masivo de productos de febrero
-layer_febrero = env['stock.valuation.layer'].search([
-    ('create_date', '>=', '2024-10-01'),
-    ('create_date', '<=', '2024-10-31'),
-])
-lista_productos = list(set(layer_febrero.product_id.ids))  # Eliminar duplicados
-# lista_productos = [367]
-# print(f'Retorno: {sorted(lista_productos)}')
+anho = 2025
+meses = meses_anho(anho)
+for mes_num, (mes_str, dias) in enumerate(meses.items(), start=1):
 
-# Prueba a pedido de nahuel
-prueba_nahuel = env['stock.valuation.layer'].search([
-    ('create_date', '>=', '2025-02-01'),
-    ('quantity', '<', 0.0),
-    ('stock_move_id.purchase_line_id', '=', False),
-    ('stock_move_id.location_id.usage', 'in', ['supplier']),
-    ('stock_move_id.location_dest_id.usage', 'in', ['customer'])
-    # ('stock_move_id.location_id.usage', 'not in', ['customer', 'inventory']),
-    # ('stock_move_id.location_dest_id.usage', 'not in', ['internal', 'inventory']),
-])
+    proyecto = '/home/jose/Documentos/clientes/15FONDOESTRELLA/'
+    modulo = 'clean_valuation/python/valoracion/'
+    archivo = f'actualizacion_layers_{mes_num}_{anho}.yaml'
+    direccion = proyecto + modulo + archivo
+    date_from = datetime(anho, mes_num, 1)
+    date_to = datetime(anho, mes_num, dias, 23, 59, 59)
 
-# impresion_csv(direccion, prueba_nahuel)
-with open(direccion2, 'w') as f:
-    print(f"Iniciando análisis de {len(lista_productos)} productos únicos...")
-    print(f"   Layers febrero 2025 en adelante: {len(layer_febrero)}")
+    # Análisis masivo de productos de febrero
+    layer_febrero = env['stock.valuation.layer'].search([
+        ('create_date', '>=', date_from),
+        ('create_date', '<=', date_to),
+    ])
+    lista_productos = list(set(layer_febrero.product_id.ids))  # Eliminar duplicados
 
-    # Escribir cabecera global del archivo YAML
-    info_cabecera_principal(iterador=f, enviroment=env, lista=lista_productos)
+    # Prueba a pedido de nahuel
+    prueba_nahuel = env['stock.valuation.layer'].search([
+        ('create_date', '>=', '2025-02-01'),
+        ('quantity', '<', 0.0),
+        ('stock_move_id.purchase_line_id', '=', False),
+        ('stock_move_id.location_id.usage', 'in', ['supplier']),
+        ('stock_move_id.location_dest_id.usage', 'in', ['customer'])
+        # ('stock_move_id.location_id.usage', 'not in', ['customer', 'inventory']),
+        # ('stock_move_id.location_dest_id.usage', 'not in', ['internal', 'inventory']),
+    ])
 
-    contador_productos = 0
-    total_layers_analizados = 0
-    productos_con_datos = 0
-    productos_sin_datos = 0
+    # impresion_csv(direccion, prueba_nahuel)
+    with open(direccion, 'w') as f:
+        print(f"Iniciando análisis de {len(lista_productos)} productos únicos...")
+        print(f"   Layers febrero 2025 en adelante: {len(layer_febrero)}")
 
-    for product_id in lista_productos:
-        contador_productos += 1
+        # Escribir cabecera global del archivo YAML
+        info_cabecera_principal(iterador=f, enviroment=env, lista=lista_productos)
+        contador_productos = 0
+        total_layers_analizados = 0
+        productos_con_datos = 0
+        productos_sin_datos = 0
 
-        # Buscar layers para este producto
-        layers = buscar_layers_positivos(
-            env=env,
-            producto=product_id,
-            orden="asc",
-            cantidad=None,
-            fecha_inicio='2025-01-01')
+        for product_id in lista_productos:
+            contador_productos += 1
 
-        if not layers:
-            continue  # Saltar productos sin layers en el período
+            # Buscar layers para este producto
+            layers = buscar_layers_positivos(
+                env=env,
+                producto=product_id,
+                orden="asc",
+                cantidad=None,
+                fecha_inicio='2025-01-01')
 
-        # Escribir cabecera del producto
-        producto_obj = env['product.product'].browse(product_id)
-        total_layers_analizados += len(layers)
-        info_cabecera_productos(
-            iterador=f,
-            count=contador_productos,
-            producto=lista_productos,
-            id=product_id,
-            objeto=producto_obj,
-            valoracion=layers)
+            if not layers:
+                continue  # Saltar productos sin layers en el período
 
-        layers_con_purchase = 0
-        layers_sin_purchase = 0
-        
-        for index, layer in enumerate(layers, 1):
-            # Algoritmo para cruzar 'stock.valuation.layer' con 'purchase.order.line'
-            stock_move = layer.stock_move_id
-            purchase_order_line = stock_move.purchase_line_id if stock_move else None
-
-            # Verificar que existe purchase_order_line
-            if not purchase_order_line:
-                layers_sin_purchase += 1
-                info_not_purchase_order_line(
-                    iterador=f,
-                    indice=index,
-                    objeto1=layer,
-                    objeto2=stock_move)
-                continue
-
-            layers_con_purchase += 1
-            
-            # Buscar account_move_line
-            account_move_line = env['account.move.line'].search([
-                ('purchase_line_id', '=', purchase_order_line.id),
-                ('move_id.move_type', '=', 'in_invoice')
-            ], order='create_date asc', limit=1)
-
-            # Escribir información completa del layer
-            info_layer_encontrado(iterador=f, indice=index, objeto1=layer, objeto2=account_move_line)
-
-            # Stock Valuation Layer info
-            info_layer_completo(iterador=f, objeto_layer=layer)
-
-            # Stock Move info
-            info_stock_move(iterador=f, object_stock_move=stock_move)
-
-            # Purchase Order Line info
-            info_purchase_order_line(iterador=f, object_purchase_order_line=purchase_order_line)
-
-            # Account Move Line info
-            info_account_move_line(
+            # Escribir cabecera del producto
+            producto_obj = env['product.product'].browse(product_id)
+            total_layers_analizados += len(layers)
+            info_cabecera_productos(
                 iterador=f,
-                objeto_move_line=account_move_line,
-                objeto_purchase_order_line=purchase_order_line)            
+                count=contador_productos,
+                producto=lista_productos,
+                id=product_id,
+                objeto=producto_obj,
+                valoracion=layers)
 
-            # Algoritmo 1 de actualización
-            algoritmo1(iterador=f, objeto1=layer, objeto2=account_move_line)
+            layers_con_purchase = 0
+            layers_sin_purchase = 0
+            
+            for index, layer in enumerate(layers, 1):
+                # Algoritmo para cruzar 'stock.valuation.layer' con 'purchase.order.line'
+                stock_move = layer.stock_move_id
+                purchase_order_line = stock_move.purchase_line_id if stock_move else None
 
-            f.write(f"\n")
-        # Resumen del producto
-        if layers_con_purchase > 0:
-            productos_con_datos += 1
-        else:
-            productos_sin_datos += 1
+                # Verificar que existe purchase_order_line
+                if not purchase_order_line:
+                    layers_sin_purchase += 1
+                    info_not_purchase_order_line(
+                        iterador=f,
+                        indice=index,
+                        objeto1=layer,
+                        objeto2=stock_move)
+                    continue
 
-        info_resumen_productos(
+                layers_con_purchase += 1
+                
+                # Buscar account_move_line
+                account_move_line = env['account.move.line'].search([
+                    ('purchase_line_id', '=', purchase_order_line.id),
+                    ('move_id.move_type', '=', 'in_invoice')
+                ], order='create_date asc', limit=1)
+
+                # Escribir información completa del layer
+                info_layer_encontrado(iterador=f, indice=index, objeto1=layer, objeto2=account_move_line)
+
+                # Stock Valuation Layer info
+                info_layer_completo(iterador=f, objeto_layer=layer)
+
+                # Stock Move info
+                info_stock_move(iterador=f, object_stock_move=stock_move)
+
+                # Purchase Order Line info
+                info_purchase_order_line(iterador=f, object_purchase_order_line=purchase_order_line)
+
+                # Account Move Line info
+                info_account_move_line(
+                    iterador=f,
+                    objeto_move_line=account_move_line,
+                    objeto_purchase_order_line=purchase_order_line)            
+
+                # Algoritmo 1 de actualización
+                algoritmo1(iterador=f, objeto1=layer, objeto2=account_move_line)
+
+                f.write(f"\n")
+            # Resumen del producto
+            if layers_con_purchase > 0:
+                productos_con_datos += 1
+            else:
+                productos_sin_datos += 1
+
+            info_resumen_productos(
+                iterador=f,
+                contador1=layers_con_purchase,
+                contador2=layers_sin_purchase,
+                objeto_layer=layers)
+
+            # Log de progreso cada 10 productos
+            if contador_productos % 10 == 0:
+                print(f"Procesados {contador_productos}/{len(lista_productos)} productos...")
+
+        # Escribir resumen final
+        info_resumen_final(
             iterador=f,
-            contador1=layers_con_purchase,
-            contador2=layers_sin_purchase,
-            objeto_layer=layers)
-
-        # Log de progreso cada 10 productos
-        if contador_productos % 10 == 0:
-            print(f"Procesados {contador_productos}/{len(lista_productos)} productos...")
-
-    # Escribir resumen final
-    info_resumen_final(
-        iterador=f,
-        count1=contador_productos,
-        count2=productos_con_datos,
-        count3=productos_sin_datos,
-        count4=total_layers_analizados,
-        enviroment=env)
-
-print(f"\nAnálisis completado!")
-print(f"Resumen:")
-print(f"   - Productos analizados: {contador_productos}")
-print(f"   - Productos con datos completos: {productos_con_datos}")
-print(f"   - Productos sin datos: {productos_sin_datos}")
-print(f"   - Total layers procesados: {total_layers_analizados}")
-print(f"Archivo generado: {direccion2}")
+            count1=contador_productos,
+            count2=productos_con_datos,
+            count3=productos_sin_datos,
+            count4=total_layers_analizados,
+            enviroment=env)
+        print(f"Mes: {mes_str}")
+        print(f"\nAnálisis completado!")
+        print(f"Resumen:")
+        print(f"   - Productos analizados: {contador_productos}")
+        print(f"   - Productos con datos completos: {productos_con_datos}")
+        print(f"   - Productos sin datos: {productos_sin_datos}")
+        print(f"   - Total layers procesados: {total_layers_analizados}")
+        print(f"Archivo generado: {direccion}")

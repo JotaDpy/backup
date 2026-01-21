@@ -1,0 +1,108 @@
+================================================================================
+Mes: january
+
+	Cantidad de casos distintos: 3
+		- "Estaba correcto, pero igual se actualiza": 1944
+		- "USD-PYG ajuste grande (corregido)": 16
+		- "USD-PYG ajuste pequeño (corregido)": 1
+	Suma de todos los casos: 1961
+
+================================================================================
+Mes: february
+
+	Cantidad de casos distintos: 3
+		- "Estaba correcto, pero igual se actualiza": 1725
+		- "USD-PYG ajuste grande (corregido)": 13
+		- "USD-PYG ajuste pequeño (corregido)": 1
+	Suma de todos los casos: 1739
+
+================================================================================
+Mes: march
+
+	Cantidad de casos distintos: 3
+		- "Estaba correcto, pero igual se actualiza": 1981
+		- "USD-PYG ajuste grande (corregido)": 12
+		- "USD-PYG ajuste pequeño (corregido)": 1
+	Suma de todos los casos: 1994
+
+================================================================================
+Mes: april
+
+	Cantidad de casos distintos: 3
+		- "Estaba correcto, pero igual se actualiza": 2137
+		- "USD-PYG ajuste grande (corregido)": 12
+		- "USD-PYG ajuste pequeño (corregido)": 1
+	Suma de todos los casos: 2150
+
+================================================================================
+Mes: may
+
+	Cantidad de casos distintos: 3
+		- "Estaba correcto, pero igual se actualiza": 1943
+		- "USD-PYG ajuste grande (corregido)": 13
+		- "USD-PYG ajuste pequeño (corregido)": 1
+	Suma de todos los casos: 1957
+
+================================================================================
+Mes: june
+
+	Cantidad de casos distintos: 3
+		- "Estaba correcto, pero igual se actualiza": 2074
+		- "USD-PYG ajuste grande (corregido)": 13
+		- "USD-PYG ajuste pequeño (corregido)": 1
+	Suma de todos los casos: 2088
+
+================================================================================
+Mes: july
+
+	Cantidad de casos distintos: 3
+		- "Estaba correcto, pero igual se actualiza": 2130
+		- "USD-PYG ajuste grande (corregido)": 12
+		- "USD-PYG ajuste pequeño (corregido)": 1
+	Suma de todos los casos: 2143
+
+================================================================================
+Mes: august
+
+	Cantidad de casos distintos: 3
+		- "Estaba correcto, pero igual se actualiza": 2149
+		- "USD-PYG ajuste grande (corregido)": 11
+		- "USD-PYG ajuste pequeño (corregido)": 1
+	Suma de todos los casos: 2161
+
+================================================================================
+Mes: september
+
+	Cantidad de casos distintos: 3
+		- "Estaba correcto, pero igual se actualiza": 2043
+		- "USD-PYG ajuste grande (corregido)": 9
+		- "USD-PYG ajuste pequeño (corregido)": 1
+	Suma de todos los casos: 2053
+
+================================================================================
+Mes: october
+
+	Cantidad de casos distintos: 3
+		- "Estaba correcto, pero igual se actualiza": 2234
+		- "USD-PYG ajuste grande (corregido)": 15
+		- "USD-PYG ajuste pequeño (corregido)": 1
+	Suma de todos los casos: 2250
+
+================================================================================
+Mes: november
+
+	Cantidad de casos distintos: 3
+		- "Estaba correcto, pero igual se actualiza": 2152
+		- "USD-PYG ajuste grande (corregido)": 11
+		- "USD-PYG ajuste pequeño (corregido)": 1
+	Suma de todos los casos: 2164
+
+================================================================================
+Mes: december
+
+	Cantidad de casos distintos: 3
+		- "Estaba correcto, pero igual se actualiza": 1997
+		- "USD-PYG ajuste grande (corregido)": 12
+		- "USD-PYG ajuste pequeño (corregido)": 1
+	Suma de todos los casos: 2010
+

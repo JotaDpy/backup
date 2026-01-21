@@ -1,0 +1,590 @@
+======================================================================
+- producto_id: product.product(5323,) | TUBO 51CMX77"X5 E AUTOMATICO 600GR (USADO)
+- producto_tmpl_id: product.template(5420,) | TUBO 51CMX77"X5 E AUTOMATICO 600GR (USADO)
+- valoraciones: 1
+
+    ------------------------------
+    id: 261145
+    create_date: 2026-01-08 15:01:27.983469
+    quantity: 409.0
+
+======================================================================
+- producto_id: product.product(5316,) | BOLSAS CAMISILLAS ROJAS  S/IMPR. 40X50X20
+- producto_tmpl_id: product.template(5413,) | BOLSAS CAMISILLAS ROJAS  S/IMPR. 40X50X20
+- valoraciones: 3
+
+    ------------------------------
+    id: 250677
+    create_date: 2025-12-19 17:18:43.573683
+    quantity: 330.0
+
+    ------------------------------
+    id: 250643
+    create_date: 2025-12-19 12:05:47.735106
+    quantity: -330.0
+
+    ------------------------------
+    id: 250642
+    create_date: 2025-12-19 12:03:51.533442
+    quantity: 330.0
+
+======================================================================
+- producto_id: product.product(5315,) | Cinta Embalar ESTANDAR 168mmx1000mts
+- producto_tmpl_id: product.template(5412,) | Cinta Embalar ESTANDAR 168mmx1000mts
+- valoraciones: 2
+
+    ------------------------------
+    id: 250903
+    create_date: 2025-12-23 14:45:18.346024
+    quantity: -10.0
+
+    ------------------------------
+    id: 250896
+    create_date: 2025-12-23 14:41:34.541311
+    quantity: 10.0
+
+======================================================================
+- producto_id: product.product(5314,) | Cinta Embalar transp. ESTANDAR 132mmX1000mts
+- producto_tmpl_id: product.template(5411,) | Cinta Embalar transp. ESTANDAR 132mmX1000mts
+- valoraciones: 2
+
+    ------------------------------
+    id: 250902
+    create_date: 2025-12-23 14:45:18.346024
+    quantity: -12.0
+
+    ------------------------------
+    id: 250895
+    create_date: 2025-12-23 14:41:34.541311
+    quantity: 12.0
+
+======================================================================
+- producto_id: product.product(5313,) | Cinta Embalar Transp. ESTANDAR 72mmx1000mts
+- producto_tmpl_id: product.template(5410,) | Cinta Embalar Transp. ESTANDAR 72mmx1000mts
+- valoraciones: 2
+
+    ------------------------------
+    id: 250901
+    create_date: 2025-12-23 14:45:18.346024
+    quantity: -20.0
+
+    ------------------------------
+    id: 250894
+    create_date: 2025-12-23 14:41:34.541311
+    quantity: 20.0
+
+======================================================================
+- producto_id: product.product(5312,) | Cinta Embalar Transp. ESTANDAR 6cmx1000Mts
+- producto_tmpl_id: product.template(5409,) | Cinta Embalar Transp. ESTANDAR 6cmx1000Mts
+- valoraciones: 2
+
+    ------------------------------
+    id: 250900
+    create_date: 2025-12-23 14:45:18.346024
+    quantity: -25.0
+
+    ------------------------------
+    id: 250893
+    create_date: 2025-12-23 14:41:34.541311
+    quantity: 25.0
+
+======================================================================
+- producto_id: product.product(5310,) | Film Lamina TC Cristal S/ Imp. 70x70
+- producto_tmpl_id: product.template(5407,) | Film Lamina TC Cristal S/ Imp. 70x70
+- valoraciones: 2
+
+    ------------------------------
+    id: 251062
+    create_date: 2025-12-30 09:59:23.495888
+    quantity: -55.0
+
+    ------------------------------
+    id: 251061
+    create_date: 2025-12-30 09:58:53.535431
+    quantity: 55.0
+
+======================================================================
+- producto_id: product.product(5308,) | Bolsa AD Natl S/ Imp. 59(46)x81x25
+- producto_tmpl_id: product.template(5405,) | Bolsa AD Natl S/ Imp. 59(46)x81x25
+- valoraciones: 5
+
+    ------------------------------
+    id: 250681
+    create_date: 2025-12-19 17:37:47.179486
+    quantity: -5000.0
+
+    ------------------------------
+    id: 250679
+    create_date: 2025-12-19 17:28:34.084655
+    quantity: 5000.0
+
+    ------------------------------
+    id: 250634
+    create_date: 2025-12-19 09:57:41.899360
+    quantity: -5000.0
+
+    ------------------------------
+    id: 250627
+    create_date: 2025-12-19 09:34:38.691656
+    quantity: 2000.0
+
+    ------------------------------
+    id: 250569
+    create_date: 2025-12-18 17:14:54.598174
+    quantity: 3000.0
+
+======================================================================
+- producto_id: product.product(5304,) | Pallets de producción
+- producto_tmpl_id: product.template(5401,) | Pallets de producción
+- valoraciones: 1
+
+    ------------------------------
+    id: 250258
+    create_date: 2025-12-15 15:43:55.461882
+    quantity: 22.0
+
+======================================================================
+- producto_id: product.product(5302,) | Bolsa BD Negra 13x20x80 c/ medio troquel inferior y 2 perforaciones en extremo superior c/ imp c/ imp "METRONOL"
+- producto_tmpl_id: product.template(5398,) | Bolsa BD Negra 13x20x80 c/ medio troquel inferior y 2 perforaciones en extremo superior c/ imp c/ imp "METRONOL"
+- valoraciones: 4
+
+    ------------------------------
+    id: 250914
+    create_date: 2025-12-23 18:44:38.754958
+    quantity: -41500.0
+
+    ------------------------------
+    id: 250911
+    create_date: 2025-12-23 18:42:40.639869
+    quantity: 41500.0
+
+    ------------------------------
+    id: 250781
+    create_date: 2025-12-22 18:25:37.428294
+    quantity: -12000.0
+
+    ------------------------------
+    id: 250779
+    create_date: 2025-12-22 18:24:25.969038
+    quantity: 12000.0
+
+======================================================================
+- producto_id: product.product(5301,) | Bolsa BD Gris 13x20x80 c/ medio troquel inferior y 2 perforaciones en extremo superior c/ imp "LEVLOC"
+- producto_tmpl_id: product.template(5397,) | Bolsa BD Gris 13x20x80 c/ medio troquel inferior y 2 perforaciones en extremo superior c/ imp "LEVLOC"
+- valoraciones: 2
+
+    ------------------------------
+    id: 250913
+    create_date: 2025-12-23 18:44:38.754958
+    quantity: -27000.0
+
+    ------------------------------
+    id: 250912
+    create_date: 2025-12-23 18:43:29.915421
+    quantity: 27000.0
+
+======================================================================
+- producto_id: product.product(5300,) | Bolsa BD Verde 13x20x80 c/ medio troquel inferior y 2 perforaciones en extremo superior c/ imp "CELXIC"
+- producto_tmpl_id: product.template(5396,) | Bolsa BD Verde 13x20x80 c/ medio troquel inferior y 2 perforaciones en extremo superior c/ imp "CELXIC"
+- valoraciones: 4
+
+    ------------------------------
+    id: 261070
+    create_date: 2026-01-07 13:06:51.963723
+    quantity: -30000.0
+
+    ------------------------------
+    id: 261068
+    create_date: 2026-01-07 13:00:23.006607
+    quantity: 30000.0
+
+    ------------------------------
+    id: 250780
+    create_date: 2025-12-22 18:25:37.428294
+    quantity: -43900.0
+
+    ------------------------------
+    id: 250778
+    create_date: 2025-12-22 18:24:25.969038
+    quantity: 43900.0
+
+======================================================================
+- producto_id: product.product(5299,) | Bolsa BD Cristal 19x25x100 s/  Imp
+- producto_tmpl_id: product.template(5395,) | Bolsa BD Cristal 19x25x100 s/  Imp
+- valoraciones: 3
+
+    ------------------------------
+    id: 250327
+    create_date: 2025-12-16 10:02:57.972025
+    quantity: -30000.0
+
+    ------------------------------
+    id: 250326
+    create_date: 2025-12-16 10:01:05.908072
+    quantity: 10000.0
+
+    ------------------------------
+    id: 250132
+    create_date: 2025-12-12 16:45:08.691110
+    quantity: 20000.0
+
+======================================================================
+- producto_id: product.product(5298,) | Bolsa AD Nat. S/ Imp. 57(47)x80x25
+- producto_tmpl_id: product.template(5394,) | Bolsa AD Nat. S/ Imp. 57(47)x80x25
+- valoraciones: 5
+
+    ------------------------------
+    id: 250680
+    create_date: 2025-12-19 17:37:47.179486
+    quantity: -5000.0
+
+    ------------------------------
+    id: 250678
+    create_date: 2025-12-19 17:26:21.243231
+    quantity: 5000.0
+
+    ------------------------------
+    id: 250636
+    create_date: 2025-12-19 10:02:42.144849
+    quantity: -5000.0
+
+    ------------------------------
+    id: 250635
+    create_date: 2025-12-19 10:01:28.057969
+    quantity: 1000.0
+
+    ------------------------------
+    id: 250568
+    create_date: 2025-12-18 17:11:44.618057
+    quantity: 4000.0
+
+======================================================================
+- producto_id: product.product(5297,) | Bolsa PEAD Nat. S/ Imp. 50x60x25
+- producto_tmpl_id: product.template(5393,) | Bolsa PEAD Nat. S/ Imp. 50x60x25
+- valoraciones: 2
+
+    ------------------------------
+    id: 250155
+    create_date: 2025-12-12 18:56:39.585562
+    quantity: -5000.0
+
+    ------------------------------
+    id: 250137
+    create_date: 2025-12-12 17:21:52.960275
+    quantity: 5000.0
+
+======================================================================
+- producto_id: product.product(5296,) | Bolsa Reforz. 200 Lts. Negro 90(70)x105x60
+- producto_tmpl_id: product.template(5392,) | Bolsa Reforz. 200 Lts. Negro 90(70)x105x60
+- valoraciones: 2
+
+    ------------------------------
+    id: 250154
+    create_date: 2025-12-12 18:56:39.585562
+    quantity: -1130.0
+
+    ------------------------------
+    id: 250136
+    create_date: 2025-12-12 17:21:52.960275
+    quantity: 1130.0
+
+======================================================================
+- producto_id: product.product(5295,) | Bolsa BD Cris. S/ Imp. C/ Fuelle Lat. 62(52)x93x30
+- producto_tmpl_id: product.template(5391,) | Bolsa BD Cris. S/ Imp. C/ Fuelle Lat. 62(52)x93x30
+- valoraciones: 2
+
+    ------------------------------
+    id: 249860
+    create_date: 2025-12-10 09:21:19.389548
+    quantity: -10400.0
+
+    ------------------------------
+    id: 249816
+    create_date: 2025-12-09 17:01:32.812775
+    quantity: 10400.0
+
+======================================================================
+- producto_id: product.product(5294,) | Bols. BD Cris. S/ Imp. C/ Fuelle 59(49)x88x30
+- producto_tmpl_id: product.template(5390,) | Bols. BD Cris. S/ Imp. C/ Fuelle 59(49)x88x30
+- valoraciones: 2
+
+    ------------------------------
+    id: 249859
+    create_date: 2025-12-10 09:21:19.389548
+    quantity: -30000.0
+
+    ------------------------------
+    id: 249670
+    create_date: 2025-12-05 17:18:48.123248
+    quantity: 30000.0
+
+======================================================================
+- producto_id: product.product(5293,) | Bols. BD Cris. S/ Imp. C/ Fuelle 57(47)x88x30
+- producto_tmpl_id: product.template(5389,) | Bols. BD Cris. S/ Imp. C/ Fuelle 57(47)x88x30
+- valoraciones: 2
+
+    ------------------------------
+    id: 249533
+    create_date: 2025-12-05 09:28:08.556097
+    quantity: -30000.0
+
+    ------------------------------
+    id: 249532
+    create_date: 2025-12-05 09:26:27.356403
+    quantity: 30000.0
+
+======================================================================
+- producto_id: product.product(5291,) | Bols. BD Cris. S/ Imp. C/ Fuelle 49(39)x80x25
+- producto_tmpl_id: product.template(5387,) | Bols. BD Cris. S/ Imp. C/ Fuelle 49(39)x80x25
+- valoraciones: 2
+
+    ------------------------------
+    id: 249857
+    create_date: 2025-12-10 09:21:19.389548
+    quantity: -20000.0
+
+    ------------------------------
+    id: 249817
+    create_date: 2025-12-09 17:03:36.673983
+    quantity: 20000.0
+
+======================================================================
+- producto_id: product.product(5290,) | Bolsa BD Cris. S/ Imp. C/ Fuelle 42(32)x70x20
+- producto_tmpl_id: product.template(5386,) | Bolsa BD Cris. S/ Imp. C/ Fuelle 42(32)x70x20
+- valoraciones: 2
+
+    ------------------------------
+    id: 250029
+    create_date: 2025-12-12 09:51:40.868347
+    quantity: -24900.0
+
+    ------------------------------
+    id: 249883
+    create_date: 2025-12-10 12:49:00.080148
+    quantity: 24900.0
+
+======================================================================
+- producto_id: product.product(5288,) | Cinta Emb. transp. ECO 84mmX1000mts.
+- producto_tmpl_id: product.template(5384,) | Cinta Emb. transp. ECO 84mmX1000mts.
+- valoraciones: 2
+
+    ------------------------------
+    id: 249644
+    create_date: 2025-12-05 13:33:51.774067
+    quantity: -15.0
+
+    ------------------------------
+    id: 249638
+    create_date: 2025-12-05 13:32:08.097685
+    quantity: 15.0
+
+======================================================================
+- producto_id: product.product(5287,) | BOLSA BD TELA ROJA S/IMPRESION 65X95X50
+- producto_tmpl_id: product.template(5383,) | BOLSA BD TELA ROJA S/IMPRESION 65X95X50
+- valoraciones: 3
+
+    ------------------------------
+    id: 249756
+    create_date: 2025-12-09 09:45:07.984863
+    quantity: -5400.0
+
+    ------------------------------
+    id: 249755
+    create_date: 2025-12-09 09:44:22.846022
+    quantity: 400.0
+
+    ------------------------------
+    id: 249506
+    create_date: 2025-12-04 13:01:27.730382
+    quantity: 5000.0
+
+======================================================================
+- producto_id: product.product(5286,) | BOLSA BD TELA AZUL S/IMPRESION 65x95X50
+- producto_tmpl_id: product.template(5382,) | BOLSA BD TELA AZUL S/IMPRESION 65x95X50
+- valoraciones: 3
+
+    ------------------------------
+    id: 251153
+    create_date: 2025-12-31 13:14:27.120235
+    quantity: 5000.0
+
+    ------------------------------
+    id: 249119
+    create_date: 2025-12-01 10:05:58.276669
+    quantity: -5400.0
+
+    ------------------------------
+    id: 249109
+    create_date: 2025-12-01 09:16:25.157728
+    quantity: 5400.0
+
+======================================================================
+- producto_id: product.product(5285,) | Bolsa BD Cris. S/ Imp. C/ Fuelle Lat. 42(32)x70x30
+- producto_tmpl_id: product.template(5380,) | Bolsa BD Cris. S/ Imp. C/ Fuelle Lat. 42(32)x70x30
+- valoraciones: 2
+
+    ------------------------------
+    id: 249052
+    create_date: 2025-11-28 09:42:45.169232
+    quantity: -10500.0
+
+    ------------------------------
+    id: 249007
+    create_date: 2025-11-27 17:15:02.191688
+    quantity: 10500.0
+
+======================================================================
+- producto_id: product.product(5284,) | BOLSA BD T/BLANCA IMPR 1 CARA UREA AGRICOLA 1KL 20X30X80
+- producto_tmpl_id: product.template(5379,) | BOLSA BD T/BLANCA IMPR 1 CARA UREA AGRICOLA 1KL 20X30X80
+- valoraciones: 2
+
+    ------------------------------
+    id: 250924
+    create_date: 2025-12-23 19:00:09.163118
+    quantity: -10680.0
+
+    ------------------------------
+    id: 250923
+    create_date: 2025-12-23 18:58:28.839077
+    quantity: 10680.0
+
+======================================================================
+- producto_id: product.product(5282,) | Rollo Semi-lam. Cristal TC S/ Imp. 43x70
+- producto_tmpl_id: product.template(5377,) | Rollo Semi-lam. Cristal TC S/ Imp. 43x70
+- valoraciones: 2
+
+    ------------------------------
+    id: 248821
+    create_date: 2025-11-25 17:25:19.643700
+    quantity: -202.0
+
+    ------------------------------
+    id: 248804
+    create_date: 2025-11-25 12:44:57.687395
+    quantity: 202.0
+
+======================================================================
+- producto_id: product.product(5281,) | Bolsa BD Cris. S/ Imp. 30x40x70
+- producto_tmpl_id: product.template(5376,) | Bolsa BD Cris. S/ Imp. 30x40x70
+- valoraciones: 2
+
+    ------------------------------
+    id: 248927
+    create_date: 2025-11-26 19:08:20.786452
+    quantity: -7200.0
+
+    ------------------------------
+    id: 248900
+    create_date: 2025-11-26 16:42:42.379287
+    quantity: 7200.0
+
+======================================================================
+- producto_id: product.product(5280,) | Bolsa BD Cris. S/ Imp. 35x50x70
+- producto_tmpl_id: product.template(5375,) | Bolsa BD Cris. S/ Imp. 35x50x70
+- valoraciones: 2
+
+    ------------------------------
+    id: 248928
+    create_date: 2025-11-26 19:10:50.855509
+    quantity: -5600.0
+
+    ------------------------------
+    id: 248899
+    create_date: 2025-11-26 16:41:54.405516
+    quantity: 5600.0
+
+======================================================================
+- producto_id: product.product(5279,) | Bolsa BD Cristal S/ Imp. 40x60x70
+- producto_tmpl_id: product.template(5374,) | Bolsa BD Cristal S/ Imp. 40x60x70
+- valoraciones: 2
+
+    ------------------------------
+    id: 249078
+    create_date: 2025-11-28 10:23:11.696630
+    quantity: -4600.0
+
+    ------------------------------
+    id: 249006
+    create_date: 2025-11-27 17:10:24.689621
+    quantity: 4600.0
+
+======================================================================
+- producto_id: product.product(5278,) | Film Stretch Manual 50x27x5 Kg. Neto
+- producto_tmpl_id: product.template(5373,) | Film Stretch Manual 50x27x5 Kg. Neto
+- valoraciones: 5
+
+    ------------------------------
+    id: 251300
+    create_date: 2026-01-02 11:38:14.889313
+    quantity: 5.0
+
+    ------------------------------
+    id: 251299
+    create_date: 2026-01-02 11:37:57.714201
+    quantity: -10.0
+
+    ------------------------------
+    id: 251298
+    create_date: 2026-01-02 11:37:51.040931
+    quantity: 8010.0
+
+    ------------------------------
+    id: 250023
+    create_date: 2025-12-11 19:42:54.123083
+    quantity: -3700.0
+
+    ------------------------------
+    id: 249527
+    create_date: 2025-12-04 19:18:46.068549
+    quantity: -4300.0
+
+======================================================================
+- producto_id: product.product(5277,) | Bolsa BD Cris. S/ Imp. C/ Fuelle Lat. 50(38)x68x30
+- producto_tmpl_id: product.template(5370,) | Bolsa BD Cris. S/ Imp. C/ Fuelle Lat. 50(38)x68x30
+- valoraciones: 2
+
+    ------------------------------
+    id: 248797
+    create_date: 2025-11-25 09:59:18.400985
+    quantity: -10800.0
+
+    ------------------------------
+    id: 248785
+    create_date: 2025-11-25 09:29:24.718756
+    quantity: 10800.0
+
+======================================================================
+- producto_id: product.product(5273,) | BOLSA PP CRISTAL 50X60X30 S/ IMP.
+- producto_tmpl_id: product.template(5366,) | BOLSA PP CRISTAL 50X60X30 S/ IMP.
+- valoraciones: 3
+
+    ------------------------------
+    id: 248495
+    create_date: 2025-11-21 09:56:19.261250
+    quantity: -11300.0
+
+    ------------------------------
+    id: 248493
+    create_date: 2025-11-21 09:54:59.957713
+    quantity: 10000.0
+
+    ------------------------------
+    id: 248494
+    create_date: 2025-11-21 09:54:59.957713
+    quantity: 1300.0
+
+======================================================================
+- producto_id: product.product(5272,) | Bols. Cam. Blan. S/ Imp. 60x80x20 (Pq. 70 unid.)
+- producto_tmpl_id: product.template(5365,) | Bols. Cam. Blan. S/ Imp. 60x80x20 (Pq. 70 unid.)
+- valoraciones: 2
+
+    ------------------------------
+    id: 248374
+    create_date: 2025-11-19 18:53:01.164159
+    quantity: -3.0
+
+    ------------------------------
+    id: 248373
+    create_date: 2025-11-19 18:51:10.767519
+    quantity: 40.0
+
