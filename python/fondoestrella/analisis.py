@@ -1,28 +1,20 @@
-from os import sep
+from collections import Counter
 
-direccion = '/home/jose/Documentos/clientes/15FONDOESTRELLA/backup/python/valoracion/actualizacion_layers.yaml'
-casos = []
+direccion = '/home/jose/Documentos/clientes/15FONDOESTRELLA/clean_valuation/python/valoracion/actualizacion_layers.yaml'
 
-# with open(direccion, 'r', encoding='utf-8') as f:
-#     for linea in f:
-#         linea = linea.strip()
-#         if linea and "correction_type: " in linea:
-#         	try:
-#         		casos.append(linea.split("correction_type: ")[-1])
-#         	except ValueError as error:
-#         		print(casos.append(f"ERROR: {error}"))
+patron = "correction_type:"
+casos = Counter()
 
-patron = "total_layers: "
 with open(direccion, 'r', encoding='utf-8') as f:
     for linea in f:
         linea = linea.strip()
-        if linea and patron in linea:
-            try:
-                casos.append(int(linea.split(patron)[-1]))
-            except ValueError as error:
-                print(casos.append(f"ERROR: {error}"))
+        if linea.startswith(patron):
+            valor = linea.replace(patron, "").strip().strip('"')
+            casos[valor] += 1
 
-casos_unicos = sorted(list(set(casos)))
+print(f'Cantidad de casos distintos: {len(casos)}\n')
 
-print(f'Cantidad de casos: {len(casos_unicos)}')
-print(casos_unicos)
+for key, value in casos.items():
+    print(f'"{key}": {value}')
+
+print(f'Suma de todos los casos: {sum(casos.values())}')

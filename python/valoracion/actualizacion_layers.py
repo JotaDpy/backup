@@ -1,4 +1,4 @@
-# exec(open('/home/jose/Documentos/clientes/15FONDOESTRELLA/backup/python/valoracion/actualizacion_layers.py').read())
+# exec(open('/home/jose/Documentos/clientes/15FONDOESTRELLA/clean_valuation/python/valoracion/actualizacion_layers.py').read())
 # Configuración para reconocimiento de Odoo en VS Code
 # pylint: disable=undefined-variable
 # pyright: reportUndefinedVariable=false
@@ -7,7 +7,7 @@ from datetime import datetime, date
 import re
 
 direccion = '/home/jose/Documentos/clientes/15FONDOESTRELLA/backup/python/valoracion/analisis_jota.csv'
-direccion2 = '/home/jose/Documentos/clientes/15FONDOESTRELLA/backup/python/valoracion/actualizacion_layers.yaml'
+direccion2 = '/home/jose/Documentos/clientes/15FONDOESTRELLA/clean_valuation/python/valoracion/actualizacion_layers.yaml'
 
 
 def format_num(numero):
@@ -356,7 +356,8 @@ Este algoritmo se aplica a todos los registros de **Stock Valuation Layer** que 
 
 # Análisis masivo de productos de febrero
 layer_febrero = env['stock.valuation.layer'].search([
-    ('create_date', '>=', '2025-02-01')
+    ('create_date', '>=', '2024-10-01'),
+    ('create_date', '<=', '2024-10-31'),
 ])
 lista_productos = list(set(layer_febrero.product_id.ids))  # Eliminar duplicados
 # lista_productos = [367]
@@ -487,7 +488,7 @@ with open(direccion2, 'w') as f:
 print(f"\nAnálisis completado!")
 print(f"Resumen:")
 print(f"   - Productos analizados: {contador_productos}")
-print(f"   - Total layers procesados: {total_layers_analizados}")
 print(f"   - Productos con datos completos: {productos_con_datos}")
 print(f"   - Productos sin datos: {productos_sin_datos}")
+print(f"   - Total layers procesados: {total_layers_analizados}")
 print(f"Archivo generado: {direccion2}")
