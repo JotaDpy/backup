@@ -1,19 +1,19 @@
 -- Para saber quien apunta a cierta tabla
-    SELECT
-        conname AS nombre_restriccion,
-        conrelid::regclass AS tabla_origen,
-        a.attname AS columna_origen,
-        confrelid::regclass AS tabla_destino,
-        af.attname AS columna_destino
-    FROM
-        pg_constraint c
-    JOIN
-        pg_attribute a ON a.attnum = ANY(c.conkey) AND a.attrelid = c.conrelid
-    JOIN
-        pg_attribute af ON af.attnum = ANY(c.confkey) AND af.attrelid = c.confrelid
-    WHERE
-        c.contype = 'f'
-        AND confrelid::regclass::text = 'account_account';
+SELECT
+    conname AS nombre_restriccion,
+    conrelid::regclass AS tabla_origen,
+    a.attname AS columna_origen,
+    confrelid::regclass AS tabla_destino,
+    af.attname AS columna_destino
+FROM
+    pg_constraint c
+JOIN
+    pg_attribute a ON a.attnum = ANY(c.conkey) AND a.attrelid = c.conrelid
+JOIN
+    pg_attribute af ON af.attnum = ANY(c.confkey) AND af.attrelid = c.confrelid
+WHERE
+    c.contype = 'f'
+    AND confrelid::regclass::text = 'product_pricelist';
 
 -- Para saber en que tabla se encuentra dicho campo
 SELECT
@@ -23,7 +23,7 @@ SELECT
 FROM
     information_schema.columns
 WHERE
-    column_name = 'property_account_income_id';
+    column_name = 'price_list';
 
 -- Sensible a mayúsculas y minúsculas (case-sensitive).
 SELECT * FROM tu_tabla

@@ -1,0 +1,814 @@
+2026-01-19 18:58:58,023 392906 DEBUG ? odoo.netsvc: logger level set: "odoo.http.rpc.request:INFO" 
+2026-01-19 18:58:58,023 392906 DEBUG ? odoo.netsvc: logger level set: "odoo.http.rpc.response:INFO" 
+2026-01-19 18:58:58,023 392906 DEBUG ? odoo.netsvc: logger level set: ":INFO" 
+2026-01-19 18:58:58,023 392906 DEBUG ? odoo.netsvc: logger level set: "odoo:DEBUG" 
+2026-01-19 18:58:58,023 392906 DEBUG ? odoo.netsvc: logger level set: "odoo.sql_db:INFO" 
+2026-01-19 18:58:58,023 392906 DEBUG ? odoo.netsvc: logger level set: ":DEBUG" 
+2026-01-19 18:58:58,023 392906 DEBUG ? odoo.netsvc: logger level set: "odoo.sql_db:INFO" 
+2026-01-19 18:58:58,023 392906 DEBUG ? odoo.netsvc: logger level set: "werkzeug:INFO" 
+2026-01-19 18:58:58,023 392906 INFO ? odoo: Odoo version 15.0 
+2026-01-19 18:58:58,023 392906 INFO ? odoo: Using configuration file at /home/jose/Documentos/clientes/15FONDOESTRELLA/conf/odoo.conf 
+2026-01-19 18:58:58,023 392906 INFO ? odoo: addons paths: ['/home/jose/Documentos/core/15.0/odoo/odoo/addons', '/home/jose/.local/share/Odoo/addons/15.0', '/home/jose/Documentos/core/15.0/odoo/addons', '/home/jose/Documentos/core/15.0/enterprise', '/home/jose/Documentos/clientes/15FONDOESTRELLA/fondoestrella', '/home/jose/Documentos/core/15.0/gcaceres93/account_payment', '/home/jose/Documentos/core/15.0/gcaceres93/accounting_reports_paraguay', '/home/jose/Documentos/core/15.0/gcaceres93/facturacion_electronica', '/home/jose/Documentos/core/15.0/gcaceres93/hr_paraguay', '/home/jose/Documentos/core/15.0/gcaceres93/odoo_paraguay', '/home/jose/Documentos/core/15.0/gcaceres93/tesaka', '/home/jose/Documentos/core/15.0/OCA/account-financial-reporting', '/home/jose/Documentos/core/15.0/OCA/operating-unit', '/home/jose/Documentos/core/15.0/OCA/reporting-engine', '/home/jose/Documentos/core/15.0/OCA/server-ux'] 
+2026-01-19 18:58:58,023 392906 INFO ? odoo: database: admin@127.0.0.1:5432 
+2026-01-19 18:58:58,111 392906 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltopdf binary at /usr/local/bin/wkhtmltopdf 
+2026-01-19 18:58:58,274 392906 DEBUG ? odoo.service.server: Setting signal handlers 
+2026-01-19 18:58:58,275 392906 INFO ? odoo.service.server: Initiating shutdown 
+2026-01-19 18:58:58,275 392906 INFO ? odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2026-01-19 18:58:58,275 392906 DEBUG ? odoo.service.server: current thread: <_MainThread(MainThread, started 131363289866368)> 
+2026-01-19 18:58:58,275 392906 DEBUG ? odoo.service.server: process <_MainThread(MainThread, started 131363289866368)> (False) 
+2026-01-19 18:58:58,275 392906 DEBUG ? odoo.service.server: -- 
+2026-01-19 18:58:58,316 392906 DEBUG ? odoo.modules.registry: Multiprocess load registry signaling: [Registry: 507] [Cache: 93995] 
+2026-01-19 18:58:58,328 392906 INFO fondoestrella odoo.modules.loading: loading 1 modules... 
+2026-01-19 18:58:58,328 392906 DEBUG fondoestrella odoo.modules.loading: Loading module base (1/1) 
+2026-01-19 18:58:58,335 392906 DEBUG fondoestrella odoo.modules.loading: Module base loaded in 0.01s, 0 queries 
+2026-01-19 18:58:58,335 392906 INFO fondoestrella odoo.modules.loading: 1 modules loaded in 0.01s, 0 queries (+0 extra) 
+2026-01-19 18:58:58,340 392906 DEBUG fondoestrella odoo.modules.module: module customer_activity_statement: no manifest file found ('__manifest__.py', '__openerp__.py') 
+2026-01-19 18:58:58,340 392906 WARNING fondoestrella odoo.modules.graph: module customer_activity_statement: not installable, skipped 
+2026-01-19 18:58:58,341 392906 DEBUG fondoestrella odoo.modules.module: module factura_rapidsoft: no manifest file found ('__manifest__.py', '__openerp__.py') 
+2026-01-19 18:58:58,341 392906 WARNING fondoestrella odoo.modules.graph: module factura_rapidsoft: not installable, skipped 
+2026-01-19 18:58:58,341 392906 DEBUG fondoestrella odoo.modules.module: module web_decimal_numpad_dot: no manifest file found ('__manifest__.py', '__openerp__.py') 
+2026-01-19 18:58:58,341 392906 WARNING fondoestrella odoo.modules.graph: module web_decimal_numpad_dot: not installable, skipped 
+2026-01-19 18:58:58,342 392906 DEBUG fondoestrella odoo.modules.module: module stock_inventory_chatter: no manifest file found ('__manifest__.py', '__openerp__.py') 
+2026-01-19 18:58:58,342 392906 WARNING fondoestrella odoo.modules.graph: module stock_inventory_chatter: not installable, skipped 
+2026-01-19 18:58:58,444 392906 DEBUG fondoestrella odoo.modules.module: module web_export_view: no manifest file found ('__manifest__.py', '__openerp__.py') 
+2026-01-19 18:58:58,444 392906 WARNING fondoestrella odoo.modules.graph: module web_export_view: not installable, skipped 
+2026-01-19 18:58:58,455 392906 DEBUG fondoestrella odoo.modules.module: module account_financial_report_date_range: no manifest file found ('__manifest__.py', '__openerp__.py') 
+2026-01-19 18:58:58,455 392906 WARNING fondoestrella odoo.modules.graph: module account_financial_report_date_range: not installable, skipped 
+2026-01-19 18:58:58,459 392906 DEBUG fondoestrella odoo.modules.module: module product_pricelist_direct_print: no manifest file found ('__manifest__.py', '__openerp__.py') 
+2026-01-19 18:58:58,459 392906 WARNING fondoestrella odoo.modules.graph: module product_pricelist_direct_print: not installable, skipped 
+2026-01-19 18:58:58,502 392906 DEBUG fondoestrella odoo.modules.module: module auditlog: no manifest file found ('__manifest__.py', '__openerp__.py') 
+2026-01-19 18:58:58,503 392906 WARNING fondoestrella odoo.modules.graph: module auditlog: not installable, skipped 
+2026-01-19 18:58:58,503 392906 DEBUG fondoestrella odoo.modules.module: module web_m2x_options: no manifest file found ('__manifest__.py', '__openerp__.py') 
+2026-01-19 18:58:58,503 392906 WARNING fondoestrella odoo.modules.graph: module web_m2x_options: not installable, skipped 
+2026-01-19 18:58:58,504 392906 DEBUG fondoestrella odoo.modules.module: module libros_iva_paraguay: no manifest file found ('__manifest__.py', '__openerp__.py') 
+2026-01-19 18:58:58,504 392906 WARNING fondoestrella odoo.modules.graph: module libros_iva_paraguay: not installable, skipped 
+2026-01-19 18:58:58,516 392906 DEBUG fondoestrella odoo.modules.module: module fondo_estrella: no manifest file found ('__manifest__.py', '__openerp__.py') 
+2026-01-19 18:58:58,516 392906 WARNING fondoestrella odoo.modules.graph: module fondo_estrella: not installable, skipped 
+2026-01-19 18:58:58,522 392906 DEBUG fondoestrella odoo.modules.loading: Updating graph with 191 more modules 
+2026-01-19 18:58:58,522 392906 INFO fondoestrella odoo.modules.loading: loading 181 modules... 
+2026-01-19 18:58:58,522 392906 DEBUG fondoestrella odoo.modules.loading: Loading module auto_backup (2/181) 
+2026-01-19 18:58:58,549 392906 DEBUG fondoestrella odoo.modules.loading: Module auto_backup loaded in 0.03s, 0 queries 
+2026-01-19 18:58:58,549 392906 DEBUG fondoestrella odoo.modules.loading: Loading module l10n_py_toponyms (3/181) 
+2026-01-19 18:58:58,550 392906 DEBUG fondoestrella odoo.modules.loading: Module l10n_py_toponyms loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,550 392906 DEBUG fondoestrella odoo.modules.loading: Loading module partner_ruc (4/181) 
+2026-01-19 18:58:58,552 392906 DEBUG fondoestrella odoo.modules.loading: Module partner_ruc loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,552 392906 DEBUG fondoestrella odoo.modules.loading: Loading module uom (5/181) 
+2026-01-19 18:58:58,554 392906 DEBUG fondoestrella odoo.modules.loading: Module uom loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,554 392906 DEBUG fondoestrella odoo.modules.loading: Loading module web (6/181) 
+2026-01-19 18:58:58,555 392906 DEBUG fondoestrella odoo.modules.loading: Module web loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,556 392906 DEBUG fondoestrella odoo.modules.loading: Loading module auth_totp (7/181) 
+2026-01-19 18:58:58,563 392906 DEBUG fondoestrella odoo.modules.loading: Module auth_totp loaded in 0.01s, 0 queries 
+2026-01-19 18:58:58,563 392906 DEBUG fondoestrella odoo.modules.loading: Loading module barcodes (8/181) 
+2026-01-19 18:58:58,566 392906 DEBUG fondoestrella odoo.modules.loading: Module barcodes loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,566 392906 DEBUG fondoestrella odoo.modules.loading: Loading module base_import (9/181) 
+2026-01-19 18:58:58,642 392906 DEBUG fondoestrella odoo.modules.loading: Module base_import loaded in 0.08s, 0 queries 
+2026-01-19 18:58:58,642 392906 DEBUG fondoestrella odoo.modules.loading: Loading module base_setup (10/181) 
+2026-01-19 18:58:58,644 392906 DEBUG fondoestrella odoo.modules.loading: Module base_setup loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,644 392906 DEBUG fondoestrella odoo.modules.loading: Loading module board (11/181) 
+2026-01-19 18:58:58,646 392906 DEBUG fondoestrella odoo.modules.loading: Module board loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,646 392906 DEBUG fondoestrella odoo.modules.loading: Loading module bus (12/181) 
+2026-01-19 18:58:58,648 392906 DEBUG fondoestrella odoo.modules.loading: Module bus loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,648 392906 DEBUG fondoestrella odoo.modules.loading: Loading module date_range (13/181) 
+2026-01-19 18:58:58,654 392906 DEBUG fondoestrella odoo.modules.loading: Module date_range loaded in 0.01s, 0 queries 
+2026-01-19 18:58:58,655 392906 DEBUG fondoestrella odoo.modules.loading: Loading module http_routing (14/181) 
+2026-01-19 18:58:58,658 392906 DEBUG fondoestrella odoo.modules.loading: Module http_routing loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,658 392906 DEBUG fondoestrella odoo.modules.loading: Loading module report_xlsx (15/181) 
+2026-01-19 18:58:58,665 392906 DEBUG fondoestrella odoo.modules.loading: Module report_xlsx loaded in 0.01s, 0 queries 
+2026-01-19 18:58:58,665 392906 DEBUG fondoestrella odoo.modules.loading: Loading module resource (16/181) 
+2026-01-19 18:58:58,676 392906 DEBUG fondoestrella odoo.modules.loading: Module resource loaded in 0.01s, 0 queries 
+2026-01-19 18:58:58,676 392906 DEBUG fondoestrella odoo.modules.loading: Loading module utm (17/181) 
+2026-01-19 18:58:58,679 392906 DEBUG fondoestrella odoo.modules.loading: Module utm loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,679 392906 DEBUG fondoestrella odoo.modules.loading: Loading module web_cohort (18/181) 
+2026-01-19 18:58:58,684 392906 DEBUG fondoestrella odoo.modules.loading: Module web_cohort loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,684 392906 DEBUG fondoestrella odoo.modules.loading: Loading module web_dashboard (19/181) 
+2026-01-19 18:58:58,688 392906 DEBUG fondoestrella odoo.modules.loading: Module web_dashboard loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,688 392906 DEBUG fondoestrella odoo.modules.loading: Loading module web_domain_field (20/181) 
+2026-01-19 18:58:58,689 392906 DEBUG fondoestrella odoo.modules.loading: Module web_domain_field loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,689 392906 DEBUG fondoestrella odoo.modules.loading: Loading module web_editor (21/181) 
+2026-01-19 18:58:58,703 392906 DEBUG fondoestrella odoo.modules.loading: Module web_editor loaded in 0.01s, 0 queries 
+2026-01-19 18:58:58,704 392906 DEBUG fondoestrella odoo.modules.loading: Loading module web_enterprise (22/181) 
+2026-01-19 18:58:58,709 392906 DEBUG fondoestrella odoo.modules.loading: Module web_enterprise loaded in 0.01s, 0 queries 
+2026-01-19 18:58:58,709 392906 DEBUG fondoestrella odoo.modules.loading: Loading module web_gantt (23/181) 
+2026-01-19 18:58:58,711 392906 DEBUG fondoestrella odoo.modules.loading: Module web_gantt loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,711 392906 DEBUG fondoestrella odoo.modules.loading: Loading module web_grid (24/181) 
+2026-01-19 18:58:58,714 392906 DEBUG fondoestrella odoo.modules.loading: Module web_grid loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,714 392906 DEBUG fondoestrella odoo.modules.loading: Loading module web_kanban_gauge (25/181) 
+2026-01-19 18:58:58,715 392906 DEBUG fondoestrella odoo.modules.loading: Module web_kanban_gauge loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,715 392906 DEBUG fondoestrella odoo.modules.loading: Loading module web_tour (26/181) 
+2026-01-19 18:58:58,716 392906 DEBUG fondoestrella odoo.modules.loading: Module web_tour loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,716 392906 DEBUG fondoestrella odoo.modules.loading: Loading module google_recaptcha (27/181) 
+2026-01-19 18:58:58,717 392906 DEBUG fondoestrella odoo.modules.loading: Module google_recaptcha loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,717 392906 DEBUG fondoestrella odoo.modules.loading: Loading module iap (28/181) 
+2026-01-19 18:58:58,719 392906 DEBUG fondoestrella odoo.modules.loading: Module iap loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,719 392906 DEBUG fondoestrella odoo.modules.loading: Loading module mail (29/181) 
+2026-01-19 18:58:58,743 392906 DEBUG fondoestrella odoo.modules.loading: Module mail loaded in 0.02s, 0 queries 
+2026-01-19 18:58:58,743 392906 DEBUG fondoestrella odoo.modules.loading: Loading module report_xlsx_helper (30/181) 
+2026-01-19 18:58:58,747 392906 DEBUG fondoestrella odoo.modules.loading: Module report_xlsx_helper loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,747 392906 DEBUG fondoestrella odoo.modules.loading: Loading module web_map (31/181) 
+2026-01-19 18:58:58,750 392906 DEBUG fondoestrella odoo.modules.loading: Module web_map loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,751 392906 DEBUG fondoestrella odoo.modules.loading: Loading module web_mobile (32/181) 
+2026-01-19 18:58:58,751 392906 DEBUG fondoestrella odoo.modules.loading: Module web_mobile loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,751 392906 DEBUG fondoestrella odoo.modules.loading: Loading module web_unsplash (33/181) 
+2026-01-19 18:58:58,753 392906 DEBUG fondoestrella odoo.modules.loading: Module web_unsplash loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,753 392906 DEBUG fondoestrella odoo.modules.loading: Loading module analytic (34/181) 
+2026-01-19 18:58:58,755 392906 DEBUG fondoestrella odoo.modules.loading: Module analytic loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,755 392906 DEBUG fondoestrella odoo.modules.loading: Loading module auth_signup (35/181) 
+2026-01-19 18:58:58,757 392906 DEBUG fondoestrella odoo.modules.loading: Module auth_signup loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,757 392906 DEBUG fondoestrella odoo.modules.loading: Loading module auth_totp_mail (36/181) 
+2026-01-19 18:58:58,758 392906 DEBUG fondoestrella odoo.modules.loading: Module auth_totp_mail loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,758 392906 DEBUG fondoestrella odoo.modules.loading: Loading module barcodes_mobile (37/181) 
+2026-01-19 18:58:58,758 392906 DEBUG fondoestrella odoo.modules.loading: Module barcodes_mobile loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,758 392906 DEBUG fondoestrella odoo.modules.loading: Loading module calendar (38/181) 
+2026-01-19 18:58:58,765 392906 DEBUG fondoestrella odoo.modules.loading: Module calendar loaded in 0.01s, 0 queries 
+2026-01-19 18:58:58,765 392906 DEBUG fondoestrella odoo.modules.loading: Loading module contacts (39/181) 
+2026-01-19 18:58:58,766 392906 DEBUG fondoestrella odoo.modules.loading: Module contacts loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,766 392906 DEBUG fondoestrella odoo.modules.loading: Loading module fetchmail (40/181) 
+2026-01-19 18:58:58,769 392906 DEBUG fondoestrella odoo.modules.loading: Module fetchmail loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,769 392906 DEBUG fondoestrella odoo.modules.loading: Loading module fleet (41/181) 
+2026-01-19 18:58:58,775 392906 DEBUG fondoestrella odoo.modules.loading: Module fleet loaded in 0.01s, 0 queries 
+2026-01-19 18:58:58,775 392906 DEBUG fondoestrella odoo.modules.loading: Loading module hr (42/181) 
+2026-01-19 18:58:58,784 392906 DEBUG fondoestrella odoo.modules.loading: Module hr loaded in 0.01s, 0 queries 
+2026-01-19 18:58:58,784 392906 DEBUG fondoestrella odoo.modules.loading: Loading module iap_mail (43/181) 
+2026-01-19 18:58:58,784 392906 DEBUG fondoestrella odoo.modules.loading: Module iap_mail loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,785 392906 DEBUG fondoestrella odoo.modules.loading: Loading module mail_bot (44/181) 
+2026-01-19 18:58:58,786 392906 DEBUG fondoestrella odoo.modules.loading: Module mail_bot loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,786 392906 DEBUG fondoestrella odoo.modules.loading: Loading module mail_enterprise (45/181) 
+2026-01-19 18:58:58,787 392906 DEBUG fondoestrella odoo.modules.loading: Module mail_enterprise loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,787 392906 DEBUG fondoestrella odoo.modules.loading: Loading module maintenance (46/181) 
+2026-01-19 18:58:58,791 392906 DEBUG fondoestrella odoo.modules.loading: Module maintenance loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,791 392906 DEBUG fondoestrella odoo.modules.loading: Loading module phone_validation (47/181) 
+2026-01-19 18:58:58,796 392906 DEBUG fondoestrella odoo.modules.loading: Module phone_validation loaded in 0.01s, 0 queries 
+2026-01-19 18:58:58,797 392906 DEBUG fondoestrella odoo.modules.loading: Loading module product (48/181) 
+2026-01-19 18:58:58,867 392906 DEBUG fondoestrella odoo.modules.loading: Module product loaded in 0.07s, 0 queries 
+2026-01-19 18:58:58,867 392906 DEBUG fondoestrella odoo.modules.loading: Loading module sales_team (49/181) 
+2026-01-19 18:58:58,870 392906 DEBUG fondoestrella odoo.modules.loading: Module sales_team loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,870 392906 DEBUG fondoestrella odoo.modules.loading: Loading module contacts_enterprise (50/181) 
+2026-01-19 18:58:58,871 392906 DEBUG fondoestrella odoo.modules.loading: Module contacts_enterprise loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,871 392906 DEBUG fondoestrella odoo.modules.loading: Loading module fleet_dashboard (51/181) 
+2026-01-19 18:58:58,871 392906 DEBUG fondoestrella odoo.modules.loading: Module fleet_dashboard loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,871 392906 DEBUG fondoestrella odoo.modules.loading: Loading module hr_attendance (52/181) 
+2026-01-19 18:58:58,875 392906 DEBUG fondoestrella odoo.modules.loading: Module hr_attendance loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,875 392906 DEBUG fondoestrella odoo.modules.loading: Loading module hr_contract (53/181) 
+2026-01-19 18:58:58,879 392906 DEBUG fondoestrella odoo.modules.loading: Module hr_contract loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,879 392906 DEBUG fondoestrella odoo.modules.loading: Loading module hr_fleet (54/181) 
+2026-01-19 18:58:58,882 392906 DEBUG fondoestrella odoo.modules.loading: Module hr_fleet loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,882 392906 DEBUG fondoestrella odoo.modules.loading: Loading module hr_gantt (55/181) 
+2026-01-19 18:58:58,882 392906 DEBUG fondoestrella odoo.modules.loading: Module hr_gantt loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,882 392906 DEBUG fondoestrella odoo.modules.loading: Loading module hr_holidays (56/181) 
+2026-01-19 18:58:58,891 392906 DEBUG fondoestrella odoo.modules.loading: Module hr_holidays loaded in 0.01s, 0 queries 
+2026-01-19 18:58:58,891 392906 DEBUG fondoestrella odoo.modules.loading: Loading module hr_maintenance (57/181) 
+2026-01-19 18:58:58,893 392906 DEBUG fondoestrella odoo.modules.loading: Module hr_maintenance loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,893 392906 DEBUG fondoestrella odoo.modules.loading: Loading module hr_mobile (58/181) 
+2026-01-19 18:58:58,894 392906 DEBUG fondoestrella odoo.modules.loading: Module hr_mobile loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,894 392906 DEBUG fondoestrella odoo.modules.loading: Loading module hr_work_entry (59/181) 
+2026-01-19 18:58:58,896 392906 DEBUG fondoestrella odoo.modules.loading: Module hr_work_entry loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,896 392906 DEBUG fondoestrella odoo.modules.loading: Loading module mail_bot_hr (60/181) 
+2026-01-19 18:58:58,896 392906 DEBUG fondoestrella odoo.modules.loading: Module mail_bot_hr loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,896 392906 DEBUG fondoestrella odoo.modules.loading: Loading module mail_mobile (61/181) 
+2026-01-19 18:58:58,898 392906 DEBUG fondoestrella odoo.modules.loading: Module mail_mobile loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,898 392906 DEBUG fondoestrella odoo.modules.loading: Loading module partner_autocomplete (62/181) 
+2026-01-19 18:58:58,901 392906 DEBUG fondoestrella odoo.modules.loading: Module partner_autocomplete loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,901 392906 DEBUG fondoestrella odoo.modules.loading: Loading module portal (63/181) 
+2026-01-19 18:58:58,905 392906 DEBUG fondoestrella odoo.modules.loading: Module portal loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,905 392906 DEBUG fondoestrella odoo.modules.loading: Loading module sms (64/181) 
+2026-01-19 18:58:58,911 392906 DEBUG fondoestrella odoo.modules.loading: Module sms loaded in 0.01s, 0 queries 
+2026-01-19 18:58:58,911 392906 DEBUG fondoestrella odoo.modules.loading: Loading module snailmail (65/181) 
+2026-01-19 18:58:58,915 392906 DEBUG fondoestrella odoo.modules.loading: Module snailmail loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,915 392906 DEBUG fondoestrella odoo.modules.loading: Loading module auth_totp_portal (66/181) 
+2026-01-19 18:58:58,916 392906 DEBUG fondoestrella odoo.modules.loading: Module auth_totp_portal loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,916 392906 DEBUG fondoestrella odoo.modules.loading: Loading module calendar_sms (67/181) 
+2026-01-19 18:58:58,917 392906 DEBUG fondoestrella odoo.modules.loading: Module calendar_sms loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,917 392906 DEBUG fondoestrella odoo.modules.loading: Loading module digest (68/181) 
+2026-01-19 18:58:58,923 392906 DEBUG fondoestrella odoo.modules.loading: Module digest loaded in 0.01s, 0 queries 
+2026-01-19 18:58:58,923 392906 DEBUG fondoestrella odoo.modules.loading: Loading module hr_attendance_mobile (69/181) 
+2026-01-19 18:58:58,924 392906 DEBUG fondoestrella odoo.modules.loading: Module hr_attendance_mobile loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,924 392906 DEBUG fondoestrella odoo.modules.loading: Loading module hr_contract_reports (70/181) 
+2026-01-19 18:58:58,926 392906 DEBUG fondoestrella odoo.modules.loading: Module hr_contract_reports loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,926 392906 DEBUG fondoestrella odoo.modules.loading: Loading module hr_holidays_attendance (71/181) 
+2026-01-19 18:58:58,931 392906 DEBUG fondoestrella odoo.modules.loading: Module hr_holidays_attendance loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,931 392906 DEBUG fondoestrella odoo.modules.loading: Loading module hr_holidays_gantt (72/181) 
+2026-01-19 18:58:58,932 392906 DEBUG fondoestrella odoo.modules.loading: Module hr_holidays_gantt loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,932 392906 DEBUG fondoestrella odoo.modules.loading: Loading module hr_holidays_paraguay (73/181) 
+2026-01-19 18:58:58,936 392906 DEBUG fondoestrella odoo.modules.loading: Module hr_holidays_paraguay loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,936 392906 DEBUG fondoestrella odoo.modules.loading: Loading module hr_work_entry_contract (74/181) 
+2026-01-19 18:58:58,938 392906 DEBUG fondoestrella odoo.modules.loading: Module hr_work_entry_contract loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,938 392906 DEBUG fondoestrella odoo.modules.loading: Loading module account (75/181) 
+2026-01-19 18:58:58,973 392906 DEBUG fondoestrella odoo.modules.loading: Module account loaded in 0.04s, 0 queries 
+2026-01-19 18:58:58,973 392906 DEBUG fondoestrella odoo.modules.loading: Loading module digest_enterprise (76/181) 
+2026-01-19 18:58:58,974 392906 DEBUG fondoestrella odoo.modules.loading: Module digest_enterprise loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,974 392906 DEBUG fondoestrella odoo.modules.loading: Loading module hr_work_entry_contract_enterprise (77/181) 
+2026-01-19 18:58:58,975 392906 DEBUG fondoestrella odoo.modules.loading: Module hr_work_entry_contract_enterprise loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,975 392906 DEBUG fondoestrella odoo.modules.loading: Loading module hr_work_entry_holidays (78/181) 
+2026-01-19 18:58:58,977 392906 DEBUG fondoestrella odoo.modules.loading: Module hr_work_entry_holidays loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,977 392906 DEBUG fondoestrella odoo.modules.loading: Loading module stock (79/181) 
+2026-01-19 18:58:58,979 392906 DEBUG fondoestrella odoo.modules.loading: Module stock loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,979 392906 DEBUG fondoestrella odoo.modules.loading: Loading module account_accountant (80/181) 
+2026-01-19 18:58:58,983 392906 DEBUG fondoestrella odoo.modules.loading: Module account_accountant loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,983 392906 DEBUG fondoestrella odoo.modules.loading: Loading module account_edi (81/181) 
+2026-01-19 18:58:58,987 392906 DEBUG fondoestrella odoo.modules.loading: Module account_edi loaded in 0.00s, 0 queries 
+2026-01-19 18:58:58,987 392906 DEBUG fondoestrella odoo.modules.loading: Loading module account_financial_report (82/181) 
+2026-01-19 18:58:58,990 392906 DEBUG fondoestrella odoo.tools.translate: translation went wrong for "'Name must be unique per report configuration'", skipped 
+2026-01-19 18:58:59,000 392906 DEBUG fondoestrella odoo.modules.loading: Module account_financial_report loaded in 0.01s, 0 queries 
+2026-01-19 18:58:59,000 392906 DEBUG fondoestrella odoo.modules.loading: Loading module account_fleet (83/181) 
+2026-01-19 18:58:59,001 392906 DEBUG fondoestrella odoo.modules.loading: Module account_fleet loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,002 392906 DEBUG fondoestrella odoo.modules.loading: Loading module account_invoice_extract (84/181) 
+2026-01-19 18:58:59,004 392906 DEBUG fondoestrella odoo.modules.loading: Module account_invoice_extract loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,004 392906 DEBUG fondoestrella odoo.modules.loading: Loading module account_journal_payment_subtype (85/181) 
+2026-01-19 18:58:59,005 392906 DEBUG fondoestrella odoo.modules.loading: Module account_journal_payment_subtype loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,005 392906 DEBUG fondoestrella odoo.modules.loading: Loading module account_voucher (86/181) 
+2026-01-19 18:58:59,008 392906 WARNING fondoestrella odoo.addons.base.models.decimal_precision: Deprecated call to decimal_precision.get_precision(<application>), use digits=<application> instead 
+2026-01-19 18:58:59,008 392906 WARNING fondoestrella odoo.addons.base.models.decimal_precision: Deprecated call to decimal_precision.get_precision(<application>), use digits=<application> instead 
+2026-01-19 18:58:59,008 392906 DEBUG fondoestrella odoo.modules.loading: Module account_voucher loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,008 392906 DEBUG fondoestrella odoo.modules.loading: Loading module analytic_enterprise (87/181) 
+2026-01-19 18:58:59,009 392906 DEBUG fondoestrella odoo.modules.loading: Module analytic_enterprise loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,009 392906 DEBUG fondoestrella odoo.modules.loading: Loading module currency_rate_live (88/181) 
+2026-01-19 18:58:59,011 392906 DEBUG fondoestrella odoo.modules.loading: Module currency_rate_live loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,011 392906 DEBUG fondoestrella odoo.modules.loading: Loading module hr_payroll (89/181) 
+2026-01-19 18:58:59,021 392906 DEBUG fondoestrella odoo.modules.loading: Module hr_payroll loaded in 0.01s, 0 queries 
+2026-01-19 18:58:59,021 392906 DEBUG fondoestrella odoo.modules.loading: Loading module hr_work_entry_holidays_enterprise (90/181) 
+2026-01-19 18:58:59,022 392906 DEBUG fondoestrella odoo.modules.loading: Module hr_work_entry_holidays_enterprise loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,022 392906 DEBUG fondoestrella odoo.modules.loading: Loading module l10n_py (91/181) 
+2026-01-19 18:58:59,023 392906 DEBUG fondoestrella odoo.modules.loading: Module l10n_py loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,023 392906 DEBUG fondoestrella odoo.modules.loading: Loading module mrp (92/181) 
+2026-01-19 18:58:59,036 392906 DEBUG fondoestrella odoo.modules.loading: Module mrp loaded in 0.01s, 0 queries 
+2026-01-19 18:58:59,036 392906 DEBUG fondoestrella odoo.modules.loading: Loading module partner_statement (93/181) 
+2026-01-19 18:58:59,042 392906 DEBUG fondoestrella odoo.modules.loading: Module partner_statement loaded in 0.01s, 0 queries 
+2026-01-19 18:58:59,042 392906 DEBUG fondoestrella odoo.modules.loading: Loading module payment (94/181) 
+2026-01-19 18:58:59,049 392906 DEBUG fondoestrella odoo.modules.loading: Module payment loaded in 0.01s, 0 queries 
+2026-01-19 18:58:59,049 392906 DEBUG fondoestrella odoo.modules.loading: Loading module purchase (95/181) 
+2026-01-19 18:58:59,055 392906 DEBUG fondoestrella odoo.modules.loading: Module purchase loaded in 0.01s, 0 queries 
+2026-01-19 18:58:59,055 392906 DEBUG fondoestrella odoo.modules.loading: Loading module quality (96/181) 
+2026-01-19 18:58:59,058 392906 DEBUG fondoestrella odoo.modules.loading: Module quality loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,058 392906 DEBUG fondoestrella odoo.modules.loading: Loading module snailmail_account (97/181) 
+2026-01-19 18:58:59,060 392906 DEBUG fondoestrella odoo.modules.loading: Module snailmail_account loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,060 392906 DEBUG fondoestrella odoo.modules.loading: Loading module stock_account (98/181) 
+2026-01-19 18:58:59,065 392906 DEBUG fondoestrella odoo.modules.loading: Module stock_account loaded in 0.01s, 0 queries 
+2026-01-19 18:58:59,065 392906 DEBUG fondoestrella odoo.modules.loading: Loading module stock_enterprise (99/181) 
+2026-01-19 18:58:59,066 392906 DEBUG fondoestrella odoo.modules.loading: Module stock_enterprise loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,066 392906 DEBUG fondoestrella odoo.modules.loading: Loading module stock_picking_batch (100/181) 
+2026-01-19 18:58:59,069 392906 DEBUG fondoestrella odoo.modules.loading: Module stock_picking_batch loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,069 392906 DEBUG fondoestrella odoo.modules.loading: Loading module stock_sms (101/181) 
+2026-01-19 18:58:59,071 392906 DEBUG fondoestrella odoo.modules.loading: Module stock_sms loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,071 392906 DEBUG fondoestrella odoo.modules.loading: Loading module account_auto_transfer (102/181) 
+2026-01-19 18:58:59,073 392906 DEBUG fondoestrella odoo.modules.loading: Module account_auto_transfer loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,073 392906 DEBUG fondoestrella odoo.modules.loading: Loading module account_bank_statement_import (103/181) 
+2026-01-19 18:58:59,074 392906 DEBUG fondoestrella odoo.modules.loading: Module account_bank_statement_import loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,074 392906 DEBUG fondoestrella odoo.modules.loading: Loading module account_edi_facturx (104/181) 
+2026-01-19 18:58:59,075 392906 DEBUG fondoestrella odoo.modules.loading: Module account_edi_facturx loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,075 392906 DEBUG fondoestrella odoo.modules.loading: Loading module account_edi_ubl (105/181) 
+2026-01-19 18:58:59,076 392906 DEBUG fondoestrella odoo.modules.loading: Module account_edi_ubl loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,076 392906 DEBUG fondoestrella odoo.modules.loading: Loading module account_invoice_extract_purchase (106/181) 
+2026-01-19 18:58:59,078 392906 DEBUG fondoestrella odoo.modules.loading: Module account_invoice_extract_purchase loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,078 392906 DEBUG fondoestrella odoo.modules.loading: Loading module account_parent (107/181) 
+2026-01-19 18:58:59,079 392906 WARNING fondoestrella odoo.addons.base.models.decimal_precision: Deprecated call to decimal_precision.get_precision(<application>), use digits=<application> instead 
+2026-01-19 18:58:59,079 392906 WARNING fondoestrella odoo.addons.base.models.decimal_precision: Deprecated call to decimal_precision.get_precision(<application>), use digits=<application> instead 
+2026-01-19 18:58:59,079 392906 WARNING fondoestrella odoo.addons.base.models.decimal_precision: Deprecated call to decimal_precision.get_precision(<application>), use digits=<application> instead 
+2026-01-19 18:58:59,081 392906 DEBUG fondoestrella odoo.modules.loading: Module account_parent loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,081 392906 DEBUG fondoestrella odoo.modules.loading: Loading module account_predictive_bills (108/181) 
+2026-01-19 18:58:59,082 392906 DEBUG fondoestrella odoo.modules.loading: Module account_predictive_bills loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,082 392906 DEBUG fondoestrella odoo.modules.loading: Loading module account_reports (109/181) 
+2026-01-19 18:58:59,101 392906 DEBUG fondoestrella odoo.modules.loading: Module account_reports loaded in 0.02s, 0 queries 
+2026-01-19 18:58:59,101 392906 DEBUG fondoestrella odoo.modules.loading: Loading module hr_biometric_machine_zk (110/181) 
+2026-01-19 18:58:59,116 392906 WARNING fondoestrella odoo.models: The model zk.machine.location has no _description 
+2026-01-19 18:58:59,116 392906 WARNING fondoestrella odoo.models: The model zk.machine has no _description 
+2026-01-19 18:58:59,116 392906 WARNING fondoestrella odoo.models: The model zk.employee.location.line has no _description 
+2026-01-19 18:58:59,117 392906 DEBUG fondoestrella odoo.modules.loading: Module hr_biometric_machine_zk loaded in 0.02s, 0 queries 
+2026-01-19 18:58:59,117 392906 DEBUG fondoestrella odoo.modules.loading: Loading module hr_horas_extras (111/181) 
+2026-01-19 18:58:59,129 392906 WARNING fondoestrella odoo.models: The model report.rrhh.report_attendances has no _description 
+2026-01-19 18:58:59,130 392906 DEBUG fondoestrella odoo.modules.loading: Module hr_horas_extras loaded in 0.01s, 0 queries 
+2026-01-19 18:58:59,130 392906 DEBUG fondoestrella odoo.modules.loading: Loading module hr_payroll_account (112/181) 
+2026-01-19 18:58:59,131 392906 DEBUG fondoestrella odoo.modules.loading: Module hr_payroll_account loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,131 392906 DEBUG fondoestrella odoo.modules.loading: Loading module hr_payroll_holidays (113/181) 
+2026-01-19 18:58:59,133 392906 DEBUG fondoestrella odoo.modules.loading: Module hr_payroll_holidays loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,133 392906 DEBUG fondoestrella odoo.modules.loading: Loading module hr_recibo_liquidacion (114/181) 
+2026-01-19 18:58:59,135 392906 DEBUG fondoestrella odoo.modules.loading: Module hr_recibo_liquidacion loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,135 392906 DEBUG fondoestrella odoo.modules.loading: Loading module mrp_account (115/181) 
+2026-01-19 18:58:59,139 392906 DEBUG fondoestrella odoo.modules.loading: Module mrp_account loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,139 392906 DEBUG fondoestrella odoo.modules.loading: Loading module mrp_workorder (116/181) 
+2026-01-19 18:58:59,144 392906 DEBUG fondoestrella odoo.modules.loading: Module mrp_workorder loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,144 392906 DEBUG fondoestrella odoo.modules.loading: Loading module point_of_sale (117/181) 
+2026-01-19 18:58:59,158 392906 DEBUG fondoestrella odoo.modules.loading: Module point_of_sale loaded in 0.01s, 0 queries 
+2026-01-19 18:58:59,159 392906 DEBUG fondoestrella odoo.modules.loading: Loading module purchase_enterprise (118/181) 
+2026-01-19 18:58:59,159 392906 DEBUG fondoestrella odoo.modules.loading: Module purchase_enterprise loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,159 392906 DEBUG fondoestrella odoo.modules.loading: Loading module purchase_stock (119/181) 
+2026-01-19 18:58:59,166 392906 DEBUG fondoestrella odoo.modules.loading: Module purchase_stock loaded in 0.01s, 0 queries 
+2026-01-19 18:58:59,166 392906 DEBUG fondoestrella odoo.modules.loading: Loading module quality_control (120/181) 
+2026-01-19 18:58:59,169 392906 DEBUG fondoestrella odoo.modules.loading: Module quality_control loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,169 392906 DEBUG fondoestrella odoo.modules.loading: Loading module rrhh_basics (121/181) 
+2026-01-19 18:58:59,186 392906 WARNING fondoestrella odoo.models: The model hr.cedula has no _description 
+2026-01-19 18:58:59,186 392906 WARNING fondoestrella odoo.models: The model hr.antecedentepolicial has no _description 
+2026-01-19 18:58:59,186 392906 WARNING fondoestrella odoo.models: The model hr.grupo_familiar has no _description 
+2026-01-19 18:58:59,186 392906 WARNING fondoestrella odoo.models: The model hr.antecedentejudicial has no _description 
+2026-01-19 18:58:59,186 392906 WARNING fondoestrella odoo.models: The model hr.cv has no _description 
+2026-01-19 18:58:59,186 392906 WARNING fondoestrella odoo.models: The model hr.titulo has no _description 
+2026-01-19 18:58:59,187 392906 WARNING fondoestrella odoo.models: The model hr.confidencial has no _description 
+2026-01-19 18:58:59,187 392906 WARNING fondoestrella odoo.models: The model hr.reglamento has no _description 
+2026-01-19 18:58:59,187 392906 WARNING fondoestrella odoo.models: The model hr.contratotrabajo has no _description 
+2026-01-19 18:58:59,187 392906 WARNING fondoestrella odoo.models: The model hr.ips has no _description 
+2026-01-19 18:58:59,187 392906 WARNING fondoestrella odoo.models: The model hr.ministerio has no _description 
+2026-01-19 18:58:59,187 392906 DEBUG fondoestrella odoo.modules.loading: Module rrhh_basics loaded in 0.02s, 0 queries 
+2026-01-19 18:58:59,187 392906 DEBUG fondoestrella odoo.modules.loading: Loading module sale (122/181) 
+2026-01-19 18:58:59,200 392906 DEBUG fondoestrella odoo.modules.loading: Module sale loaded in 0.01s, 0 queries 
+2026-01-19 18:58:59,200 392906 DEBUG fondoestrella odoo.modules.loading: Loading module stock_account_enterprise (123/181) 
+2026-01-19 18:58:59,201 392906 DEBUG fondoestrella odoo.modules.loading: Module stock_account_enterprise loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,201 392906 DEBUG fondoestrella odoo.modules.loading: Loading module stock_accountant (124/181) 
+2026-01-19 18:58:59,202 392906 DEBUG fondoestrella odoo.modules.loading: Module stock_accountant loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,202 392906 DEBUG fondoestrella odoo.modules.loading: Loading module account_bank_statement_import_csv (125/181) 
+2026-01-19 18:58:59,203 392906 DEBUG fondoestrella odoo.modules.loading: Module account_bank_statement_import_csv loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,204 392906 DEBUG fondoestrella odoo.modules.loading: Loading module account_bank_statement_import_ofx (126/181) 
+2026-01-19 18:58:59,207 392906 DEBUG fondoestrella odoo.modules.loading: Module account_bank_statement_import_ofx loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,207 392906 DEBUG fondoestrella odoo.modules.loading: Loading module account_followup (127/181) 
+2026-01-19 18:58:59,212 392906 DEBUG fondoestrella odoo.modules.loading: Module account_followup loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,212 392906 DEBUG fondoestrella odoo.modules.loading: Loading module hr_contract_types (128/181) 
+2026-01-19 18:58:59,215 392906 DEBUG fondoestrella odoo.modules.loading: Module hr_contract_types loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,216 392906 DEBUG fondoestrella odoo.modules.loading: Loading module hr_organizational_chart (129/181) 
+2026-01-19 18:58:59,218 392906 WARNING fondoestrella odoo.http: <function odoo.addons.hr_organizational_chart.controller.main.get_col_span> defined with invalid routing parameter 'method', assuming 'methods' 
+2026-01-19 18:58:59,218 392906 WARNING fondoestrella odoo.http: <function odoo.addons.hr_organizational_chart.controller.main.get_employee_ids> defined with invalid routing parameter 'method', assuming 'methods' 
+2026-01-19 18:58:59,218 392906 WARNING fondoestrella odoo.http: <function odoo.addons.hr_organizational_chart.controller.main.get_parent_child> defined with invalid routing parameter 'method', assuming 'methods' 
+2026-01-19 18:58:59,218 392906 WARNING fondoestrella odoo.http: <function odoo.addons.hr_organizational_chart.controller.main.get_child_data> defined with invalid routing parameter 'method', assuming 'methods' 
+2026-01-19 18:58:59,218 392906 DEBUG fondoestrella odoo.modules.loading: Module hr_organizational_chart loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,218 392906 DEBUG fondoestrella odoo.modules.loading: Loading module hr_wizard_nomina (130/181) 
+2026-01-19 18:58:59,222 392906 WARNING fondoestrella odoo.models: The model hr_payroll_txt_wizard has no _description 
+2026-01-19 18:58:59,222 392906 DEBUG fondoestrella odoo.modules.loading: Module hr_wizard_nomina loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,222 392906 DEBUG fondoestrella odoo.modules.loading: Loading module mrp_account_enterprise (131/181) 
+2026-01-19 18:58:59,224 392906 DEBUG fondoestrella odoo.modules.loading: Module mrp_account_enterprise loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,224 392906 DEBUG fondoestrella odoo.modules.loading: Loading module mrp_mps (132/181) 
+2026-01-19 18:58:59,227 392906 DEBUG fondoestrella odoo.modules.loading: Module mrp_mps loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,227 392906 DEBUG fondoestrella odoo.modules.loading: Loading module paraguay_backoffice (133/181) 
+2026-01-19 18:58:59,278 392906 WARNING fondoestrella odoo.models: The model ruc.tipo.documento has no _description 
+2026-01-19 18:58:59,278 392906 WARNING fondoestrella odoo.models: The model ruc.motivo.anulacion has no _description 
+2026-01-19 18:58:59,278 392906 WARNING fondoestrella odoo.models: The model ruc.documentos.timbrados has no _description 
+2026-01-19 18:58:59,278 392906 WARNING fondoestrella odoo.models: The model set.hechauka.archivo has no _description 
+2026-01-19 18:58:59,278 392906 WARNING fondoestrella odoo.models: The model set.hechauka has no _description 
+2026-01-19 18:58:59,278 392906 DEBUG fondoestrella odoo.modules.loading: Module paraguay_backoffice loaded in 0.05s, 0 queries 
+2026-01-19 18:58:59,278 392906 DEBUG fondoestrella odoo.modules.loading: Loading module pos_account_reports (134/181) 
+2026-01-19 18:58:59,279 392906 DEBUG fondoestrella odoo.modules.loading: Module pos_account_reports loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,279 392906 DEBUG fondoestrella odoo.modules.loading: Loading module pos_enterprise (135/181) 
+2026-01-19 18:58:59,280 392906 DEBUG fondoestrella odoo.modules.loading: Module pos_enterprise loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,280 392906 DEBUG fondoestrella odoo.modules.loading: Loading module pos_epson_printer (136/181) 
+2026-01-19 18:58:59,281 392906 DEBUG fondoestrella odoo.modules.loading: Module pos_epson_printer loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,281 392906 DEBUG fondoestrella odoo.modules.loading: Loading module pos_hr (137/181) 
+2026-01-19 18:58:59,282 392906 DEBUG fondoestrella odoo.modules.loading: Module pos_hr loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,282 392906 DEBUG fondoestrella odoo.modules.loading: Loading module pos_loyalty (138/181) 
+2026-01-19 18:58:59,285 392906 DEBUG fondoestrella odoo.modules.loading: Module pos_loyalty loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,285 392906 DEBUG fondoestrella odoo.modules.loading: Loading module purchase_mrp (139/181) 
+2026-01-19 18:58:59,286 392906 DEBUG fondoestrella odoo.modules.loading: Module purchase_mrp loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,286 392906 DEBUG fondoestrella odoo.modules.loading: Loading module purchase_stock_enterprise (140/181) 
+2026-01-19 18:58:59,287 392906 DEBUG fondoestrella odoo.modules.loading: Module purchase_stock_enterprise loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,287 392906 DEBUG fondoestrella odoo.modules.loading: Loading module quality_control_picking_batch (141/181) 
+2026-01-19 18:58:59,288 392906 DEBUG fondoestrella odoo.modules.loading: Module quality_control_picking_batch loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,288 392906 DEBUG fondoestrella odoo.modules.loading: Loading module quality_mrp (142/181) 
+2026-01-19 18:58:59,290 392906 DEBUG fondoestrella odoo.modules.loading: Module quality_mrp loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,290 392906 DEBUG fondoestrella odoo.modules.loading: Loading module quality_mrp_workorder (143/181) 
+2026-01-19 18:58:59,291 392906 DEBUG fondoestrella odoo.modules.loading: Module quality_mrp_workorder loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,291 392906 DEBUG fondoestrella odoo.modules.loading: Loading module recibo_custom (144/181) 
+2026-01-19 18:58:59,292 392906 DEBUG fondoestrella odoo.modules.loading: Module recibo_custom loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,292 392906 DEBUG fondoestrella odoo.modules.loading: Loading module sale_account_accountant (145/181) 
+2026-01-19 18:58:59,293 392906 DEBUG fondoestrella odoo.modules.loading: Module sale_account_accountant loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,293 392906 DEBUG fondoestrella odoo.modules.loading: Loading module sale_enterprise (146/181) 
+2026-01-19 18:58:59,294 392906 DEBUG fondoestrella odoo.modules.loading: Module sale_enterprise loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,294 392906 DEBUG fondoestrella odoo.modules.loading: Loading module sale_management (147/181) 
+2026-01-19 18:58:59,296 392906 DEBUG fondoestrella odoo.modules.loading: Module sale_management loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,297 392906 DEBUG fondoestrella odoo.modules.loading: Loading module sale_product_configurator (148/181) 
+2026-01-19 18:58:59,298 392906 DEBUG fondoestrella odoo.modules.loading: Module sale_product_configurator loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,298 392906 DEBUG fondoestrella odoo.modules.loading: Loading module sale_purchase (149/181) 
+2026-01-19 18:58:59,303 392906 DEBUG fondoestrella odoo.modules.loading: Module sale_purchase loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,303 392906 DEBUG fondoestrella odoo.modules.loading: Loading module sale_sms (150/181) 
+2026-01-19 18:58:59,303 392906 DEBUG fondoestrella odoo.modules.loading: Module sale_sms loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,303 392906 DEBUG fondoestrella odoo.modules.loading: Loading module sale_stock (151/181) 
+2026-01-19 18:58:59,308 392906 DEBUG fondoestrella odoo.modules.loading: Module sale_stock loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,308 392906 DEBUG fondoestrella odoo.modules.loading: Loading module account_check (152/181) 
+2026-01-19 18:58:59,311 392906 DEBUG fondoestrella odoo.tools.translate: translation went wrong for "'Proximo Numero'", skipped 
+2026-01-19 18:58:59,312 392906 DEBUG fondoestrella odoo.tools.translate: translation went wrong for "'Nro'", skipped 
+2026-01-19 18:58:59,312 392906 DEBUG fondoestrella odoo.tools.translate: translation went wrong for "'Numero'", skipped 
+2026-01-19 18:58:59,312 392906 WARNING fondoestrella odoo.addons.base.models.decimal_precision: Deprecated call to decimal_precision.get_precision(<application>), use digits=<application> instead 
+2026-01-19 18:58:59,312 392906 WARNING fondoestrella odoo.addons.base.models.decimal_precision: Deprecated call to decimal_precision.get_precision(<application>), use digits=<application> instead 
+2026-01-19 18:58:59,313 392906 DEBUG fondoestrella odoo.tools.translate: translation went wrong for "'Importe en Cheques'", skipped 
+2026-01-19 18:58:59,313 392906 WARNING fondoestrella odoo.addons.base.models.decimal_precision: Deprecated call to decimal_precision.get_precision(<application>), use digits=<application> instead 
+2026-01-19 18:58:59,314 392906 DEBUG fondoestrella odoo.tools.translate: translation went wrong for "'Número'", skipped 
+2026-01-19 18:58:59,314 392906 DEBUG fondoestrella odoo.tools.translate: translation went wrong for "'Numero'", skipped 
+2026-01-19 18:58:59,314 392906 WARNING fondoestrella odoo.addons.base.models.decimal_precision: Deprecated call to decimal_precision.get_precision(<application>), use digits=<application> instead 
+2026-01-19 18:58:59,314 392906 WARNING fondoestrella odoo.addons.base.models.decimal_precision: Deprecated call to decimal_precision.get_precision(<application>), use digits=<application> instead 
+2026-01-19 18:58:59,314 392906 WARNING fondoestrella odoo.models: The model account.check.action has no _description 
+2026-01-19 18:58:59,315 392906 WARNING fondoestrella odoo.models: The model account.check.third.action has no _description 
+2026-01-19 18:58:59,315 392906 WARNING fondoestrella odoo.models: The model account.check.dreject has no _description 
+2026-01-19 18:58:59,315 392906 WARNING fondoestrella odoo.models: The model account.change.check has no _description 
+2026-01-19 18:58:59,315 392906 DEBUG fondoestrella odoo.modules.loading: Module account_check loaded in 0.01s, 0 queries 
+2026-01-19 18:58:59,315 392906 DEBUG fondoestrella odoo.modules.loading: Loading module account_tipo_iva (153/181) 
+2026-01-19 18:58:59,317 392906 WARNING fondoestrella odoo.models: The model account.tipo.iva has no _description 
+2026-01-19 18:58:59,317 392906 DEBUG fondoestrella odoo.modules.loading: Module account_tipo_iva loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,317 392906 DEBUG fondoestrella odoo.modules.loading: Loading module factura_electronica (154/181) 
+2026-01-19 18:58:59,348 392906 WARNING fondoestrella odoo.models: The model consulta.dte has no _description 
+2026-01-19 18:58:59,348 392906 WARNING fondoestrella odoo.models: The model eventos.dte has no _description 
+2026-01-19 18:58:59,348 392906 WARNING fondoestrella odoo.models: The model firma.digital has no _description 
+2026-01-19 18:58:59,349 392906 WARNING fondoestrella odoo.models: The model mje.resultado has no _description 
+2026-01-19 18:58:59,349 392906 WARNING fondoestrella odoo.models: The model ruc.documentos.timbrados has no _description 
+2026-01-19 18:58:59,349 392906 WARNING fondoestrella odoo.models: The model cod.dncp.account.move.line has no _description 
+2026-01-19 18:58:59,349 392906 WARNING fondoestrella odoo.models: The model tipo.obligaciones has no _description 
+2026-01-19 18:58:59,349 392906 WARNING fondoestrella odoo.models: The model certificate.pass has no _description 
+2026-01-19 18:58:59,349 392906 WARNING fondoestrella odoo.models: The model consulta.ruc has no _description 
+2026-01-19 18:58:59,349 392906 DEBUG fondoestrella odoo.modules.loading: Module factura_electronica loaded in 0.03s, 0 queries 
+2026-01-19 18:58:59,349 392906 DEBUG fondoestrella odoo.modules.loading: Loading module hr_service_provider (155/181) 
+2026-01-19 18:58:59,352 392906 DEBUG fondoestrella odoo.modules.loading: Module hr_service_provider loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,352 392906 DEBUG fondoestrella odoo.modules.loading: Loading module purchase_mrp_workorder_quality (156/181) 
+2026-01-19 18:58:59,353 392906 DEBUG fondoestrella odoo.modules.loading: Module purchase_mrp_workorder_quality loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,353 392906 DEBUG fondoestrella odoo.modules.loading: Loading module sale_margin (157/181) 
+2026-01-19 18:58:59,354 392906 DEBUG fondoestrella odoo.modules.loading: Module sale_margin loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,354 392906 DEBUG fondoestrella odoo.modules.loading: Loading module sale_mrp (158/181) 
+2026-01-19 18:58:59,357 392906 DEBUG fondoestrella odoo.modules.loading: Module sale_mrp loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,357 392906 DEBUG fondoestrella odoo.modules.loading: Loading module sale_purchase_stock (159/181) 
+2026-01-19 18:58:59,358 392906 DEBUG fondoestrella odoo.modules.loading: Module sale_purchase_stock loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,358 392906 DEBUG fondoestrella odoo.modules.loading: Loading module sati_payment_report (160/181) 
+2026-01-19 18:58:59,362 392906 WARNING fondoestrella odoo.models: The model sati_payment_report.wizard has no _description 
+2026-01-19 18:58:59,362 392906 DEBUG fondoestrella odoo.modules.loading: Module sati_payment_report loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,362 392906 DEBUG fondoestrella odoo.modules.loading: Loading module sati_renumeracion_asientos (161/181) 
+2026-01-19 18:58:59,365 392906 WARNING fondoestrella odoo.models: The model renumeracion.asientos.wizard has no _description 
+2026-01-19 18:58:59,365 392906 DEBUG fondoestrella odoo.modules.loading: Module sati_renumeracion_asientos loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,365 392906 DEBUG fondoestrella odoo.modules.loading: Loading module snailmail_account_followup (162/181) 
+2026-01-19 18:58:59,368 392906 DEBUG fondoestrella odoo.modules.loading: Module snailmail_account_followup loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,368 392906 DEBUG fondoestrella odoo.modules.loading: Loading module stock_landed_costs_py (163/181) 
+2026-01-19 18:58:59,373 392906 WARNING fondoestrella odoo.addons.base.models.decimal_precision: Deprecated call to decimal_precision.get_precision(<application>), use digits=<application> instead 
+2026-01-19 18:58:59,373 392906 WARNING fondoestrella odoo.addons.base.models.decimal_precision: Deprecated call to decimal_precision.get_precision(<application>), use digits=<application> instead 
+2026-01-19 18:58:59,373 392906 WARNING fondoestrella odoo.addons.base.models.decimal_precision: Deprecated call to decimal_precision.get_precision(<application>), use digits=<application> instead 
+2026-01-19 18:58:59,373 392906 WARNING fondoestrella odoo.addons.base.models.decimal_precision: Deprecated call to decimal_precision.get_precision(<application>), use digits=<application> instead 
+2026-01-19 18:58:59,373 392906 WARNING fondoestrella odoo.addons.base.models.decimal_precision: Deprecated call to decimal_precision.get_precision(<application>), use digits=<application> instead 
+2026-01-19 18:58:59,374 392906 WARNING fondoestrella odoo.addons.base.models.decimal_precision: Deprecated call to decimal_precision.get_precision(<application>), use digits=<application> instead 
+2026-01-19 18:58:59,375 392906 WARNING fondoestrella odoo.models: The model product.import.category has no _description 
+2026-01-19 18:58:59,375 392906 WARNING fondoestrella odoo.models: The model report.stock_landed_costs_py.report_despacho_detalle_xlsx has no _description 
+2026-01-19 18:58:59,375 392906 DEBUG fondoestrella odoo.modules.loading: Module stock_landed_costs_py loaded in 0.01s, 0 queries 
+2026-01-19 18:58:59,375 392906 DEBUG fondoestrella odoo.modules.loading: Loading module stock_paraguay_backoffice (164/181) 
+2026-01-19 18:58:59,378 392906 WARNING fondoestrella odoo.models: The model picking.remision has no _description 
+2026-01-19 18:58:59,378 392906 DEBUG fondoestrella odoo.modules.loading: Module stock_paraguay_backoffice loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,378 392906 DEBUG fondoestrella odoo.modules.loading: Loading module stock_warehouse_filter_user (165/181) 
+2026-01-19 18:58:59,381 392906 WARNING fondoestrella odoo.models: The model stock_warehouse_filter_user.wizard.report_stock_move has no _description 
+2026-01-19 18:58:59,381 392906 WARNING fondoestrella odoo.models: The model report.stock_warehouse_filter_user.stock_move has no _description 
+2026-01-19 18:58:59,381 392906 DEBUG fondoestrella odoo.modules.loading: Module stock_warehouse_filter_user loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,381 392906 DEBUG fondoestrella odoo.modules.loading: Loading module account_deposit (166/181) 
+2026-01-19 18:58:59,383 392906 WARNING fondoestrella odoo.models: The model depositos.cheques has no _description 
+2026-01-19 18:58:59,383 392906 DEBUG fondoestrella odoo.modules.loading: Module account_deposit loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,383 392906 DEBUG fondoestrella odoo.modules.loading: Loading module account_internal_transfers (167/181) 
+2026-01-19 18:58:59,385 392906 WARNING fondoestrella odoo.models: The model transferencias.entre.cuentas has no _description 
+2026-01-19 18:58:59,385 392906 DEBUG fondoestrella odoo.modules.loading: Module account_internal_transfers loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,385 392906 DEBUG fondoestrella odoo.modules.loading: Loading module account_payment_py (168/181) 
+2026-01-19 18:58:59,393 392906 WARNING fondoestrella odoo.models: The model account.orden.pago has no _description 
+2026-01-19 18:58:59,393 392906 WARNING fondoestrella odoo.models: The model account.orden.pago.factura has no _description 
+2026-01-19 18:58:59,393 392906 WARNING fondoestrella odoo.models: The model orden.pago.wizard has no _description 
+2026-01-19 18:58:59,394 392906 WARNING fondoestrella odoo.models: The model diferencia.op has no _description 
+2026-01-19 18:58:59,394 392906 WARNING fondoestrella odoo.models: The model account_payment_py.wizard_asignacion has no _description 
+2026-01-19 18:58:59,394 392906 DEBUG fondoestrella odoo.modules.loading: Module account_payment_py loaded in 0.01s, 0 queries 
+2026-01-19 18:58:59,394 392906 DEBUG fondoestrella odoo.modules.loading: Loading module accounting_reports_paraguay (169/181) 
+2026-01-19 18:58:59,412 392906 WARNING fondoestrella odoo.models: The model libro_diario.wizard.libro_diario has no _description 
+2026-01-19 18:58:59,412 392906 WARNING fondoestrella odoo.models: The model report.accounting_reports_paraguay.libro_diario_paraguay_report has no _description 
+2026-01-19 18:58:59,412 392906 WARNING fondoestrella odoo.models: The model libro_iva_paraguay.wizard.libro_iva has no _description 
+2026-01-19 18:58:59,412 392906 WARNING fondoestrella odoo.models: The model report.accounting_reports_paraguay.libro_iva_paraguay_report has no _description 
+2026-01-19 18:58:59,412 392906 WARNING fondoestrella odoo.models: The model libro_mayor.wizard.libro_mayor has no _description 
+2026-01-19 18:58:59,412 392906 WARNING fondoestrella odoo.models: The model report.accounting_reports_paraguay.libro_mayor_paraguay_report has no _description 
+2026-01-19 18:58:59,412 392906 WARNING fondoestrella odoo.models: The model resultados.wizard.resultados has no _description 
+2026-01-19 18:58:59,412 392906 WARNING fondoestrella odoo.models: The model report.accounting_reports_paraguay.resultados_report has no _description 
+2026-01-19 18:58:59,412 392906 WARNING fondoestrella odoo.models: The model balance.wizard.balance has no _description 
+2026-01-19 18:58:59,412 392906 WARNING fondoestrella odoo.models: The model report.accounting_reports_paraguay.balance_report has no _description 
+2026-01-19 18:58:59,412 392906 WARNING fondoestrella odoo.models: The model estado_patrimonio.wizard.estado_patrimonio has no _description 
+2026-01-19 18:58:59,412 392906 WARNING fondoestrella odoo.models: The model report.accounting_reports_paraguay.estado_patrimonio_report has no _description 
+2026-01-19 18:58:59,412 392906 WARNING fondoestrella odoo.models: The model flujo_efectivo.wizard has no _description 
+2026-01-19 18:58:59,412 392906 WARNING fondoestrella odoo.models: The model report.accounting_reports_paraguay.flujo_efectivo_report has no _description 
+2026-01-19 18:58:59,412 392906 WARNING fondoestrella odoo.models: The model notas.wizard.notas.eeff has no _description 
+2026-01-19 18:58:59,412 392906 WARNING fondoestrella odoo.models: The model report.accounting_reports_paraguay.notas_eeff_report has no _description 
+2026-01-19 18:58:59,413 392906 WARNING fondoestrella odoo.models: The model cuadro.revaluo.wizard has no _description 
+2026-01-19 18:58:59,413 392906 WARNING fondoestrella odoo.models: The model report.accounting_reports_paraguay.cuadro_revaluo_report has no _description 
+2026-01-19 18:58:59,413 392906 WARNING fondoestrella odoo.models: The model hechauka.wizard.balance has no _description 
+2026-01-19 18:58:59,413 392906 WARNING fondoestrella odoo.models: The model anexo5_datos_entidad has no _description 
+2026-01-19 18:58:59,413 392906 WARNING fondoestrella odoo.models: The model anexo5_base_preparacion has no _description 
+2026-01-19 18:58:59,413 392906 WARNING fondoestrella odoo.models: The model anexo5_politicas_contables has no _description 
+2026-01-19 18:58:59,413 392906 WARNING fondoestrella odoo.models: The model anexo5_rentas_exentas has no _description 
+2026-01-19 18:58:59,413 392906 WARNING fondoestrella odoo.models: The model anexo5_identificacion_partes has no _description 
+2026-01-19 18:58:59,413 392906 WARNING fondoestrella odoo.models: The model anexo5_hechos_posteriores has no _description 
+2026-01-19 18:58:59,413 392906 WARNING fondoestrella odoo.models: The model anexo5_otras_notas has no _description 
+2026-01-19 18:58:59,413 392906 WARNING fondoestrella odoo.models: The model anexo5_cuentas_patrimoniales has no _description 
+2026-01-19 18:58:59,413 392906 WARNING fondoestrella odoo.models: The model account_reports_paraguay.anexo4 has no _description 
+2026-01-19 18:58:59,413 392906 WARNING fondoestrella odoo.models: The model account_reports_paraguay.anexo5 has no _description 
+2026-01-19 18:58:59,413 392906 DEBUG fondoestrella odoo.modules.loading: Module accounting_reports_paraguay loaded in 0.02s, 0 queries 
+2026-01-19 18:58:59,413 392906 DEBUG fondoestrella odoo.modules.loading: Loading module hr_sueldos_jornales (170/181) 
+2026-01-19 18:58:59,418 392906 WARNING fondoestrella odoo.models: The model hr_sueldos_jornales_wizard_view has no _description 
+2026-01-19 18:58:59,418 392906 WARNING fondoestrella odoo.models: The model report.hr_sueldos_jornales.payroll_report_xlsx has no _description 
+2026-01-19 18:58:59,418 392906 DEBUG fondoestrella odoo.modules.loading: Module hr_sueldos_jornales loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,418 392906 DEBUG fondoestrella odoo.modules.loading: Loading module remision (171/181) 
+2026-01-19 18:58:59,420 392906 DEBUG fondoestrella odoo.modules.loading: Module remision loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,420 392906 DEBUG fondoestrella odoo.modules.loading: Loading module sale_stock_margin (172/181) 
+2026-01-19 18:58:59,421 392906 DEBUG fondoestrella odoo.modules.loading: Module sale_stock_margin loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,421 392906 DEBUG fondoestrella odoo.modules.loading: Loading module caja_chica (173/181) 
+2026-01-19 18:58:59,427 392906 WARNING fondoestrella odoo.models: The model ruc.cajas has no _description 
+2026-01-19 18:58:59,427 392906 WARNING fondoestrella odoo.models: The model ruc.caja.detalle has no _description 
+2026-01-19 18:58:59,427 392906 WARNING fondoestrella odoo.models: The model ruc.caja.detalle.egreso has no _description 
+2026-01-19 18:58:59,427 392906 WARNING fondoestrella odoo.models: The model ruc.monedas.cajas has no _description 
+2026-01-19 18:58:59,428 392906 DEBUG fondoestrella odoo.modules.loading: Module caja_chica loaded in 0.01s, 0 queries 
+2026-01-19 18:58:59,428 392906 DEBUG fondoestrella odoo.modules.loading: Loading module hr_recibo_legal (174/181) 
+2026-01-19 18:58:59,431 392906 DEBUG fondoestrella odoo.modules.loading: Module hr_recibo_legal loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,432 392906 DEBUG fondoestrella odoo.modules.loading: Loading module nota_remision_electronica (175/181) 
+2026-01-19 18:58:59,438 392906 WARNING fondoestrella odoo.models: The model picking.remision has no _description 
+2026-01-19 18:58:59,438 392906 WARNING fondoestrella odoo.models: The model reference.geo has no _description 
+2026-01-19 18:58:59,438 392906 WARNING fondoestrella odoo.models: The model reference.geo.district has no _description 
+2026-01-19 18:58:59,438 392906 WARNING fondoestrella odoo.models: The model reference.geo.city has no _description 
+2026-01-19 18:58:59,438 392906 WARNING fondoestrella odoo.models: The model eventos.dte has no _description 
+2026-01-19 18:58:59,438 392906 WARNING fondoestrella odoo.models: The model mje.resultado has no _description 
+2026-01-19 18:58:59,438 392906 DEBUG fondoestrella odoo.modules.loading: Module nota_remision_electronica loaded in 0.01s, 0 queries 
+2026-01-19 18:58:59,438 392906 DEBUG fondoestrella odoo.modules.loading: Loading module rg90 (176/181) 
+2026-01-19 18:58:59,442 392906 WARNING fondoestrella odoo.models: The model ruc.tipo.identificacion has no _description 
+2026-01-19 18:58:59,442 392906 WARNING fondoestrella odoo.models: The model ruc.tipo.documento has no _description 
+2026-01-19 18:58:59,443 392906 WARNING fondoestrella odoo.models: The model account.book.rg90 has no _description 
+2026-01-19 18:58:59,443 392906 DEBUG fondoestrella odoo.modules.loading: Module rg90 loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,443 392906 DEBUG fondoestrella odoo.modules.loading: Loading module sale_mrp_margin (177/181) 
+2026-01-19 18:58:59,444 392906 DEBUG fondoestrella odoo.modules.loading: Module sale_mrp_margin loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,444 392906 DEBUG fondoestrella odoo.modules.loading: Loading module account_cobros_py (178/181) 
+2026-01-19 18:58:59,451 392906 WARNING fondoestrella odoo.models: The model account.recibo.talonario has no _description 
+2026-01-19 18:58:59,451 392906 WARNING fondoestrella odoo.models: The model account.recibo has no _description 
+2026-01-19 18:58:59,452 392906 WARNING fondoestrella odoo.models: The model account.pago.factura has no _description 
+2026-01-19 18:58:59,452 392906 WARNING fondoestrella odoo.models: The model ruc.caja.detalle has no _description 
+2026-01-19 18:58:59,452 392906 WARNING fondoestrella odoo.models: The model ruc.cajas has no _description 
+2026-01-19 18:58:59,452 392906 WARNING fondoestrella odoo.models: The model account.recibo has no _description 
+2026-01-19 18:58:59,452 392906 WARNING fondoestrella odoo.models: The model account_cobros.wizard.reporte.cobranzas has no _description 
+2026-01-19 18:58:59,452 392906 WARNING fondoestrella odoo.models: The model report.account_cobros_py.report_cobranzas has no _description 
+2026-01-19 18:58:59,452 392906 WARNING fondoestrella odoo.models: The model recibo.wizard has no _description 
+2026-01-19 18:58:59,452 392906 WARNING fondoestrella odoo.models: The model diferencia.recibo has no _description 
+2026-01-19 18:58:59,452 392906 WARNING fondoestrella odoo.models: The model account.recibo has no _description 
+2026-01-19 18:58:59,452 392906 WARNING fondoestrella odoo.models: The model account_cobros_py.wizard_asignacion_c has no _description 
+2026-01-19 18:58:59,452 392906 DEBUG fondoestrella odoo.modules.loading: Module account_cobros_py loaded in 0.01s, 0 queries 
+2026-01-19 18:58:59,452 392906 DEBUG fondoestrella odoo.modules.loading: Loading module reparto (179/181) 
+2026-01-19 18:58:59,456 392906 WARNING fondoestrella odoo.models: The model delivery.order.parent has no _description 
+2026-01-19 18:58:59,456 392906 WARNING fondoestrella odoo.models: The model delivery.order has no _description 
+2026-01-19 18:58:59,457 392906 WARNING fondoestrella odoo.models: The model account.recibo has no _description 
+2026-01-19 18:58:59,457 392906 WARNING fondoestrella odoo.models: The model wizard.asignar.reparto.entregado has no _description 
+2026-01-19 18:58:59,457 392906 DEBUG fondoestrella odoo.modules.loading: Module reparto loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,457 392906 DEBUG fondoestrella odoo.modules.loading: Loading module sati_partner_statements (180/181) 
+2026-01-19 18:58:59,460 392906 WARNING fondoestrella odoo.models: The model wizard.sati.partner.statement has no _description 
+2026-01-19 18:58:59,460 392906 WARNING fondoestrella odoo.models: The model report.sati_partner_statements.sati_report_partner_statement has no _description 
+2026-01-19 18:58:59,460 392906 DEBUG fondoestrella odoo.modules.loading: Module sati_partner_statements loaded in 0.00s, 0 queries 
+2026-01-19 18:58:59,460 392906 DEBUG fondoestrella odoo.modules.loading: Loading module tesaka (181/181) 
+2026-01-19 18:58:59,466 392906 WARNING fondoestrella odoo.models: The model tesaka.retenciones.factura has no _description 
+2026-01-19 18:58:59,466 392906 WARNING fondoestrella odoo.models: The model account.orden.pago has no _description 
+2026-01-19 18:58:59,466 392906 WARNING fondoestrella odoo.models: The model account.orden.pago.factura has no _description 
+2026-01-19 18:58:59,467 392906 WARNING fondoestrella odoo.models: The model tesaka.retenciones has no _description 
+2026-01-19 18:58:59,467 392906 WARNING fondoestrella odoo.models: The model account.recibo has no _description 
+2026-01-19 18:58:59,467 392906 WARNING fondoestrella odoo.models: The model tesaka.concepto.renta has no _description 
+2026-01-19 18:58:59,467 392906 WARNING fondoestrella odoo.models: The model tesaka.concepto.iva has no _description 
+2026-01-19 18:58:59,467 392906 WARNING fondoestrella odoo.models: The model tesaka.wizard.retencion has no _description 
+2026-01-19 18:58:59,467 392906 WARNING fondoestrella odoo.models: The model report.tesaka.retenciones_report has no _description 
+2026-01-19 18:58:59,467 392906 WARNING fondoestrella odoo.models: The model tesaka.wizard.masivo has no _description 
+2026-01-19 18:58:59,467 392906 DEBUG fondoestrella odoo.modules.loading: Module tesaka loaded in 0.01s, 0 queries 
+2026-01-19 18:58:59,467 392906 INFO fondoestrella odoo.modules.loading: 181 modules loaded in 0.95s, 0 queries (+0 extra) 
+2026-01-19 18:58:59,576 392906 WARNING fondoestrella odoo.fields: Field res.partner.nivel: unknown parameter 'size', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,576 392906 WARNING fondoestrella odoo.fields: Field res.partner.kilometro_estimado_recorrido: unknown parameter 'size', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,576 392906 WARNING fondoestrella odoo.fields: Field res.partner.retencion: unknown parameter 'domain', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,577 392906 WARNING fondoestrella odoo.fields: Field res.currency.rate.cotizacion: unknown parameter 'String', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,577 392906 WARNING fondoestrella odoo.fields: Field res.currency.rate.set_venta: unknown parameter 'String', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,577 392906 WARNING fondoestrella odoo.fields: Field res.company.nombre_trans_id: unknown parameter 'size', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,582 392906 WARNING fondoestrella odoo.fields: Field hr.employee.public.asignacion_vacaciones: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,582 392906 WARNING fondoestrella odoo.fields: Field hr.employee.public.cobra_entrada_anticipada: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,582 392906 WARNING fondoestrella odoo.fields: Field hr.employee.public.cobra_horas_extras: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,582 392906 WARNING fondoestrella odoo.fields: Field hr.employee.public.horario_nocturno: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,582 392906 WARNING fondoestrella odoo.fields: Field hr.employee.public.horario_diurno: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,584 392906 WARNING fondoestrella odoo.fields: Field hr.leave.type.tiempo_cumpleanios: unknown parameter 'defautl', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,584 392906 WARNING fondoestrella odoo.fields: Field hr.leave.type.tiempo_cumpleanios: unknown parameter 'hepl', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,585 392906 WARNING fondoestrella odoo.fields: Field account.move.second_account_debt: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,586 392906 WARNING fondoestrella odoo.fields: Field account.move.estado_de: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,587 392906 WARNING fondoestrella odoo.fields: Field account.payment.received_third_check_ids: unknown parameter 'ondelete', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,587 392906 WARNING fondoestrella odoo.fields: Field account.payment.issued_check_ids: unknown parameter 'ondelete', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,587 392906 WARNING fondoestrella odoo.fields: Field account.payment.delivered_third_check_ids: unknown parameter 'ondelete', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,590 392906 WARNING fondoestrella odoo.fields: Field account.invoice.report.tipo_factura: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,591 392906 WARNING fondoestrella odoo.fields: Field stock.picking.talonario_remision: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,591 392906 WARNING fondoestrella odoo.fields: Field stock.picking.timbrado_remision: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,591 392906 WARNING fondoestrella odoo.fields: Field stock.picking.kilometro_estimado_recorrido: unknown parameter 'size', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,591 392906 WARNING fondoestrella odoo.fields: Field stock.picking.nombre_trans_id: unknown parameter 'size', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,591 392906 WARNING fondoestrella odoo.fields: Field stock.picking.name_lastname_chofer_id: unknown parameter 'size', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,592 392906 WARNING fondoestrella odoo.fields: Field account.voucher.voucher_type: unknown parameter 'oldname', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,592 392906 WARNING fondoestrella odoo.fields: Redundant default on account.voucher.company_id 
+2026-01-19 18:58:59,592 392906 WARNING fondoestrella odoo.fields: Field account.voucher.state: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,593 392906 WARNING fondoestrella odoo.fields: Field account.voucher.check_id: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,593 392906 WARNING fondoestrella odoo.fields: Field account.voucher.check_third_id: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,593 392906 WARNING fondoestrella odoo.fields: Field account.voucher.line.price_unit: unknown parameter 'oldname', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,598 392906 WARNING fondoestrella odoo.fields: Field hr.grupo_familiar.nombre_apellido: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,598 392906 WARNING fondoestrella odoo.fields: Field hr.grupo_familiar.ci: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,598 392906 WARNING fondoestrella odoo.fields: Field hr.grupo_familiar.fecha_nacimiento: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,599 392906 WARNING fondoestrella odoo.fields: Field hr.grupo_familiar.relacion_parentesco: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,599 392906 WARNING fondoestrella odoo.fields: Field hr.grupo_familiar.discapacitado: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,599 392906 WARNING fondoestrella odoo.fields: Field hr.grupo_familiar.papeles: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,599 392906 WARNING fondoestrella odoo.fields: Field hr.grupo_familiar.adjunto_papeles: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,600 392906 WARNING fondoestrella odoo.fields: Field ruc.tipo.documento.tipo: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,600 392906 WARNING fondoestrella odoo.fields: Field ruc.documentos.timbrados.name: unknown parameter 'unique', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,600 392906 WARNING fondoestrella odoo.fields: Field ruc.documentos.timbrados.nro_ini: unknown parameter 'size', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,600 392906 WARNING fondoestrella odoo.fields: Field ruc.documentos.timbrados.nro_actual: unknown parameter 'size', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,600 392906 WARNING fondoestrella odoo.fields: Field ruc.documentos.timbrados.nro_fin: unknown parameter 'size', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,600 392906 WARNING fondoestrella odoo.fields: Field account.checkbook.name: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,600 392906 WARNING fondoestrella odoo.fields: Field account.checkbook.debit_journal_id: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,601 392906 WARNING fondoestrella odoo.fields: Field account.checkbook.range_from: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,601 392906 WARNING fondoestrella odoo.fields: Field account.checkbook.range_to: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,601 392906 WARNING fondoestrella odoo.fields: Field account.checkbook.padding: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,601 392906 WARNING fondoestrella odoo.fields: Field account.checkbook.company_id: unknown parameter 'requirde', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,601 392906 WARNING fondoestrella odoo.fields: Field account.checkbook.obra: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,601 392906 WARNING fondoestrella odoo.fields: Field account.check.pago_voucher: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,601 392906 WARNING fondoestrella odoo.fields: Field account.check.voucher_id: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,601 392906 WARNING fondoestrella odoo.fields: Field account.check.comentario: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,601 392906 WARNING fondoestrella odoo.fields: Field account.check.issue_date: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,601 392906 WARNING fondoestrella odoo.fields: Field account.check.payment_date: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,601 392906 WARNING fondoestrella odoo.fields: Field account.check.state: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,601 392906 WARNING fondoestrella odoo.fields: Field account.check.third.facturas_asociadas with unknown comodel_name None 
+2026-01-19 18:58:59,601 392906 WARNING fondoestrella odoo.fields: Field account.check.third.state: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,601 392906 WARNING fondoestrella odoo.fields: Field account.check.third.pago_voucher: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,601 392906 WARNING fondoestrella odoo.fields: Field envio.lotes.state: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,601 392906 WARNING fondoestrella odoo.fields: Field envio.lotes.fecha_envio: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,601 392906 WARNING fondoestrella odoo.fields: Field tipo.obligaciones.name: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,601 392906 WARNING fondoestrella odoo.fields: Field tipo.obligaciones.code: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,601 392906 WARNING fondoestrella odoo.fields: Field tipo.obligaciones.active: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,602 392906 WARNING fondoestrella odoo.fields: Field stock.landed.cost.invoice_ids: unknown parameter 'ondelete', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,602 392906 WARNING fondoestrella odoo.fields: Field stock.landed.cost.invoice_imp_ids: unknown parameter 'ondelete', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,602 392906 WARNING fondoestrella odoo.fields: Field stock.landed.cost.voucher_ids: unknown parameter 'ondelete', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,602 392906 WARNING fondoestrella odoo.fields: Field stock.landed.cost.pedido_compra: unknown parameter 'ondelete', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,602 392906 WARNING fondoestrella odoo.fields: Field depositos.cheques.monto_manual: unknown parameter 'currency_field', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,602 392906 WARNING fondoestrella odoo.fields: Field transferencias.entre.cuentas.name: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,602 392906 WARNING fondoestrella odoo.fields: Field transferencias.entre.cuentas.cuenta_origen: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,602 392906 WARNING fondoestrella odoo.fields: Field transferencias.entre.cuentas.cuenta_destino: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,602 392906 WARNING fondoestrella odoo.fields: Field transferencias.entre.cuentas.state: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,602 392906 WARNING fondoestrella odoo.fields: Field transferencias.entre.cuentas.check_id: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,602 392906 WARNING fondoestrella odoo.fields: Field transferencias.entre.cuentas.monto: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,602 392906 WARNING fondoestrella odoo.fields: Field transferencias.entre.cuentas.fecha: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,602 392906 WARNING fondoestrella odoo.fields: Field transferencias.entre.cuentas.tasa_cambio: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,602 392906 WARNING fondoestrella odoo.fields: Field transferencias.entre.cuentas.observacion: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,602 392906 WARNING fondoestrella odoo.fields: Field transferencias.entre.cuentas.exchange_account_id: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,602 392906 WARNING fondoestrella odoo.fields: Field transferencias.entre.cuentas.crear_diferencia_cambio: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,602 392906 WARNING fondoestrella odoo.fields: Field transferencias.entre.cuentas.currency_dest_id: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,603 392906 WARNING fondoestrella odoo.fields: Field account.orden.pago.partner_id: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,603 392906 WARNING fondoestrella odoo.fields: Field account.orden.pago.fecha: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,603 392906 WARNING fondoestrella odoo.fields: Field account.orden.pago.usuario: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,603 392906 WARNING fondoestrella odoo.fields: Field account.orden.pago.payment_ids: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,603 392906 WARNING fondoestrella odoo.fields: Field account.orden.pago.currency_id: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,603 392906 WARNING fondoestrella odoo.fields: Field account.orden.pago.state: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,603 392906 WARNING fondoestrella odoo.fields: Field account.orden.pago.recibo_proveedor: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,603 392906 WARNING fondoestrella odoo.fields: Field libro_iva_paraguay.wizard.libro_iva.mostrar_numeracion: unknown parameter 'defaul', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,603 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.name: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,603 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.company_id: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,603 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_clientes: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,603 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.ventas: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,603 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.descuentos_concedidos: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,603 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_anticipo_clientes: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,603 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_tarjetas_credito: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,603 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_clientes: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,603 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_anticipos_clientes: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,603 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_tarjetas_credito: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,603 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_anticipo_proveedores: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,603 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_gastos_pagados_adelantado: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,603 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_proveedores_locales: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,603 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_otros_acreedores: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_mercaderias: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_anticipo_proveedores: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_proveedores_locales: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_otros_acreedores: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_gastos_pagados_adelantado: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_mercaderias: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.costo_ventas: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_anticipo_proveedores_exterior: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_gastos_pagados_adelantado_exterior: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_proveedores_exterior: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_mercaderias_exterior: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_anticipo_proveedores_exterior: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_proveedores_exterior: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_gastos_pagados_adelantado_exterior: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_mercaderias_exterior: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.costo_ventas_exterior: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_obligaciones_laborales: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_obligaciones_laborales: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.sueldos_jornales: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.aporte_patronal: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.aguinaldos: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.agua_luz_telefono_internet: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.alquileres_pagados: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.combustibles_lubricantes: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.comisiones_gastos_bancarios: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.comisiones_sobre_ventas: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.donaciones_contribuciones: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.fletes_pagados: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.gastos_cobranzas: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.gastos_representacion: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.gastos_pagados_exterior: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.honorarios_profesionales: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.juicios_gastos_judiciales: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.movilidad: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.otros_gastos_ventas: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.publicidad_propaganda: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.remuneracion_personal_superior: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.reparacion_mantenimiento: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.seguros_pagados: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.utiles_oficina: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.viaticos_vendedores: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.gastos_no_deducibles: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_anticipos_retenciones: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_sset: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_iva_pagar: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_iva_credito_fiscal: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_retencion_iva_credito: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,604 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_iva_pagar: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,605 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_iva_credito_fiscal: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,605 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_retencion_iva_credito: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,605 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.impuesto_ejercicio: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,605 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.pago_impuesto_renta: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,605 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_anticipos_retenciones: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,605 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_sset: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,605 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.multas: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,605 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_inversiones_temporarias: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,605 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_otros_activos_corto_plazo: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,605 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_inversiones_temporarias: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,605 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_otros_activos_corto_plazo: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,605 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_inversiones_largo_plazo: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,605 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_otros_activos_largo_plazo: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,605 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_inversiones_largo_plazo: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,605 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_otros_activos_largo_plazo: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,605 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_propiedad_planta_equipo: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,605 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_activos_intangibles: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,605 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_reservas_revaluo: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,605 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.utilidad_perdida_venta_activos_fijos: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,605 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_cargos_diferidos: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,605 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.depreciaciones_ejercicio: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,605 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_reservas_revaluo: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,605 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.amortizacion_ejercicio: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,605 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_propiedad_planta_equipo: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,605 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_cargos_diferidos: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,605 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_activos_intangibles: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,605 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_capital: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,605 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_capital: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,605 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_prestamos: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,605 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_prestamos: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,605 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_dividendos_pagar: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,605 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_resultado_acumulado: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,605 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_resultado_acumulado: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,605 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_dividendos_pagar: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,605 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_intereses_pagar: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,605 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_intereses_pagar: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,605 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.otros_intereses_bancarios: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,605 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.diferencias_cambios: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,605 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.disponibilidades: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,606 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_otras_cuentas_ventas: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,606 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_otras_cuentas_ventas: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,606 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_otras_cuentas_pago_proveedores_locales: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,606 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_otras_cuentas_pago_proveedores_locales: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,606 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_otras_cuentas_pago_proveedores_exterior: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,606 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_otras_cuentas_pago_proveedores_exterior: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,606 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_otras_cuentas_efectivo_pagado_empleados: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,606 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_otras_cuentas_efectivo_pagado_empleados: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,606 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_otras_cuentas_pago_impuestos: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,606 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_otras_cuentas_pago_impuestos: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,606 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_otras_cuentas_inversiones_temporarias: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,606 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_otras_cuentas_inversiones_temporarias: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,606 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_otras_cuentas_inversiones_largo_plazo: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,606 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_otras_cuentas_inversiones_largo_plazo: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,606 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_otras_cuentas_propiedad_planta_equipo: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,606 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_otras_cuentas_propiedad_planta_equipo: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,606 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_otras_cuentas_aporte_capital: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,606 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_otras_cuentas_aporte_capital: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,606 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_otras_cuentas_prestamos: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,606 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_otras_cuentas_prestamos: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,606 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_otras_cuentas_dividendos_pagados: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,606 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_otras_cuentas_dividendos_pagados: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,606 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_otras_cuentas_intereses: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,606 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_otras_cuentas_intereses: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,606 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_otras_cuentas_activo: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,606 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_otras_cuentas_pasivo: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,606 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_final_otras_cuentas_activo: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,606 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo3.saldo_inicial_otras_cuentas_pasivo: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,606 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo4.name: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,606 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo4.capital_integrado: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,606 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo4.reserva_legal: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,606 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo4.reserva_de_revaluo: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,607 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo4.otras_reservas: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,607 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo4.resultados_acumulados: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,607 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo4.resultados_del_ejercicio: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,607 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo4.dividendos_a_pagar: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,607 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo4.company_id: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,607 392906 WARNING fondoestrella odoo.fields: Field account_reports_paraguay.anexo5.company_id: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,607 392906 WARNING fondoestrella odoo.fields: Field ruc.cajas.state: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,607 392906 WARNING fondoestrella odoo.fields: Field ruc.cajas.company_id: unknown parameter 'sting', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,607 392906 WARNING fondoestrella odoo.fields: Redundant default on ruc.caja.detalle.currency_id 
+2026-01-19 18:58:59,607 392906 WARNING fondoestrella odoo.fields: Field reference.geo.name: unknown parameter 'traking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,607 392906 WARNING fondoestrella odoo.fields: Field reference.geo.codigo: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,607 392906 WARNING fondoestrella odoo.fields: Field reference.geo.district.name: unknown parameter 'traking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,607 392906 WARNING fondoestrella odoo.fields: Field reference.geo.district.codigo: unknown parameter 'traking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,607 392906 WARNING fondoestrella odoo.fields: Field reference.geo.district.reference_geo_id: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,607 392906 WARNING fondoestrella odoo.fields: Field reference.geo.city.name: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,607 392906 WARNING fondoestrella odoo.fields: Field reference.geo.city.codigo: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,607 392906 WARNING fondoestrella odoo.fields: Field reference.geo.city.reference_geo_district_id: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,608 392906 WARNING fondoestrella odoo.fields: Field account.recibo.talonario.recibo_ids: unknown parameter 'ondelete', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,608 392906 WARNING fondoestrella odoo.fields: Field account.recibo.state: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,608 392906 WARNING fondoestrella odoo.fields: Field account.recibo.total_facturas_adeudadas: unknown parameter 'currency_field', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,608 392906 WARNING fondoestrella odoo.fields: Field account.recibo.concepto: unknown parameter 'placeholder', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,608 392906 WARNING fondoestrella odoo.fields: Field delivery.order.parent.name: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,608 392906 WARNING fondoestrella odoo.fields: Field delivery.order.name: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,608 392906 WARNING fondoestrella odoo.fields: Field delivery.order.partner_id: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,608 392906 WARNING fondoestrella odoo.fields: Field delivery.order.parent_id: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,608 392906 WARNING fondoestrella odoo.fields: Field delivery.order.invoice_id: unknown parameter 'inverse_name', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,608 392906 WARNING fondoestrella odoo.fields: Field delivery.order.picking_id: unknown parameter 'inverse_name', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,608 392906 WARNING fondoestrella odoo.fields: Field delivery.order.state: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-01-19 18:58:59,734 392906 ERROR fondoestrella odoo.modules.loading: Some modules are not loaded, some dependencies or manifest may be missing: ['account_financial_report_date_range', 'auditlog', 'customer_activity_statement', 'factura_rapidsoft', 'fondo_estrella', 'libros_iva_paraguay', 'product_pricelist_direct_print', 'stock_inventory_chatter', 'web_decimal_numpad_dot', 'web_export_view', 'web_m2x_options'] 
+2026-01-19 18:58:59,735 392906 INFO fondoestrella odoo.modules.loading: Modules loaded. 
+2026-01-19 18:58:59,749 392906 INFO fondoestrella odoo.modules.registry: Registry loaded in 1.474s 
+2026-01-19 18:58:59,777 392906 WARNING fondoestrella odoo.modules.registry: account.check: inconsistent 'compute_sudo' for computed fields: type, journal_id 
+2026-01-19 18:58:59,778 392906 WARNING fondoestrella odoo.modules.registry: account.orden.pago: inconsistent 'compute_sudo' for computed fields: monto_retencion, total_sin_retencion, total_retenido_renta, total_retenido_renta_gs, monto_retencion_total 
+2026-01-19 18:58:59,778 392906 WARNING fondoestrella odoo.modules.registry: account.recibo: inconsistent 'compute_sudo' for computed fields: diferencia_cambio, existe_pago_gs_extranjero, debia_cobrar, cobre 
+2026-01-19 18:59:00,138 392906 DEBUG fondoestrella asyncio: Using selector: EpollSelector 
+2026-01-19 18:59:00,215 392906 DEBUG fondoestrella asyncio: Using selector: EpollSelector 

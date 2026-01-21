@@ -2,13 +2,6 @@
 sudo systemctl list-units --type=service --state=running
 sudo systemctl status <service.name>
 
-# Dejar los submodulos como tiene github
-git reset --hard
-git clean -fd
-git submodule foreach --recursive git reset --hard
-git submodule foreach --recursive git clean -fd
-git submodule update --init --recursive --force
-
 # Verificar y eliminar __pycache__ de un repositorio
 find . -type d -name "__pycache__"
 find . -type d -name "__pycache__" -exec rm -rf {} +
@@ -20,17 +13,10 @@ find /home/jose/Documentos/core/17.0/OCA -mindepth 1 -maxdepth 1 -type d | xclip
 # Filtra archivos que contengan el patron indicado (cualquier modelo)
 grep -rn --include="*.py" "no_ver_factura_recibo = fields." .
 
-# Caso 1: buscar una función específica
-rg -g "*.py" -e '^\s*def\s+action_confirm\s*\(' .
-
-# Caso 2: buscar cualquier función que empiece con cierto nombre
-rg -g "*.py" -e '^\s*def\s+action_.*\(' .
-
 rg -t py -n -C 3 "_(name|inherit)\s*=\s*['\"]hr\.payslip\.worked_days['\"]" .
 
 # Para buscar attrs con patrones
 rg -g "*.py" -e '^\s*(no_ver_factura_recibo)\s*=\s*fields\.' .
-rg -g "*.py" -e '^\s*(reparto_id)\s*=\s*fields\.' .
 
 # Buscar dentro de múltiples archivos y mostrar contexto (3 líneas antes y después)
 grep -rn --color=always -C 3 "def format_num(" .

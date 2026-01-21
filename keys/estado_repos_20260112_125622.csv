@@ -1,0 +1,12 @@
+RUTA                                          , BRANCH, FECHA       , AUTOR           , COMMIT_HASH, COMMIT_MESSAGE
+"/odoo/custom/account_payment"                , "15.0", "2025-03-10", "JotaDpy"       , "8909b52"  , "Se mejora el filtrado de pagos en función de la moneda, diferenciando entre USD y otras monedas."
+"/odoo/custom/accounting_reports_paraguay"    , "15.0", "2025-04-04", "SamuSati"      , "d05e71d"  , "se actualiza balance y resultados"
+"/odoo/custom/facturacion_electronica"        , "15.0", "2025-01-24", "EmaFalcon"     , "7b89c55"  , "Correccion en factura Kude -Correccion de estilo para cuando el talonario no tiene serie"
+"/odoo/custom/fondoestrella"                  , "15.0", "2025-10-09", "Isaias Almiron", "a08bc09"  , "Se agg el logo de la empresa en la carpeta img"
+"/odoo/custom/hr_paraguay"                    , "15.0", "2025-03-28", "SamuSati"      , "5e302f6"  , "Merge branch '15.0' of https://github.com/gcaceres93/hr_paraguay into 15.0"
+"/odoo/custom/odoo_paraguay"                  , "15.0", "2025-08-07", "Mappi05"       , "69f1a031" , "se corrige sintasix de partner despachante"
+"/odoo/custom/tesaka"                         , "15.0", "2025-03-28", "BenjaSati"     , "cda4f4c"  , "Se corrige error de calculo de mas de un impuesto en la OP"
+"/odoo/custom/oca/account-financial-reporting", "15.0", "2025-02-20", "Weblate"       , "ffb3d7a4" , "Update translation files"
+"/odoo/custom/oca/operating-unit"             , "15.0", "2023-06-12", "mymage"        , "493cdea"  , "Translated using Weblate (Italian)"
+"/odoo/custom/oca/reporting-engine"           , "15.0", "2023-06-20", "mymage"        , "c71db288" , "Translated using Weblate (Italian)"
+"/odoo/custom/oca/server-ux"                  , "15.0", "2023-06-15", "OCA-git-bot"   , "d5597a40" , "[UPD] addons table in README.md"

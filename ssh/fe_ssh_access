@@ -1,0 +1,5 @@
+Host fondoestrella
+    HostName fe15.sati.com.py
+    Port 22
+    User sati
+    IdentityFile /home/jose/Documentos/odoo15/ssh/sati_fe
