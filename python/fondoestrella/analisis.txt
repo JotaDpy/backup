@@ -1,5 +1,5 @@
 ================================================================================
-Mes: january
+Mes: enero
 
 	Cantidad de casos distintos: 3
 		- "Estaba correcto, pero igual se actualiza": 1944
@@ -8,7 +8,7 @@ Mes: january
 	Suma de todos los casos: 1961
 
 ================================================================================
-Mes: february
+Mes: febrero
 
 	Cantidad de casos distintos: 3
 		- "Estaba correcto, pero igual se actualiza": 1725
@@ -17,7 +17,7 @@ Mes: february
 	Suma de todos los casos: 1739
 
 ================================================================================
-Mes: march
+Mes: marzo
 
 	Cantidad de casos distintos: 3
 		- "Estaba correcto, pero igual se actualiza": 1981
@@ -26,7 +26,7 @@ Mes: march
 	Suma de todos los casos: 1994
 
 ================================================================================
-Mes: april
+Mes: abril
 
 	Cantidad de casos distintos: 3
 		- "Estaba correcto, pero igual se actualiza": 2137
@@ -35,7 +35,7 @@ Mes: april
 	Suma de todos los casos: 2150
 
 ================================================================================
-Mes: may
+Mes: mayo
 
 	Cantidad de casos distintos: 3
 		- "Estaba correcto, pero igual se actualiza": 1943
@@ -44,7 +44,7 @@ Mes: may
 	Suma de todos los casos: 1957
 
 ================================================================================
-Mes: june
+Mes: junio
 
 	Cantidad de casos distintos: 3
 		- "Estaba correcto, pero igual se actualiza": 2074
@@ -53,7 +53,7 @@ Mes: june
 	Suma de todos los casos: 2088
 
 ================================================================================
-Mes: july
+Mes: julio
 
 	Cantidad de casos distintos: 3
 		- "Estaba correcto, pero igual se actualiza": 2130
@@ -62,7 +62,7 @@ Mes: july
 	Suma de todos los casos: 2143
 
 ================================================================================
-Mes: august
+Mes: agosto
 
 	Cantidad de casos distintos: 3
 		- "Estaba correcto, pero igual se actualiza": 2149
@@ -71,7 +71,7 @@ Mes: august
 	Suma de todos los casos: 2161
 
 ================================================================================
-Mes: september
+Mes: septiembre
 
 	Cantidad de casos distintos: 3
 		- "Estaba correcto, pero igual se actualiza": 2043
@@ -80,7 +80,7 @@ Mes: september
 	Suma de todos los casos: 2053
 
 ================================================================================
-Mes: october
+Mes: octubre
 
 	Cantidad de casos distintos: 3
 		- "Estaba correcto, pero igual se actualiza": 2234
@@ -89,7 +89,7 @@ Mes: october
 	Suma de todos los casos: 2250
 
 ================================================================================
-Mes: november
+Mes: noviembre
 
 	Cantidad de casos distintos: 3
 		- "Estaba correcto, pero igual se actualiza": 2152
@@ -98,7 +98,7 @@ Mes: november
 	Suma de todos los casos: 2164
 
 ================================================================================
-Mes: december
+Mes: diciembre
 
 	Cantidad de casos distintos: 3
 		- "Estaba correcto, pero igual se actualiza": 1997

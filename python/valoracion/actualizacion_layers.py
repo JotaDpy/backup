@@ -7,6 +7,35 @@ from datetime import datetime, date
 import calendar
 import re
 
+def get_product_category(categoria, enviroment):
+    def product_template_interseccion(objeto_template):
+        product_product = env['product.product'].search([
+            ('product_tmpl_id', 'in', objeto_template.ids)
+        ])
+        return product_product or []
+
+    # A. Obtenemos el Recordset de productos (los objetos completos)
+    productos_recordset = enviroment['product.template'].search([
+        ('categ_id', '=', categoria.id)
+    ])
+    
+    # B. Obtenemos la cantidad exacta (Usando search_count como pediste)
+    cantidad = enviroment['product.template'].search_count([
+        ('categ_id', '=', categoria.id)
+    ])
+
+    # 3. Llenamos el diccionario
+    # Usamos categoria.name (o categoria.id) como clave para separar por categoría
+    return {
+        'cat_id': categoria.id,
+        'complete_name': categoria.complete_name,
+        'cost_method': categoria.property_cost_method,
+        'valuation': categoria.property_valuation,
+        'total_productos': cantidad,       # Aquí va el número entero
+        'records_product_template': productos_recordset, # Aquí va el objeto Recordset
+        'records_product_product': product_template_interseccion(productos_recordset) # Aquí va el objeto Recordset
+    }
+
 def meses_anho(anho):
     meses = {}
     for mes in range(1, 13):
@@ -361,32 +390,35 @@ Este algoritmo se aplica a todos los registros de **Stock Valuation Layer** que 
 
 anho = 2025
 meses = meses_anho(anho)
-for mes_num, (mes_str, dias) in enumerate(meses.items(), start=1):
+# Prueba de búsquedas de productos
+direccion = '/home/jose/Documentos/clientes/15FONDOESTRELLA/clean_valuation/python/valoracion/actualizacion_layers.yaml'
+categoria_auto = env['product.category'].search([
+    ('property_cost_method', '=', 'fifo'),
+    ('property_valuation', '=', 'real_time'),
+])
 
-    proyecto = '/home/jose/Documentos/clientes/15FONDOESTRELLA/'
-    modulo = 'clean_valuation/python/valoracion/'
-    archivo = f'actualizacion_layers_{mes_num}_{anho}.yaml'
-    direccion = proyecto + modulo + archivo
-    date_from = datetime(anho, mes_num, 1)
-    date_to = datetime(anho, mes_num, dias, 23, 59, 59)
+for cat in categoria_auto:
+    diccionario = get_product_category(categoria=cat, enviroment=env) 
 
-    # Análisis masivo de productos de febrero
-    layer_febrero = env['stock.valuation.layer'].search([
-        ('create_date', '>=', date_from),
-        ('create_date', '<=', date_to),
-    ])
-    lista_productos = list(set(layer_febrero.product_id.ids))  # Eliminar duplicados
+    product_product = diccionario.get('records_product_product', [])
+    print(f'product_product: {len(product_product)}')
 
-    # Prueba a pedido de nahuel
-    prueba_nahuel = env['stock.valuation.layer'].search([
-        ('create_date', '>=', '2025-02-01'),
-        ('quantity', '<', 0.0),
-        ('stock_move_id.purchase_line_id', '=', False),
-        ('stock_move_id.location_id.usage', 'in', ['supplier']),
-        ('stock_move_id.location_dest_id.usage', 'in', ['customer'])
-        # ('stock_move_id.location_id.usage', 'not in', ['customer', 'inventory']),
-        # ('stock_move_id.location_dest_id.usage', 'not in', ['internal', 'inventory']),
-    ])
+    if not product_product:
+        continue
+
+    valoraciones = sorted(product_product.stock_valuation_layer_ids.ids, reverse=True)[0:5]
+    print(f'valoraciones: {valoraciones}')
+
+    # for prod in product_product:
+    #     valoraciones = prod.stock_valuation_layer_ids
+    #     if not valoraciones:
+    #         continue
+    #     print(f'\tproducto: {prod}')
+    #     print(f'\tvaloraciones: {len(prod.stock_valuation_layer_ids)}\n')
+
+
+    continue
+    # stock_valuation_layer_ids
 
     # impresion_csv(direccion, prueba_nahuel)
     with open(direccion, 'w') as f:
