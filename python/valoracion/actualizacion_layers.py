@@ -93,7 +93,7 @@ def buscar_layers_positivos(
         fecha_inicio=None,
         fecha_fin=None):
     # Definimos el dominio de la búsqueda
-    domain = [('product_id', '=', producto), ('quantity', '>', 0)]
+    domain = [('product_id', '=', producto.id), ('quantity', '>', 0)]
     
     # Agregar filtros de fecha si se proporcionan
     if fecha_inicio:
@@ -400,66 +400,51 @@ categoria_auto = env['product.category'].search([
 for cat in categoria_auto:
     diccionario = get_product_category(categoria=cat, enviroment=env) 
 
-    product_product = diccionario.get('records_product_product', [])
+    product_product = diccionario.get('records_product_product', [])[2000:]
     print(f'product_product: {len(product_product)}')
 
     if not product_product:
         continue
 
-    valoraciones = sorted(product_product.stock_valuation_layer_ids.ids, reverse=True)[0:5]
-    print(f'valoraciones: {valoraciones}')
-
-    # for prod in product_product:
-    #     valoraciones = prod.stock_valuation_layer_ids
-    #     if not valoraciones:
-    #         continue
-    #     print(f'\tproducto: {prod}')
-    #     print(f'\tvaloraciones: {len(prod.stock_valuation_layer_ids)}\n')
-
-
-    continue
-    # stock_valuation_layer_ids
-
     # impresion_csv(direccion, prueba_nahuel)
     with open(direccion, 'w') as f:
-        print(f"Iniciando análisis de {len(lista_productos)} productos únicos...")
-        print(f"   Layers febrero 2025 en adelante: {len(layer_febrero)}")
+        print(f"Iniciando análisis de {len(product_product)} productos únicos...")
 
         # Escribir cabecera global del archivo YAML
-        info_cabecera_principal(iterador=f, enviroment=env, lista=lista_productos)
+        info_cabecera_principal(iterador=f, enviroment=env, lista=product_product)
         contador_productos = 0
         total_layers_analizados = 0
         productos_con_datos = 0
         productos_sin_datos = 0
 
-        for product_id in lista_productos:
+
+        for producto_obj in product_product:
             contador_productos += 1
 
             # Buscar layers para este producto
             layers = buscar_layers_positivos(
                 env=env,
-                producto=product_id,
+                producto=producto_obj,
                 orden="asc",
                 cantidad=None,
-                fecha_inicio='2025-01-01')
+                fecha_inicio='2019-07-02')
 
             if not layers:
                 continue  # Saltar productos sin layers en el período
 
             # Escribir cabecera del producto
-            producto_obj = env['product.product'].browse(product_id)
             total_layers_analizados += len(layers)
             info_cabecera_productos(
                 iterador=f,
                 count=contador_productos,
-                producto=lista_productos,
-                id=product_id,
+                producto=product_product,
+                id=producto_obj.id,
                 objeto=producto_obj,
                 valoracion=layers)
 
             layers_con_purchase = 0
-            layers_sin_purchase = 0
-            
+            layers_sin_purchase = 0            
+
             for index, layer in enumerate(layers, 1):
                 # Algoritmo para cruzar 'stock.valuation.layer' con 'purchase.order.line'
                 stock_move = layer.stock_move_id
@@ -476,7 +461,7 @@ for cat in categoria_auto:
                     continue
 
                 layers_con_purchase += 1
-                
+
                 # Buscar account_move_line
                 account_move_line = env['account.move.line'].search([
                     ('purchase_line_id', '=', purchase_order_line.id),
@@ -519,7 +504,7 @@ for cat in categoria_auto:
 
             # Log de progreso cada 10 productos
             if contador_productos % 10 == 0:
-                print(f"Procesados {contador_productos}/{len(lista_productos)} productos...")
+                print(f"Procesados {contador_productos}/{len(product_product)} productos...")
 
         # Escribir resumen final
         info_resumen_final(
@@ -529,7 +514,6 @@ for cat in categoria_auto:
             count3=productos_sin_datos,
             count4=total_layers_analizados,
             enviroment=env)
-        print(f"Mes: {mes_str}")
         print(f"\nAnálisis completado!")
         print(f"Resumen:")
         print(f"   - Productos analizados: {contador_productos}")

@@ -1,0 +1,39 @@
+producto_427:
+  product_info:
+    id: 1632
+    name: "Rollos bolsas picotados AD T.Natural 50x80x30"
+    default_code: "3447"
+    categ_id: "Productos Distribuidora"
+    total_layers: 162
+
+producto_14:
+  product_info:
+    id: 1772
+    name: "Bolsa de Res. Negro Especial 200 Lt. 92(62)x97x60"
+    default_code: "3535"
+    categ_id: "Productos Distribuidora"
+    total_layers: 155
+
+producto_432:
+  product_info:
+    id: 3281
+    name: "Bolsa Cam. Ama. Imp/Certif. EL CACIQUE 50x60x25"
+    default_code: "4527"
+    categ_id: "Productos Distribuidora"
+    total_layers: 698
+
+producto_96:
+  product_info:
+    id: 3535
+    name: "BOLSAS BD TELA CRISTAL C/FUELLE IMPRESO 2 CARAS PAPEL HIGIENICO EXPRESS 4 ROLLOS X 30 MTS 25X34(30)X40"
+    default_code: "4990"
+    categ_id: "Productos Distribuidora"
+    total_layers: 124
+
+producto_466:
+  product_info:
+    id: 4899
+    name: "Bols. Patog. Tipo IV Blanco70x90x80"
+    default_code: "6647"
+    categ_id: "Productos Distribuidora"
+    total_layers: 84
