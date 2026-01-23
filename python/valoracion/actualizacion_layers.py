@@ -7,7 +7,21 @@ from datetime import datetime, date
 import calendar
 import re
 
-def get_product_category(categoria, enviroment):
+def get_fecha_min_layer(product_id):
+    query = """
+        SELECT MIN(create_date)
+        FROM stock_valuation_layer
+        WHERE product_id = %s
+    """
+    self.env.cr.execute(query, (product_id,))
+    result = self.env.cr.fetchone()
+
+    if not result or not result[0]:
+        return None
+
+    return result[0].strftime('%Y-%m-%d %H:%M:%S')
+
+def get_product_category(categoria, enviroment, limit=None):
     def product_template_interseccion(objeto_template):
         product_product = env['product.product'].search([
             ('product_tmpl_id', 'in', objeto_template.ids)
@@ -17,7 +31,7 @@ def get_product_category(categoria, enviroment):
     # A. Obtenemos el Recordset de productos (los objetos completos)
     productos_recordset = enviroment['product.template'].search([
         ('categ_id', '=', categoria.id)
-    ])
+    ], limit=limit)
     
     # B. Obtenemos la cantidad exacta (Usando search_count como pediste)
     cantidad = enviroment['product.template'].search_count([
@@ -99,7 +113,6 @@ def buscar_layers_positivos(
     if fecha_inicio:
         # Convertir string a datetime si es necesario
         if isinstance(fecha_inicio, str):
-            from datetime import datetime
             try:
                 fecha_inicio = datetime.strptime(fecha_inicio, '%Y-%m-%d').strftime('%Y-%m-%d 00:00:00')
             except ValueError:
@@ -115,7 +128,6 @@ def buscar_layers_positivos(
     if fecha_fin:
         # Convertir string a datetime si es necesario
         if isinstance(fecha_fin, str):
-            from datetime import datetime
             try:
                 fecha_fin = datetime.strptime(fecha_fin, '%Y-%m-%d').strftime('%Y-%m-%d 23:59:59')
             except ValueError:
@@ -398,13 +410,13 @@ categoria_auto = env['product.category'].search([
 ])
 
 for cat in categoria_auto:
-    diccionario = get_product_category(categoria=cat, enviroment=env) 
-
-    product_product = diccionario.get('records_product_product', [])[2000:]
-    print(f'product_product: {len(product_product)}')
+    diccionario = get_product_category(categoria=cat, enviroment=env)
+    product_product = diccionario.get('records_product_product', [])
 
     if not product_product:
         continue
+
+    product_product = product_product.filtered(lambda x: x.id in [1632, 1772, 3281, 3535, 4899])
 
     # impresion_csv(direccion, prueba_nahuel)
     with open(direccion, 'w') as f:
@@ -427,7 +439,8 @@ for cat in categoria_auto:
                 producto=producto_obj,
                 orden="asc",
                 cantidad=None,
-                fecha_inicio='2019-07-02')
+                fecha_inicio=get_fecha_min_layer(producto_obj.id)
+            )
 
             if not layers:
                 continue  # Saltar productos sin layers en el período
