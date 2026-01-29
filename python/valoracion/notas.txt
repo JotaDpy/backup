@@ -1,39 +1,131 @@
+producto_1:
+  product_info:
+    id: 3281
+    name: "Bolsa Cam. Ama. Imp/Certif. EL CACIQUE 50x60x25"
+    default_code: "4527"
+    categ_id: "Productos Distribuidora"
+    total_layers: 1293
+    layer_ids_error_significativo: [
+      247044: "2025-11-03 12:58:13.168264"
+    ]
+
+producto_1:
+  product_info:
+    id: 2671
+    name: "Cinta de Embalaje Premium Transp. 48mmx100mts (3674)"
+    default_code: "4109"
+    categ_id: "Productos Distribuidora"
+    total_layers: 864
+    layer_ids_error_significativo: [
+      250245: "2025-12-15 12:47:45.272622",
+      250880: "2025-12-23 13:32:51.323221",
+      250899: "2025-12-23 14:41:34.541311",
+      251107: "2025-12-30 13:54:39.156763",
+      261074: "2026-01-07 13:20:13.850455",
+    ]
+
+producto_514:
+  product_info:
+    id: 1772
+    name: "Bolsa de Res. Negro Especial 200 Lt. 92(62)x97x60"
+    default_code: "3535"
+    categ_id: "Productos Distribuidora"
+    total_layers: 775
+
+producto_1014:
+  product_info:
+    id: 2670
+    name: "Cinta de embalar Transp. 'Resistente' 48mmx100mts.(3691)"
+    default_code: "4108"
+    categ_id: "Productos Distribuidora"
+    total_layers: 724
+    layer_ids_error_significativo: [
+      250882: "2025-12-23 13:32:51.323221",
+      251108: "2025-12-30 13:54:39.156763",
+      261075: "2026-01-07 13:20:13.850455"
+    ]
+
+producto_595:
+  product_info:
+    id: 1936
+    name: "Bols. P/ Residuo Ref. 100 Lt. Paq 10 Unid. FE"
+    default_code: "3620"
+    categ_id: "Productos Distribuidora"
+    total_layers: 723
+    layer_ids_error_significativo: [
+      247500: "2025-11-07 14:11:12.018046"
+    ]
+
+producto_1010:
+  product_info:
+    id: 2666
+    name: "Cinta de Embalaje Eco 48mmx100mts. (3670)"
+    default_code: "4104"
+    categ_id: "Productos Distribuidora"
+    total_layers: 697
+    layer_ids_error_significativo: [
+      250898: "2025-12-23 14:41:34.541311",
+      251106: "2025-12-30 13:54:39.156763"
+    ]
+
+producto_600:
+  product_info:
+    id: 1941
+    name: "Bols. P/ Residuo Eco. 80 Lt. Paq 10 Unid. FE"
+    default_code: "3625"
+    categ_id: "Productos Distribuidora"
+    total_layers: 680
+
+producto_1012:
+  product_info:
+    id: 2668
+    name: "Cinta de Embalar Estándar 48mmx100mts.(3690)"
+    default_code: "4106"
+    categ_id: "Productos Distribuidora"
+    total_layers: 645
+    layer_ids_error_significativo: [
+      246538: "2025-10-27 16:37:45.801492"
+    ]
+
+producto_593:
+  product_info:
+    id: 2180
+    name: "Bols. P/ Residuo Ref. 200 Lt. Paq 5 Unid. FE"
+    default_code: "3618"
+    categ_id: "Productos Distribuidora"
+    total_layers: 642
+    layer_ids_error_significativo: [
+      231039: "2025-03-28 11:25:03.239923"
+    ]
+  
+  producto_477:
+  product_info:
+    id: 1722
+    name: "Bolsa Picotada Nat S/ Imp. 50x70x20"
+    default_code: "3499"
+    categ_id: "Productos Distribuidora"
+    total_layers: 635
+
+producto_573:
+    id: 1775
+  product_info:
+    name: "Bolsa AD T. Nat. S/ Imp. 75(50)X80X18"
+    default_code: "3596"
+    categ_id: "Productos Distribuidora"
+    total_layers: 633
+
 producto_427:
   product_info:
     id: 1632
     name: "Rollos bolsas picotados AD T.Natural 50x80x30"
     default_code: "3447"
     categ_id: "Productos Distribuidora"
-    total_layers: 162
+    total_layers: 613
 
-producto_14:
+producto_1660:
   product_info:
-    id: 1772
-    name: "Bolsa de Res. Negro Especial 200 Lt. 92(62)x97x60"
-    default_code: "3535"
+    id: 3642
+    name: "Bolsa Resid. 250 Lts 88x100 canela (Paq. 10 unid)"
+    default_code: "5055"
     categ_id: "Productos Distribuidora"
-    total_layers: 155
-
-producto_432:
-  product_info:
-    id: 3281
-    name: "Bolsa Cam. Ama. Imp/Certif. EL CACIQUE 50x60x25"
-    default_code: "4527"
-    categ_id: "Productos Distribuidora"
-    total_layers: 698
-
-producto_96:
-  product_info:
-    id: 3535
-    name: "BOLSAS BD TELA CRISTAL C/FUELLE IMPRESO 2 CARAS PAPEL HIGIENICO EXPRESS 4 ROLLOS X 30 MTS 25X34(30)X40"
-    default_code: "4990"
-    categ_id: "Productos Distribuidora"
-    total_layers: 124
-
-producto_466:
-  product_info:
-    id: 4899
-    name: "Bols. Patog. Tipo IV Blanco70x90x80"
-    default_code: "6647"
-    categ_id: "Productos Distribuidora"
-    total_layers: 84
+    total_layers: 560

@@ -1,0 +1,291 @@
+# ========================================
+# EJEMPLO DE OUTPUT CON ANÁLISIS FIFO
+# ========================================
+# Este archivo muestra la estructura mejorada del análisis
+
+producto_1:
+  product_info:
+    id: 4240
+    name: "Bolsa para residuos patológico"
+    default_code: "PROD-001"
+    categ_id: "Productos Terminados"
+    total_layers: 5
+
+  layers:
+    # ============================================
+    # LAYER DE ENTRADA - CASO 1: Parcialmente consumido
+    # ============================================
+    layer_1:
+      layer_id: 109593
+      status: "completo"
+      
+      stock_valuation_layer:
+        create_date: "2019-09-20 17:41:06"
+        description: "DIST/IN/00460"
+        quantity: 327.34
+        unit_cost: 10000.0
+        value: 3273400.0
+        remaining_qty: 127.34        # ⭐ QUEDAN 127.34 unidades
+        remaining_value: 1273400.0   # ⭐ QUEDAN 1,273,400 de valor
+      
+      stock_move:
+        id: 3965
+        name: "(3447) Rollos bolsas picotados AD T.Natural 50x80x30"
+        date: "2019-09-20 17:41:06"
+        state: "done"
+      
+      purchase_order_line:
+        id: 431
+        name: "(3447) Rollos bolsas picotados AD T.Natural 50x80x30"
+        qty_ordered: 300.0
+        price_unit: 11000.0
+        currency: "PYG"
+        qty_received: 327.34
+        qty_invoiced: 327.34
+      
+      purchase_order:
+        id: 240
+        name: "OC238"
+        date_order: "2019-09-08 12:45:02"
+        currency: "PYG"
+        state: "purchase"
+      
+      account_move_line:
+        id: 104000
+        name: "OC238 - (3447) Rollos bolsas picotados"
+        quantity: 327.34
+        balance: 3273400.0
+        price_unit_original: 11000.0
+        price_unit_calculated: 10000.0
+        currency: "PYG"
+      
+      invoice_info:
+        id: 39671
+        name: "001-001-0013651"
+        date: "2019-09-18"
+        state: "posted"
+        amount_total: 3600740.0
+      
+      # ⭐⭐⭐ NUEVO BLOQUE FIFO ⭐⭐⭐
+      fifo_analysis:
+        tipo: "entrada"
+        estado: "parcialmente_consumido"
+        qty_original: 327.34
+        qty_restante: 127.34
+        qty_consumida: 200.0               # ⭐ Se consumieron 200 unidades
+        proporcion_restante: "38.89%"      # ⭐ Queda el 38.89%
+        proporcion_consumida: "61.11%"     # ⭐ Se consumió el 61.11%
+        value_original: 3.273.400,00
+        value_restante: 1.273.400,00       # ⭐ Valor que queda
+        value_consumido: 2.000.000,00      # ⭐ Valor consumido
+        remaining_value_esperado: 1.273.400,00
+        remaining_value_correcto: true
+        consumido_por_layers: 2            # ⭐ 2 layers de salida lo consumieron
+        layer_salidas_ids: [109600, 109605]
+      
+      actualizacion_analisis:
+        tiene_factura: true
+        debe_actualizar: true
+        se_actualizo: true
+        layer_quantity: 327.34
+        invoice_quantity: 327.34
+        layer_value_original: 3.273.400,00
+        layer_value_nuevo: 3.273.400,00
+        invoice_balance: 3.273.400,00
+        diferencia_original: 0,00
+        layer_unit_cost_original: 10.000,00
+        layer_unit_cost_nuevo: 10.000,00
+        correction_type: "Estaba correcto, pero igual se actualiza"
+
+    # ============================================
+    # LAYER DE ENTRADA - CASO 2: Completamente consumido
+    # ============================================
+    layer_2:
+      layer_id: 109594
+      status: "completo"
+      
+      stock_valuation_layer:
+        create_date: "2019-10-15 10:30:00"
+        description: "DIST/IN/00485"
+        quantity: 100.0
+        unit_cost: 10500.0
+        value: 1050000.0
+        remaining_qty: 0.0           # ⭐ COMPLETAMENTE CONSUMIDO
+        remaining_value: 0.0         # ⭐ NO QUEDA NADA
+      
+      stock_move:
+        id: 4001
+        name: "Recepción de compra"
+        date: "2019-10-15 10:30:00"
+        state: "done"
+      
+      purchase_order_line:
+        id: 445
+        qty_ordered: 100.0
+        price_unit: 10500.0
+      
+      purchase_order:
+        id: 251
+        name: "OC250"
+      
+      account_move_line:
+        id: 105200
+        quantity: 100.0
+        balance: 1050000.0
+      
+      invoice_info:
+        id: 40100
+        name: "001-001-0014002"
+      
+      # ⭐⭐⭐ ANÁLISIS FIFO - CONSUMIDO TOTALMENTE ⭐⭐⭐
+      fifo_analysis:
+        tipo: "entrada"
+        estado: "consumido_totalmente"
+        qty_original: 100.0
+        qty_restante: 0.0
+        qty_consumida: 100.0              # ⭐ Todo consumido
+        proporcion_restante: "0.0%"
+        proporcion_consumida: "100.0%"
+        value_original: 1.050.000,00
+        value_restante: 0,00
+        value_consumido: 1.050.000,00
+        remaining_value_esperado: 0,00
+        remaining_value_correcto: true
+        consumido_por_layers: 1
+        layer_salidas_ids: [109610]
+      
+      actualizacion_analisis:
+        tiene_factura: true
+        correction_type: "Correcto"
+
+    # ============================================
+    # LAYER DE ENTRADA - CASO 3: Sin consumir aún
+    # ============================================
+    layer_3:
+      layer_id: 109595
+      status: "completo"
+      
+      stock_valuation_layer:
+        create_date: "2019-11-20 14:15:00"
+        description: "DIST/IN/00520"
+        quantity: 150.0
+        unit_cost: 11000.0
+        value: 1650000.0
+        remaining_qty: 150.0         # ⭐ TODO DISPONIBLE
+        remaining_value: 1650000.0   # ⭐ VALOR COMPLETO
+      
+      # ... otros campos ...
+      
+      # ⭐⭐⭐ ANÁLISIS FIFO - SIN CONSUMIR ⭐⭐⭐
+      fifo_analysis:
+        tipo: "entrada"
+        estado: "sin_consumir"
+        qty_original: 150.0
+        qty_restante: 150.0
+        qty_consumida: 0.0                # ⭐ Nada consumido aún
+        proporcion_restante: "100.0%"
+        proporcion_consumida: "0.0%"
+        value_original: 1.650.000,00
+        value_restante: 1.650.000,00
+        value_consumido: 0,00
+        remaining_value_esperado: 1.650.000,00
+        remaining_value_correcto: true
+        consumido_por_layers: 0           # ⭐ Ninguna salida lo consumió
+
+    # ============================================
+    # LAYER DE SALIDA - CASO 4: Salida que consume
+    # ============================================
+    layer_4:
+      layer_id: 109600
+      status: "sin_purchase_order_line"   # Es una salida, no tiene purchase
+      
+      layer_info:
+        create_date: "2019-09-25 16:00:00"
+        description: "Entrega SO123"
+        quantity: -150.0               # ⭐ NEGATIVO = SALIDA
+        unit_cost: 10000.0
+        value: -1500000.0
+        stock_move_id: 4020
+        remaining_qty: 0.0             # Las salidas siempre 0
+        remaining_value: 0.0
+      
+      # ⭐⭐⭐ ANÁLISIS FIFO - SALIDA ⭐⭐⭐
+      fifo_analysis:
+        tipo: "salida"
+        qty_salida: 150.0
+        value_salida: 1.500.000,00
+        unit_cost_usado: 10000.0
+        consumido_desde:
+          layer_id: 109593             # ⭐ Consumió del layer_1
+          layer_create_date: "2019-09-20 17:41:06"
+          layer_unit_cost: 10000.0
+          layer_description: "DIST/IN/00460"
+          unit_cost_coincide: true     # ⭐ El costo coincide correctamente
+
+    # ============================================
+    # LAYER DE ENTRADA - CASO 5: Remaining value incorrecto
+    # ============================================
+      layer_5:
+        layer_id: 109596
+      status: "completo"
+      
+      stock_valuation_layer:
+        create_date: "2019-12-10 09:00:00"
+        quantity: 200.0
+        unit_cost: 12000.0
+        value: 2400000.0
+        remaining_qty: 80.0
+        remaining_value: 900000.0      # ⚠️ INCORRECTO! Debería ser 960,000
+      
+      # ... otros campos ...
+      
+      # ⭐⭐⭐ ANÁLISIS FIFO - DETECTA ERROR ⭐⭐⭐
+      fifo_analysis:
+        tipo: "entrada"
+        estado: "parcialmente_consumido"
+        qty_original: 200.0
+        qty_restante: 80.0
+        qty_consumida: 120.0
+        proporcion_restante: "40.0%"
+        value_original: 2.400.000,00
+        value_restante: 900.000,00
+        remaining_value_esperado: 960.000,00   # ⭐ Valor correcto
+        remaining_value_correcto: false        # ⚠️ DETECTA ERROR
+        remaining_value_diferencia: 60.000,00  # ⚠️ Diferencia
+        alerta: "remaining_value no coincide con el esperado"
+
+  # ============================================
+  # RESUMEN DEL PRODUCTO
+  # ============================================
+  resumen_producto:
+    layers_con_purchase: 4
+    layers_sin_purchase: 1
+    total_layers: 5
+    completitud: "80.0%"
+
+  # ⭐⭐⭐ NUEVO RESUMEN FIFO ⭐⭐⭐
+  resumen_fifo:
+    layers_entrada_total: 4
+    layers_salida_total: 1
+    layers_con_stock_disponible: 3         # 3 layers tienen stock
+    layers_completamente_consumidos: 1     # 1 layer consumido totalmente
+    total_qty_entrada: 777.34
+    total_qty_salida: 150.0
+    total_qty_disponible: 357.34           # Stock actual
+    total_value_entrada: 8.373.400,00
+    total_value_salida: 1.500.000,00
+    total_value_stock_actual: 4.773.400,00 # Valor del stock actual
+    layers_con_remaining_value_incorrecto: 1
+    layer_ids_con_error: [109596]
+    alerta: "Algunos layers tienen remaining_value incorrecto"
+    costo_promedio_ponderado_actual: 13.359,45  # Costo promedio del stock actual
+
+# ========================================
+# RESUMEN FINAL DEL ANÁLISIS
+# ========================================
+resumen_general:
+  productos_analizados: 1
+  productos_con_datos: 1
+  productos_sin_datos: 0
+  total_layers_analizados: 5
+  fecha_analisis: "2026-01-23 10:30:00"
