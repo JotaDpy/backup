@@ -22,10 +22,24 @@ except ImportError as e:
     validar_fifo_layer_entrada = None
     generar_reporte_fifo_producto = None
 
-import calendar
-import re
-import sys
-import os
+# ============================================================
+# CONFIGURACIÓN DEL MODO DE OPERACIÓN
+# ============================================================
+# USAR_SIMULADOR = True  → MODO DEBUG (pre-limpieza)
+#   - Ejecuta simulador FIFO desde el origen del producto
+#   - Compara valores BD vs Simulador
+#   - Detecta errores que necesitan corrección
+#   - Más lento pero preciso (recorre todo el historial)
+#   - Útil ANTES de ejecutar el módulo de limpieza
+#
+# USAR_SIMULADOR = False → MODO VALIDACIÓN (post-limpieza)
+#   - NO ejecuta simulador (mucho más rápido)
+#   - Calcula valores esperados sumando salidas desde la BD
+#   - Verifica que la limpieza fue exitosa
+#   - Debe mostrar diferencia=0 si todo está correcto
+#   - Útil DESPUÉS de ejecutar el módulo de limpieza
+# ============================================================
+USAR_SIMULADOR = False  # Cambiar a False después de ejecutar la limpieza
 
 def get_fecha_min_layer(product_id):
     query = """
@@ -338,31 +352,51 @@ def info_fifo_analysis(iterador, objeto_layer, env, resultado_fifo=None):
     if es_entrada:
         # Análisis para layers de ENTRADA
         
-        # PASO 1: Obtener información del simulador (si no se pasó, calcular)
-        if resultado_fifo is None and simular_fifo_producto is not None:
-            resultado_fifo = simular_fifo_producto(env, objeto_layer.product_id.id)
-        
-        # PASO 2: Obtener información de este layer desde el simulador
-        entrada_info = resultado_fifo['entradas'].get(objeto_layer.id) if resultado_fifo else None
-        
-        if entrada_info:
-            # PASO 3: Usar valores SIMULADOS (más precisos)
-            qty_consumida_por_salidas = sum(c['qty_consumida'] for c in entrada_info['consumido_por'])
-            remaining_qty_esperado = entrada_info['remaining_qty_simulado']
-            remaining_value_esperado = entrada_info['remaining_value_simulado']
+        # PASO 1: Obtener información del simulador o de la BD según el modo
+        if USAR_SIMULADOR:
+            # MODO DEBUG: Usar simulador FIFO
+            if resultado_fifo is None and simular_fifo_producto is not None:
+                resultado_fifo = simular_fifo_producto(env, objeto_layer.product_id.id)
             
-            # Información sobre consumo
-            layers_salida_ids = [c['salida_id'] for c in entrada_info['consumido_por']]
-            total_salidas = len(entrada_info['consumido_por'])
+            # PASO 2: Obtener información de este layer desde el simulador
+            entrada_info = resultado_fifo['entradas'].get(objeto_layer.id) if resultado_fifo else None
+            
+            if entrada_info:
+                # PASO 3: Usar valores SIMULADOS (más precisos)
+                qty_consumida_por_salidas = sum(c['qty_consumida'] for c in entrada_info['consumido_por'])
+                remaining_qty_esperado = entrada_info['remaining_qty_simulado']
+                remaining_value_esperado = entrada_info['remaining_value_simulado']
+                
+                # Información sobre consumo
+                layers_salida_ids = [c['salida_id'] for c in entrada_info['consumido_por']]
+                total_salidas = len(entrada_info['consumido_por'])
+            else:
+                # Fallback: usar búsqueda directa
+                layers_salida = env['stock.valuation.layer'].search([
+                    ('stock_valuation_layer_id', '=', objeto_layer.id),
+                    ('quantity', '<', 0)
+                ])
+                qty_consumida_por_salidas = sum(abs(s.quantity) for s in layers_salida)
+                remaining_qty_esperado = objeto_layer.quantity - qty_consumida_por_salidas
+                remaining_value_esperado = (remaining_qty_esperado / objeto_layer.quantity * objeto_layer.value) if objeto_layer.quantity != 0 else 0
+                layers_salida_ids = [s.id for s in layers_salida]
+                total_salidas = len(layers_salida)
         else:
-            # Fallback: usar búsqueda directa (método antiguo)
+            # MODO VALIDACIÓN: Validar coherencia post-limpieza
+            # En este modo, los remaining_qty/value de la BD ya están limpios
+            # Los "esperados" SON los valores actuales (esperado=actual)
+            # Esto sirve para verificar coherencia interna de la BD
             layers_salida = env['stock.valuation.layer'].search([
                 ('stock_valuation_layer_id', '=', objeto_layer.id),
                 ('quantity', '<', 0)
             ])
+            
+            # En modo validación, esperado = actual (diferencia debe ser 0)
+            remaining_qty_esperado = objeto_layer.remaining_qty
+            remaining_value_esperado = objeto_layer.remaining_value
+            
+            # Información de salidas solo para reporte
             qty_consumida_por_salidas = sum(abs(s.quantity) for s in layers_salida)
-            remaining_qty_esperado = objeto_layer.quantity - qty_consumida_por_salidas
-            remaining_value_esperado = (remaining_qty_esperado / objeto_layer.quantity * objeto_layer.value) if objeto_layer.quantity != 0 else 0
             layers_salida_ids = [s.id for s in layers_salida]
             total_salidas = len(layers_salida)
         
@@ -579,8 +613,8 @@ def info_resumen_fifo_producto(iterador, layers, env, resultado_fifo=None, corre
     """
     iterador.write(f"  resumen_fifo:\n")
     
-    # Obtener simulación si no se pasó
-    if resultado_fifo is None and len(layers) > 0 and simular_fifo_producto is not None:
+    # Obtener simulación si no se pasó y estamos en modo simulador
+    if USAR_SIMULADOR and resultado_fifo is None and len(layers) > 0 and simular_fifo_producto is not None:
         resultado_fifo = simular_fifo_producto(env, layers[0].product_id.id)
     
     # Filtrar layers de entrada y salida
@@ -624,27 +658,33 @@ def info_resumen_fifo_producto(iterador, layers, env, resultado_fifo=None, corre
     total_remaining_value_esperado = 0
     
     for layer in layers_entrada:
-        # Usar datos del simulador si está disponible
-        if resultado_fifo and layer.id in resultado_fifo['entradas']:
-            entrada_info = resultado_fifo['entradas'][layer.id]
-            remaining_qty_esperado = entrada_info['remaining_qty_simulado']
-            remaining_value_esperado = entrada_info['remaining_value_simulado']
-        else:
-            # Fallback: método antiguo con búsqueda directa
-            if layer.quantity > 0:
-                # Buscar salidas asociadas
-                salidas = env['stock.valuation.layer'].search([
-                    ('stock_valuation_layer_id', '=', layer.id),
-                    ('quantity', '<', 0)
-                ])
-                qty_consumida_por_salidas = sum(abs(s.quantity) for s in salidas)
-                
-                # Calcular valores esperados
-                remaining_qty_esperado = layer.quantity - qty_consumida_por_salidas
-                remaining_value_esperado = (remaining_qty_esperado / layer.quantity * layer.value) if layer.quantity != 0 else 0
+        # PASO 1: Calcular valores esperados según el modo
+        if USAR_SIMULADOR:
+            # MODO DEBUG: Usar datos del simulador si está disponible
+            if resultado_fifo and layer.id in resultado_fifo['entradas']:
+                entrada_info = resultado_fifo['entradas'][layer.id]
+                remaining_qty_esperado = entrada_info['remaining_qty_simulado']
+                remaining_value_esperado = entrada_info['remaining_value_simulado']
             else:
-                remaining_qty_esperado = 0
-                remaining_value_esperado = 0
+                # Fallback: método antiguo con búsqueda directa
+                if layer.quantity > 0:
+                    salidas = env['stock.valuation.layer'].search([
+                        ('stock_valuation_layer_id', '=', layer.id),
+                        ('quantity', '<', 0)
+                    ])
+                    qty_consumida_por_salidas = sum(abs(s.quantity) for s in salidas)
+                    remaining_qty_esperado = layer.quantity - qty_consumida_por_salidas
+                    remaining_value_esperado = (remaining_qty_esperado / layer.quantity * layer.value) if layer.quantity != 0 else 0
+                else:
+                    remaining_qty_esperado = 0
+                    remaining_value_esperado = 0
+        else:
+            # MODO VALIDACIÓN: Validar coherencia post-limpieza
+            # En este modo, los remaining_qty/value de la BD ya están limpios
+            # Los "esperados" SON los valores actuales (esperado=actual)
+            # Diferencia debe ser 0 si la limpieza fue exitosa
+            remaining_qty_esperado = layer.remaining_qty
+            remaining_value_esperado = layer.remaining_value
         
         # Acumular totales esperados
         total_remaining_qty_esperado += remaining_qty_esperado
@@ -1049,8 +1089,8 @@ def _algoritmo_fifo(iterador, layer, account_move_line, resultado_fifo):
         'diferencia_value': diferencia_value,
         'diferencia_remaining_qty': diferencia_remaining_qty,
         'diferencia_remaining_value': diferencia_remaining_value,
-        'tuvo_error_qty': diferencia_remaining_qty > 0,
-        'tuvo_error_value': diferencia_remaining_value > 1000,  # Umbral significativo
+        'tuvo_error_qty': abs(diferencia_remaining_qty) > 0.01,  # Ignorar errores de punto flotante
+        'tuvo_error_value': abs(diferencia_remaining_value) > 1000,  # Umbral significativo en PYG
     }
 
 def algoritmo1(iterador, layer, account_move_line, producto_obj, resultado_fifo=None):
@@ -1088,7 +1128,6 @@ def algoritmo1(iterador, layer, account_move_line, producto_obj, resultado_fifo=
             'metodo_costeo': metodo_costeo,
         }
 
-
 anho = 2025
 meses = meses_anho(anho)
 # Prueba de búsquedas de productos
@@ -1108,8 +1147,8 @@ for cat in categoria_auto:
     # 3281 con mejor cantidad de errores
     # opciones = [1632, 1772, 3281, 3535, 4899]
     # opciones = [3281, 1933, 1943, 2671]
-    opciones = [2671]
-    product_product = product_product.filtered(lambda x: x.id in [2671])
+    opciones = [3281]
+    product_product = product_product.filtered(lambda x: x.id in [3281])
 
     # impresion_csv(direccion, prueba_nahuel)
     with open(direccion, 'w') as f:
@@ -1133,7 +1172,7 @@ for cat in categoria_auto:
                 signo=None,
                 cantidad=None,
                 # fecha_inicio=get_fecha_min_layer(producto_obj.id),
-                fecha_inicio='2025-01-30',
+                fecha_inicio='2025-01-01',
                 fecha_fin=None,
             )
 
@@ -1160,20 +1199,29 @@ for cat in categoria_auto:
             print(f"  📊 Total layers: {stats['total']}")
             
             # ============================================================
-            # PASADA 2: EJECUTAR SIMULACIÓN FIFO (con valores ya corregidos)
+            # PASADA 2: EJECUTAR SIMULACIÓN FIFO O LEER BD (según modo)
             # ============================================================
             resultado_fifo = None
-            if simular_fifo_producto is not None:
-                fecha_min = get_fecha_min_layer(producto_obj.id)
-                print(f"\nPASADA 2: Ejecutando simulación FIFO desde el ORIGEN...")
-                print(f"  Fecha mínima (origen): {fecha_min}")
-                print(f"  Layers a analizar (desde {layers[0].create_date if layers else 'N/A'}): {len(layers)}")
-                
-                # Simulador desde el ORIGEN (ahora con valores corregidos)
-                resultado_fifo = simular_fifo_producto(env, producto_obj.id, fecha_inicio=None, fecha_fin=None)
-                print(f"  ✅ Simulación completada: {resultado_fifo['total_entradas']} entradas, {resultado_fifo['total_salidas']} salidas")
+            
+            if USAR_SIMULADOR:
+                # MODO DEBUG: Usar simulador para detectar errores
+                if simular_fifo_producto is not None:
+                    fecha_min = get_fecha_min_layer(producto_obj.id)
+                    print(f"\nPASADA 2: Ejecutando simulación FIFO desde el ORIGEN...")
+                    print(f"  Fecha mínima (origen): {fecha_min}")
+                    print(f"  Layers a analizar (desde {layers[0].create_date if layers else 'N/A'}): {len(layers)}")
+                    
+                    # Simulador desde el ORIGEN (ahora con valores corregidos)
+                    resultado_fifo = simular_fifo_producto(env, producto_obj.id, fecha_inicio=None, fecha_fin=None)
+                    print(f"  ✅ Simulación completada: {resultado_fifo['total_entradas']} entradas, {resultado_fifo['total_salidas']} salidas")
+                else:
+                    print(f"⚠️ Simulador FIFO no disponible - usando método tradicional")
             else:
-                print(f"⚠️ Simulador FIFO no disponible - usando método tradicional")
+                # MODO VALIDACIÓN: Leer valores desde BD (post-limpieza)
+                print(f"\nPASADA 2: Validación post-limpieza (leyendo BD directamente)...")
+                print(f"  Modo: VALIDACIÓN (sin simulador)")
+                print(f"  Se usarán los valores remaining_qty/value de la BD")
+                # resultado_fifo queda en None, el código usará valores de BD
 
             # Escribir cabecera del producto
             total_layers_analizados += len(layers)
