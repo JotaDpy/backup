@@ -1304,8 +1304,8 @@ for cat in categoria_auto:
             # Descomentar las siguientes líneas para generar un reporte TXT adicional con el detalle completo
             if generar_reporte_fifo_producto is not None:
                 archivo_reporte = f'/home/jose/Documentos/clientes/15FONDOESTRELLA/clean_valuation/python/valoracion/reporte_fifo_producto_{producto_obj.id}.txt'
-            reporte_simulador = generar_reporte_fifo_producto(env, producto_obj.id, archivo_reporte)
-            print(f"Reporte detallado guardado en: {archivo_reporte}")
+                reporte_simulador = generar_reporte_fifo_producto(env, producto_obj.id, archivo_reporte)
+                print(f"Reporte detallado guardado en: {archivo_reporte}")
 
             # Log de progreso cada 10 productos
             if contador_productos % 10 == 0:
